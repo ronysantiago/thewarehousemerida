@@ -1,981 +1,1110 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="a">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rony Santiago | Ingeniero Mecánico – Diseño, Simulación y Piping</title>
-    <meta name="description" content="Ingeniero mecánico especialista en gemelos digitales, CAD/CAE, piping y simulación de fluidos para plantas industriales. Proyectos reales con AFT Arrow, SolidWorks y ANSYS.">
-    <meta name="keywords" content="Ingeniería Mecánica, Diseño Mecánico, CAE, FEA, Piping, AutoCAD Plant 3D, ANSYS, SolidWorks, AFT Arrow, Gemelo Digital, Videos Educativos, Modelos 3D">
-    <meta name="author" content="Rony Santiago">
-    <meta property="og:title" content="Rony Santiago | Ingeniero Mecánico – Diseño, Simulación y Piping">
-    <meta property="og:description" content="Portafolio profesional con proyectos reales, gemelo digital interactivo y formación técnica.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/og-image.jpg">
-    <meta property="og:url" content="https://ronysantiago.github.io/">
-    <!-- Librería model-viewer para modelos glTF/GLB -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-    <style>
-        /* ============ TEMAS ============ */
-        :root {
-            --font-sans: 'Times New Roman', 'Georgia', serif;
-            --font-mono: 'Courier New', 'Consolas', monospace;
-            --radius: 12px;
-            --max: 1100px;
-        }
-        html[data-theme="a"] {
-            --bg: #0b1220; --bg-soft: #0e1730; --panel: #111a2e; --panel-2: #16213a;
-            --text: #e6edf7; --muted: #93a3bd; --border: rgba(148,180,255,.14);
-            --accent: #38bdf8; --accent-2: #818cf8; --accent-ink: #06212e;
-            --ok: #34d399; --warn: #fbbf24; --danger: #f87171;
-            --glow: rgba(56,189,248,.16);
-            --hero-grad: radial-gradient(1200px 600px at 75% -10%, rgba(56,189,248,.14), transparent 60%), radial-gradient(900px 500px at 10% 20%, rgba(129,140,248,.12), transparent 55%);
-            --grid-line: rgba(148,180,255,.055);
-            --chip-bg: rgba(56,189,248,.1);
-            color-scheme: dark;
-        }
-        html[data-theme="b"] {
-            --bg: #131110; --bg-soft: #191512; --panel: #1c1815; --panel-2: #241e19;
-            --text: #f4ede2; --muted: #b3a695; --border: rgba(255,200,130,.14);
-            --accent: #f59e0b; --accent-2: #fb7c33; --accent-ink: #2a1602;
-            --ok: #4ade80; --warn: #fbbf24; --danger: #f87171;
-            --glow: rgba(245,158,11,.15);
-            --hero-grad: radial-gradient(1200px 600px at 75% -10%, rgba(245,158,11,.13), transparent 60%), radial-gradient(900px 500px at 10% 20%, rgba(251,124,51,.10), transparent 55%);
-            --grid-line: rgba(255,200,130,.05);
-            --chip-bg: rgba(245,158,11,.1);
-            color-scheme: dark;
-        }
-        html[data-theme="c"] {
-            --bg: #f2f5fa; --bg-soft: #e9eef7; --panel: #ffffff; --panel-2: #f6f8fc;
-            --text: #152238; --muted: #5b6b85; --border: rgba(29,78,216,.16);
-            --accent: #1d4ed8; --accent-2: #0e97d5; --accent-ink: #ffffff;
-            --ok: #059669; --warn: #d97706; --danger: #dc2626;
-            --glow: rgba(29,78,216,.10);
-            --hero-grad: radial-gradient(1200px 600px at 75% -10%, rgba(14,151,213,.10), transparent 60%), radial-gradient(900px 500px at 10% 20%, rgba(29,78,216,.08), transparent 55%);
-            --grid-line: rgba(29,78,216,.07);
-            --chip-bg: rgba(29,78,216,.08);
-            color-scheme: light;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1421">
+  <meta name="description" content="Conoce Zona Rental The Warehouse Mérida: ubicación, espacios industriales, recorridos 3D y contacto comercial.">
+  <title>Zona Rental The Warehouse | Mérida</title>
 
-        /* ============ BASE ============ */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--font-sans); background: var(--bg); color: var(--text);
-            line-height: 1.6; -webkit-font-smoothing: antialiased;
-            background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-            background-size: 44px 44px;
-            font-size: 18px;
-        }
-        a { color: inherit; text-decoration: none; }
-        img { max-width: 100%; }
-        .container { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
-        section { padding: 92px 0; }
-        .eyebrow {
-            font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase;
-            color: var(--accent); display: inline-flex; align-items: center; gap: 0.6em; margin-bottom: 14px;
-        }
-        .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--accent); display: inline-block; }
-        h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 14px; }
-        .section-sub { color: var(--muted); max-width: 640px; font-size: 1.1rem; }
+  <!-- Leaflet: mapa interactivo -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 
-        /* reveal */
-        .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .reveal.visible { opacity: 1; transform: none; }
+  <style>
+    :root {
+      --ink: #101b2a;
+      --ink-2: #172638;
+      --ink-3: #21364b;
+      --paper: #f3f6f9;
+      --surface: #ffffff;
+      --surface-2: #eaf0f5;
+      --text: #182536;
+      --muted: #64748b;
+      --line: #dce4ec;
+      --accent: #f2a900;
+      --accent-2: #ffc247;
+      --accent-ink: #241900;
+      --good: #15805d;
+      --warn: #b7791f;
+      --bad: #b93838;
+      --radius: 18px;
+      --shadow: 0 18px 50px rgba(16, 27, 42, .12);
+      --max: 1200px;
+    }
 
-        @media (prefers-reduced-motion: reduce) {
-            .reveal { opacity: 1; transform: none; transition: none; }
-            html { scroll-behavior: auto; }
-        }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.modal-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(var(--max), calc(100% - 44px)); margin-inline: auto; }
+    .section { padding: 88px 0; }
+    .section-soft { background: #eaf0f5; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px; margin-bottom: 13px;
+      color: #a66e00; font-size: .76rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--accent); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { line-height: 1.15; letter-spacing: -.035em; }
+    h2 { margin-bottom: 14px; font-size: clamp(2rem, 4vw, 3rem); color: var(--ink); }
+    .section-lead { max-width: 710px; color: var(--muted); font-size: 1.06rem; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 34px; }
+    .section-head > div { max-width: 760px; }
+    .btn {
+      display: inline-flex; justify-content: center; align-items: center; gap: 10px;
+      min-height: 48px; padding: 12px 20px; border: 1px solid transparent; border-radius: 12px;
+      font-weight: 800; transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: var(--accent-ink); background: var(--accent); box-shadow: 0 8px 24px rgba(242,169,0,.22); }
+    .btn-primary:hover { background: var(--accent-2); }
+    .btn-dark { color: #fff; background: var(--ink); }
+    .btn-dark:hover { background: var(--ink-3); }
+    .btn-outline { color: var(--text); background: transparent; border-color: var(--line); }
+    .btn-outline:hover { border-color: var(--accent); background: rgba(242,169,0,.08); }
+    .text-link { display: inline-flex; align-items: center; gap: 8px; color: #8a5a00; font-weight: 800; }
 
-        /* ============ NAV ============ */
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-            backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-            background: rgba(17,26,46,0.78); /* fallback para navegadores sin color-mix */
-            background: color-mix(in srgb, var(--bg) 78%, transparent);
-            border-bottom: 1px solid var(--border);
-        }
-        .nav-inner { max-width: var(--max); margin: 0 auto; padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-        .logo { display: flex; align-items: center; gap: 11px; font-weight: 700; letter-spacing: -0.01em; }
-        .logo-badge {
-            width: 36px; height: 36px; border-radius: 9px; display: grid; place-items: center;
-            background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--accent-ink);
-            font-family: var(--font-mono); font-weight: 600; font-size: 0.85rem; box-shadow: 0 4px 18px var(--glow);
-        }
-        .logo small { display: block; font-weight: 500; font-size: 0.7rem; color: var(--muted); letter-spacing: 0.04em; }
-        .nav-links { display: flex; gap: 26px; font-size: 1rem; color: var(--muted); }
-        .nav-links a:hover { color: var(--text); }
-        .nav-cta {
-            padding: 9px 18px; border-radius: 999px; font-size: 0.95rem; font-weight: 600;
-            background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--accent-ink);
-            box-shadow: 0 4px 18px var(--glow); white-space: nowrap;
-        }
-        @media (max-width: 900px) { .nav-links { display: none; } }
+    /* Navegación */
+    .site-header {
+      position: sticky; top: 0; z-index: 1000; color: #fff;
+      background: rgba(11,20,33,.92); border-bottom: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; min-width: 230px; color: #fff; }
+    .brand-mark {
+      display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 auto;
+      border-radius: 12px; color: var(--accent-ink); background: linear-gradient(140deg, var(--accent-2), #df9200);
+      box-shadow: 0 7px 20px rgba(242,169,0,.22);
+    }
+    .brand-mark svg { width: 25px; height: 25px; }
+    .brand-name { display: block; font-size: .98rem; font-weight: 900; line-height: 1.1; letter-spacing: -.02em; }
+    .brand-sub { display: block; margin-top: 4px; color: #aebccc; font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; justify-content: flex-end; gap: clamp(12px, 2vw, 26px); color: #d4dce6; font-size: .86rem; font-weight: 700; }
+    .nav-links a:not(.nav-cta):hover { color: var(--accent-2); }
+    .nav-cta { padding: 10px 15px; border-radius: 10px; color: var(--accent-ink); background: var(--accent); }
+    .nav-toggle { display: none; width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.16); border-radius: 10px; color: #fff; background: transparent; font-size: 1.25rem; }
 
-        /* ============ HERO ============ */
-        .hero { padding: 160px 0 80px; background: var(--hero-grad); text-align: center; }
-        .hero h1 { font-size: 3.2rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 10px; }
-        .hero .subtitle { font-size: 1.4rem; font-weight: 500; color: var(--muted); margin-bottom: 10px; }
-        .hero .tech-line { font-size: 1.1rem; color: var(--muted); margin-bottom: 24px; }
-        .hero .lead { font-size: 1.15rem; color: var(--muted); max-width: 700px; margin: 0 auto 32px; text-align: center; }
-        .btn-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
-        .btn {
-            display: inline-flex; align-items: center; gap: 0.55em; padding: 14px 26px; border-radius: 12px;
-            font-weight: 600; font-size: 1.05rem; transition: transform 0.18s ease, box-shadow 0.18s ease; cursor: pointer; border: none; font-family: inherit;
-        }
-        .btn:hover { transform: translateY(-2px); }
-        .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--accent-ink); box-shadow: 0 8px 28px var(--glow); }
-        .btn-ghost { background: var(--panel); border: 1px solid var(--border); color: var(--text); }
-        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 64px; max-width: 900px; margin-left: auto; margin-right: auto; }
-        .stat { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; }
-        .stat b { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; display: block; font-family: var(--font-mono); }
-        .stat span { font-size: 0.9rem; color: var(--muted); }
-        @media (max-width: 900px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+    /* Hero */
+    .hero {
+      position: relative; overflow: hidden; color: #fff; padding: 100px 0 78px;
+      background:
+        radial-gradient(ellipse at 80% 12%, rgba(242,169,0,.17), transparent 34%),
+        radial-gradient(ellipse at 10% 90%, rgba(59,130,175,.18), transparent 40%),
+        linear-gradient(120deg, #0b1421 0%, #122339 58%, #192e43 100%);
+    }
+    .hero::after {
+      position: absolute; inset: 0; pointer-events: none; content: ""; opacity: .22;
+      background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 46px 46px; mask-image: linear-gradient(90deg, transparent, #000 45%, #000);
+    }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr .85fr; gap: 52px; align-items: center; }
+    .hero .eyebrow { color: var(--accent-2); }
+    .hero h1 { max-width: 760px; margin-bottom: 20px; color: #fff; font-size: clamp(2.8rem, 6vw, 5.2rem); font-weight: 900; }
+    .hero h1 span { color: var(--accent); }
+    .hero-copy { max-width: 650px; margin-bottom: 28px; color: #c3cfdb; font-size: clamp(1rem, 1.7vw, 1.17rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero .btn-outline { color: #edf3f8; border-color: rgba(255,255,255,.24); }
+    .hero .btn-outline:hover { background: rgba(255,255,255,.08); border-color: var(--accent); }
+    .hero-note { display: flex; align-items: center; gap: 10px; margin-top: 26px; color: #adbdcc; font-size: .84rem; }
+    .hero-note .pin { display: grid; place-items: center; width: 27px; height: 27px; color: var(--accent); border-radius: 50%; background: rgba(242,169,0,.13); }
+    .hero-visual { position: relative; min-height: 360px; display: grid; place-items: center; }
+    .hero-visual::before { position: absolute; width: 80%; aspect-ratio: 1; content: ""; border: 1px solid rgba(242,169,0,.24); border-radius: 50%; box-shadow: 0 0 0 32px rgba(242,169,0,.035), 0 0 0 68px rgba(242,169,0,.025); }
+    .hero-blueprint { position: relative; width: min(100%, 470px); padding: 28px; border: 1px solid rgba(255,255,255,.17); border-radius: 22px; background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.035)); box-shadow: 0 28px 90px rgba(0,0,0,.25); backdrop-filter: blur(12px); transform: rotate(-3deg); }
+    .blueprint-top { display: flex; align-items: center; justify-content: space-between; color: #cfdae4; font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .blueprint-dots { display: flex; gap: 5px; }
+    .blueprint-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .blueprint-grid { position: relative; height: 210px; margin: 23px 0 19px; overflow: hidden; border: 1px solid rgba(255,255,255,.14); background: repeating-linear-gradient(0deg, transparent 0 24px, rgba(255,255,255,.055) 25px), repeating-linear-gradient(90deg, transparent 0 24px, rgba(255,255,255,.055) 25px); }
+    .blueprint-building { position: absolute; display: grid; place-items: center; border: 1px solid rgba(255,194,71,.85); background: rgba(242,169,0,.12); color: #ffe2a1; font-size: .62rem; font-weight: 800; letter-spacing: .08em; }
+    .blueprint-building.one { left: 8%; top: 12%; width: 30%; height: 32%; }
+    .blueprint-building.two { right: 8%; top: 12%; width: 43%; height: 32%; }
+    .blueprint-building.three { left: 8%; bottom: 10%; width: 43%; height: 32%; }
+    .blueprint-building.four { right: 8%; bottom: 10%; width: 30%; height: 32%; }
+    .blueprint-road { position: absolute; left: 0; right: 0; top: 47%; height: 6%; border-top: 1px dashed rgba(255,255,255,.55); border-bottom: 1px dashed rgba(255,255,255,.55); background: rgba(255,255,255,.09); }
+    .blueprint-foot { display: flex; justify-content: space-between; gap: 14px; color: #b9c6d4; font-size: .75rem; }
+    .blueprint-foot strong { color: var(--accent-2); }
 
-        /* ============ TWIN DEMO ============ */
-        #gemelo { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .twin-wrap { display: grid; grid-template-columns: 1.5fr 1fr; gap: 22px; margin-top: 38px; align-items: stretch; }
-        .twin-stage {
-            position: relative; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius);
-            overflow: hidden; min-height: 480px;
-        }
-        #twin-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-        .twin-hint {
-            position: absolute; left: 14px; bottom: 14px; z-index: 5; font-family: var(--font-mono); font-size: 0.8rem;
-            color: var(--muted); background: rgba(17,26,46,0.82); border: 1px solid var(--border); padding: 7px 12px; border-radius: 999px;
-            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-        }
-        .sensor-tag {
-            position: absolute; z-index: 6; transform: translate(-50%, -110%); cursor: pointer;
-            font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600; white-space: nowrap;
-            background: rgba(17,26,46,0.88); color: var(--text);
-            border: 1px solid var(--border); border-radius: 8px; padding: 5px 9px;
-            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-            transition: border-color 0.2s, box-shadow 0.2s; user-select: none;
-        }
-        .sensor-tag::after {
-            content: ""; position: absolute; left: 50%; bottom: -5px; transform: translateX(-50%) rotate(45deg);
-            width: 8px; height: 8px; background: inherit; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
-        }
-        .sensor-tag:hover, .sensor-tag.active { border-color: var(--accent); box-shadow: 0 0 0 3px var(--glow); }
-        .sensor-tag.alarm { border-color: var(--danger); color: var(--danger); }
-        .twin-panel { display: flex; flex-direction: column; gap: 14px; }
-        .panel-box { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
-        .panel-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
-        .panel-head h3 { font-size: 1.1rem; font-weight: 700; }
-        .status-pill {
-            display: inline-flex; align-items: center; gap: 0.5em; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600;
-            padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border);
-        }
-        .status-pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 8px var(--ok); }
-        .status-pill.warn i { background: var(--danger); box-shadow: 0 0 8px var(--danger); animation: blink 1s infinite; }
-        .status-pill.warn { color: var(--danger); border-color: rgba(248,113,113,.4); }
-        @keyframes blink { 50% { opacity: 0.35; } }
-        .kpis { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .kpi { background: var(--panel-2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; transition: box-shadow 0.25s, border-color 0.25s; }
-        .kpi.pulse { border-color: var(--accent); box-shadow: 0 0 0 3px var(--glow); }
-        .kpi label { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; display: block; }
-        .kpi b { font-family: var(--font-mono); font-size: 1.4rem; font-weight: 600; letter-spacing: -0.01em; }
-        .kpi small { color: var(--muted); font-size: 0.8rem; margin-left: 0.3em; }
-        .kpi.alarm b { color: var(--danger); }
-        .slider-row label { display: flex; justify-content: space-between; font-size: 0.95rem; color: var(--muted); margin-bottom: 10px; font-weight: 500; }
-        .slider-row label b { font-family: var(--font-mono); color: var(--text); }
-        input[type="range"] {
-            width: 100%; appearance: none; -webkit-appearance: none; height: 6px; border-radius: 99px;
-            background: linear-gradient(90deg, var(--accent) var(--fill, 36%), var(--border) var(--fill, 36%)); outline: none;
-        }
-        input[type="range"]::-webkit-slider-thumb {
-            appearance: none; -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
-            background: var(--accent); border: 3px solid var(--panel); box-shadow: 0 2px 10px var(--glow); cursor: grab;
-        }
-        input[type="range"]::-moz-range-thumb {
-            width: 20px; height: 20px; border-radius: 50%; background: var(--accent);
-            border: 3px solid var(--panel); box-shadow: 0 2px 10px var(--glow); cursor: grab;
-        }
-        #chart { width: 100%; height: 110px; display: block; margin-top: 6px; }
-        .chart-cap { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
-        .insight { border-left: 3px solid var(--accent); background: var(--panel-2); padding: 13px 16px; border-radius: 0 10px 10px 0; font-size: 0.95rem; color: var(--muted); }
-        .insight b { color: var(--text); }
-        .insight.alarm { border-left-color: var(--danger); }
-        .insight.alarm b { color: var(--danger); }
-        @media (max-width: 980px) { .twin-wrap { grid-template-columns: 1fr; } .twin-stage { min-height: 400px; } }
+    /* Resumen */
+    .quick-strip { position: relative; z-index: 2; margin-top: -1px; background: #fff; border-bottom: 1px solid var(--line); }
+    .quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .quick-item { display: flex; align-items: center; gap: 14px; padding: 24px 26px; border-right: 1px solid var(--line); }
+    .quick-item:first-child { padding-left: 0; }
+    .quick-item:last-child { border-right: 0; }
+    .quick-icon { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 auto; border-radius: 13px; color: #855800; background: #fff3d4; font-size: 1.2rem; }
+    .quick-item strong { display: block; color: var(--ink); font-size: .9rem; }
+    .quick-item span { display: block; color: var(--muted); font-size: .78rem; }
 
-        /* ============ PROJECTS ============ */
-        .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
-        .proj {
-            background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
-            transition: transform 0.2s ease, border-color 0.2s ease; display: flex; flex-direction: column;
-        }
-        .proj:hover { transform: translateY(-4px); border-color: rgba(56,189,248,.45); }
-        .proj-top {
-            height: 100px; position: relative; display: flex; align-items: flex-end; padding: 16px;
-            background: linear-gradient(180deg, transparent, rgba(17,26,46,0.7)), linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px), linear-gradient(135deg, var(--chip-bg), transparent 70%);
-            background-size: 100% 100%, 22px 22px, 22px 22px, 100% 100%;
-            border-bottom: 1px solid var(--border);
-        }
-        .proj-top .tagchip {
-            font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-            color: var(--accent); background: rgba(17,26,46,0.85); border: 1px solid var(--border); padding: 4px 10px; border-radius: 999px;
-        }
-        .proj-body { padding: 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
-        .proj h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.3; }
-        .proj p { font-size: 0.95rem; color: var(--muted); flex: 1; }
-        .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-        .tags span { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); background: var(--panel-2); border: 1px solid var(--border); padding: 3px 9px; border-radius: 6px; }
-        @media (max-width: 980px) { .proj-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 640px) { .proj-grid { grid-template-columns: 1fr; } }
+    /* Introducción y características */
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .intro-panel { position: relative; min-height: 360px; overflow: hidden; border-radius: 22px; background: linear-gradient(145deg, #1a2c40, #0d1725); box-shadow: var(--shadow); }
+    .intro-panel::before { position: absolute; inset: 22px; content: ""; border: 1px solid rgba(255,255,255,.12); border-radius: 14px; }
+    .intro-panel::after { position: absolute; right: -60px; bottom: -90px; width: 300px; height: 300px; content: ""; border: 1px solid rgba(242,169,0,.42); border-radius: 50%; box-shadow: 0 0 0 30px rgba(242,169,0,.04), 0 0 0 65px rgba(242,169,0,.035); }
+    .intro-panel-content { position: absolute; z-index: 1; left: 42px; right: 42px; bottom: 42px; color: #fff; }
+    .intro-panel-content small { color: var(--accent-2); font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .intro-panel-content h3 { max-width: 380px; margin: 10px 0; font-size: 2rem; }
+    .intro-panel-content p { max-width: 390px; margin-bottom: 0; color: #bac7d5; font-size: .92rem; }
+    .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 28px; }
+    .feature { display: flex; gap: 12px; padding: 15px; border: 1px solid var(--line); border-radius: 13px; background: #fff; }
+    .feature-icon { flex: 0 0 auto; font-size: 1.15rem; }
+    .feature strong { display: block; color: var(--ink); font-size: .86rem; }
+    .feature span { display: block; color: var(--muted); font-size: .76rem; }
 
-        /* ============ EXPERIENCE ============ */
-        #experiencia { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .exp-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 56px; margin-top: 44px; }
-        .timeline { position: relative; padding-left: 26px; }
-        .timeline::before { content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: var(--border); }
-        .t-item { position: relative; padding-bottom: 30px; }
-        .t-item:last-child { padding-bottom: 0; }
-        .t-item::before {
-            content: ""; position: absolute; left: -26px; top: 5px; width: 14px; height: 14px; border-radius: 50%;
-            background: var(--panel); border: 3px solid var(--accent); box-shadow: 0 0 0 4px var(--glow);
-        }
-        .t-item time { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); letter-spacing: 0.05em; }
-        .t-item h3 { font-size: 1.1rem; font-weight: 700; margin: 4px 0 2px; }
-        .t-item h3 span { color: var(--muted); font-weight: 500; }
-        .t-item p { font-size: 0.95rem; color: var(--muted); }
-        .skill-group { margin-bottom: 26px; }
-        .skill-group h4 { font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-        .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-        .chips span { font-size: 0.9rem; font-weight: 500; background: var(--panel); border: 1px solid var(--border); padding: 7px 14px; border-radius: 999px; }
-        @media (max-width: 900px) { .exp-grid { grid-template-columns: 1fr; } }
+    /* Espacios */
+    .spaces-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .space-card { padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: 0 8px 24px rgba(16,27,42,.04); }
+    .space-card-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .space-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; color: #885d06; background: #fff2d0; font-size: 1.25rem; }
+    .status { display: inline-flex; align-items: center; gap: 6px; padding: 5px 9px; border-radius: 99px; background: #edf2f6; color: #526174; font-size: .69rem; font-weight: 800; }
+    .status::before { width: 6px; height: 6px; content: ""; border-radius: 50%; background: currentColor; }
+    .status.available { color: var(--good); background: #e5f6ef; }
+    .status.occupied { color: #8d5e12; background: #fff3d8; }
+    .status.maintenance { color: var(--bad); background: #ffeded; }
+    .space-card h3 { margin-bottom: 7px; color: var(--ink); font-size: 1.12rem; }
+    .space-card p { min-height: 44px; margin-bottom: 16px; color: var(--muted); font-size: .85rem; }
+    .space-meta { display: flex; justify-content: space-between; gap: 12px; padding-top: 13px; border-top: 1px solid var(--line); color: var(--muted); font-size: .76rem; }
+    .empty-state { grid-column: 1 / -1; padding: 32px; border: 1px dashed #bac7d4; border-radius: 16px; color: var(--muted); background: rgba(255,255,255,.55); text-align: center; }
+    .empty-state strong { display: block; margin-bottom: 6px; color: var(--ink); }
 
-        /* ============ VIDEOS Y MODELOS 3D ============ */
-        .media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 44px; }
-        .video-wrapper {
-            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
-            border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        .video-wrapper iframe {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: var(--radius);
-        }
-        model-viewer { width: 100%; height: 450px; background: var(--panel-2); border-radius: var(--radius); border: 1px solid var(--border); }
-        @media (max-width: 800px) { .media-grid { grid-template-columns: 1fr; } }
+    /* Visores 3D */
+    .viewer-section { color: #fff; background: linear-gradient(135deg, #0b1421, #172a3e); }
+    .viewer-section h2 { color: #fff; }
+    .viewer-section .section-lead { color: #b5c2cf; }
+    .viewer-section .eyebrow { color: var(--accent-2); }
+    .viewer-layout { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(260px, .75fr); gap: 20px; align-items: stretch; margin-top: 34px; }
+    .viewer-stage { position: relative; min-height: 480px; overflow: hidden; border: 1px solid rgba(255,255,255,.13); border-radius: 18px; background: radial-gradient(ellipse at 50% 45%, #243d53, #0b1421 70%); }
+    .viewer-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    .viewer-hint { position: absolute; z-index: 2; left: 14px; bottom: 14px; padding: 8px 12px; border: 1px solid rgba(255,255,255,.12); border-radius: 999px; color: #c8d3de; background: rgba(9,18,29,.78); font-size: .72rem; backdrop-filter: blur(8px); }
+    .viewer-controls { position: absolute; z-index: 3; top: 14px; right: 14px; display: flex; flex-wrap: wrap; gap: 7px; }
+    .viewer-controls button { padding: 8px 11px; border: 1px solid rgba(255,255,255,.17); border-radius: 9px; color: #e8eef4; background: rgba(9,18,29,.75); font-size: .72rem; font-weight: 800; }
+    .viewer-controls button:hover { border-color: var(--accent); color: var(--accent-2); }
+    .viewer-info { display: flex; flex-direction: column; gap: 14px; }
+    .viewer-info-card { flex: 1; padding: 23px; border: 1px solid rgba(255,255,255,.13); border-radius: 16px; background: rgba(255,255,255,.055); }
+    .viewer-info-card h3 { margin-bottom: 10px; color: #fff; font-size: 1.18rem; }
+    .viewer-info-card p { color: #b9c7d5; font-size: .87rem; }
+    .viewer-info-card .mini-label { color: var(--accent-2); font-size: .69rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    .viewer-tip { padding: 14px 16px; border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; color: #c4d0dc; background: rgba(242,169,0,.08); font-size: .78rem; }
+    .viewer-section .btn-outline { color: #fff; border-color: rgba(255,255,255,.2); }
+    .viewer-section .btn-outline:hover { background: rgba(255,255,255,.07); }
+    .model-disclaimer { margin: 16px 0 0; color: #8fa2b5; font-size: .74rem; }
+    .galpon-layout { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(270px, .8fr); gap: 24px; align-items: center; margin-top: 34px; }
+    .galpon-stage { min-height: 430px; }
+    .galpon-details { display: grid; gap: 13px; }
+    .detail-row { display: flex; gap: 13px; padding: 15px; border: 1px solid rgba(255,255,255,.12); border-radius: 13px; background: rgba(255,255,255,.045); }
+    .detail-row .icon { color: var(--accent-2); font-size: 1.1rem; }
+    .detail-row strong { display: block; color: #fff; font-size: .87rem; }
+    .detail-row span { display: block; color: #aebdcb; font-size: .76rem; }
 
-        /* ============ CONTACT ============ */
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 44px; align-items: start; }
-        .contact-links { display: flex; flex-direction: column; gap: 12px; margin-top: 26px; }
-        .contact-links a {
-            display: flex; align-items: center; gap: 14px; background: var(--panel); border: 1px solid var(--border);
-            border-radius: 12px; padding: 15px 18px; font-size: 1rem; font-weight: 500; transition: border-color 0.2s, transform 0.2s;
-        }
-        .contact-links a:hover { border-color: var(--accent); transform: translateX(4px); }
-        .contact-links .ic {
-            width: 38px; height: 38px; border-radius: 9px; display: grid; place-items: center; flex-shrink: 0;
-            background: var(--chip-bg); color: var(--accent); font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600;
-        }
-        .contact-links small { display: block; color: var(--muted); font-weight: 400; font-size: 0.8rem; }
-        form { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; gap: 16px; }
-        .field label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 7px; }
-        .field input, .field textarea, .field select {
-            width: 100%; background: var(--panel-2); border: 1px solid var(--border); border-radius: 10px;
-            padding: 12px 14px; color: var(--text); font-family: inherit; font-size: 0.95rem; outline: none; transition: border-color 0.2s;
-        }
-        .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--accent); }
-        .field textarea { resize: vertical; min-height: 110px; }
-        @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+    /* Ubicación */
+    .location-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 26px; align-items: stretch; }
+    .location-card { display: flex; flex-direction: column; padding: 28px; border-radius: 18px; color: #fff; background: var(--ink); }
+    .location-card h3 { margin-bottom: 12px; font-size: 1.42rem; }
+    .location-card p { color: #b5c2cf; font-size: .9rem; }
+    .address-line { display: flex; gap: 12px; margin: 16px 0; color: #fff; font-size: .9rem; }
+    .coordinates { padding: 13px; border: 1px solid rgba(255,255,255,.13); border-radius: 10px; color: var(--accent-2); background: rgba(255,255,255,.05); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .8rem; }
+    .location-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 22px; }
+    #location-map { min-height: 390px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); background: #dce5ec; }
 
-        /* ============ FOOTER ============ */
-        footer { border-top: 1px solid var(--border); padding: 34px 0; font-size: 0.9rem; color: var(--muted); }
-        .foot-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    /* Galería */
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .gallery-item { position: relative; min-height: 225px; overflow: hidden; border: 1px solid var(--line); border-radius: 15px; background: linear-gradient(140deg, #d8e1e9, #aebdca); }
+    .gallery-item img { width: 100%; height: 100%; min-height: 225px; object-fit: cover; transition: transform .4s ease; }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-caption { position: absolute; right: 0; bottom: 0; left: 0; padding: 30px 14px 13px; color: #fff; background: linear-gradient(transparent, rgba(7,15,25,.8)); font-size: .8rem; font-weight: 700; }
+    .gallery-placeholder { display: grid; place-items: center; min-height: 225px; padding: 20px; color: #516276; text-align: center; }
+    .gallery-placeholder span { display: block; margin-bottom: 8px; font-size: 2rem; }
 
-        /* ============ THEME SWITCHER ============ */
-        .variant-switch {
-            position: fixed; left: 18px; bottom: 18px; z-index: 60; display: flex; align-items: center; gap: 8px;
-            background: rgba(17,26,46,0.9); border: 1px solid var(--border);
-            border-radius: 999px; padding: 7px 10px 7px 16px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 10px 34px rgba(0,0,0,.25);
-        }
-        .variant-switch span { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-        .variant-switch button {
-            width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border); cursor: pointer;
-            font-family: var(--font-mono); font-weight: 600; font-size: 0.8rem; color: var(--text); background: var(--panel-2);
-            transition: transform 0.15s;
-        }
-        .variant-switch button:hover { transform: scale(1.1); }
-        .variant-switch button.active { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--accent-ink); border-color: transparent; }
+    /* Contacto */
+    .contact-section { color: #fff; background: linear-gradient(120deg, #14263a, #0b1421); }
+    .contact-section h2 { color: #fff; }
+    .contact-section .section-lead { color: #b8c5d2; }
+    .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 42px; align-items: start; margin-top: 34px; }
+    .contact-points { display: grid; gap: 12px; margin-top: 24px; }
+    .contact-point { display: flex; gap: 12px; align-items: center; color: #d7e0e9; font-size: .87rem; }
+    .contact-point span:first-child { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; color: var(--accent-2); background: rgba(242,169,0,.12); }
+    .contact-form { padding: 25px; border: 1px solid rgba(255,255,255,.13); border-radius: 17px; background: rgba(255,255,255,.055); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 13px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { color: #e1e8ef; font-size: .78rem; font-weight: 800; }
+    .field input, .field select, .field textarea { width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid rgba(255,255,255,.17); border-radius: 9px; outline: none; color: #fff; background: rgba(6,14,24,.45); }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(242,169,0,.12); }
+    .field select option { color: #152238; }
+    .field textarea { min-height: 105px; resize: vertical; }
+    .form-note { margin: 10px 0 0; color: #9eafbf; font-size: .72rem; }
+    .form-status { display: none; margin-top: 13px; padding: 11px 13px; border-radius: 9px; color: #fff; background: rgba(21,128,93,.25); font-size: .82rem; }
 
-        #toast {
-            position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 80px); z-index: 70;
-            background: var(--panel); border: 1px solid var(--accent); color: var(--text);
-            padding: 14px 22px; border-radius: 12px; font-size: 0.95rem; box-shadow: 0 14px 44px rgba(0,0,0,.3);
-            transition: transform 0.35s ease; max-width: 90vw;
-        }
-        #toast.show { transform: translate(-50%, 0); }
-    </style>
+    /* Pie */
+    footer { padding: 28px 0; color: #9eacba; background: #080f19; font-size: .8rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .footer-brand { color: #fff; font-weight: 900; }
+    .footer-inner p { margin: 0; }
+
+    /* Panel de administración */
+    .admin-overlay[hidden] { display: none; }
+    .admin-overlay { position: fixed; z-index: 2000; inset: 0; display: grid; place-items: center; padding: 18px; background: rgba(4,10,17,.76); backdrop-filter: blur(8px); }
+    .admin-shell { display: flex; flex-direction: column; width: min(1040px, 100%); max-height: min(92vh, 900px); overflow: hidden; border: 1px solid #d5dee7; border-radius: 18px; background: #f5f7fa; box-shadow: 0 30px 100px rgba(0,0,0,.35); }
+    .admin-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 24px; color: #fff; background: var(--ink); }
+    .admin-head h2 { margin: 0; color: #fff; font-size: 1.35rem; }
+    .admin-head p { margin: 5px 0 0; color: #aebdcb; font-size: .75rem; }
+    .admin-close { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.2); border-radius: 9px; color: #fff; background: transparent; font-size: 1.25rem; }
+    .admin-warning { margin: 16px 20px 0; padding: 12px 14px; border: 1px solid #ecd59e; border-radius: 10px; color: #6f4c0b; background: #fff7e4; font-size: .77rem; }
+    .admin-tabs { display: flex; gap: 6px; padding: 15px 20px 0; border-bottom: 1px solid #dce4ec; }
+    .admin-tab { padding: 10px 14px; border: 0; border-bottom: 3px solid transparent; color: #68798c; background: transparent; font-size: .82rem; font-weight: 800; }
+    .admin-tab.active { border-bottom-color: var(--accent); color: var(--ink); }
+    .admin-body { overflow: auto; padding: 20px; }
+    .admin-pane[hidden] { display: none; }
+    .admin-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 18px; }
+    .admin-stat { padding: 14px; border: 1px solid #dce4ec; border-radius: 11px; background: #fff; }
+    .admin-stat strong { display: block; color: var(--ink); font-size: 1.4rem; }
+    .admin-stat span { color: var(--muted); font-size: .72rem; }
+    .admin-columns { display: grid; grid-template-columns: .9fr 1.1fr; gap: 16px; }
+    .admin-card { padding: 18px; border: 1px solid #dce4ec; border-radius: 13px; background: #fff; }
+    .admin-card h3 { margin-bottom: 14px; color: var(--ink); font-size: 1rem; }
+    .admin-card .field label { color: #35465a; }
+    .admin-card .field input, .admin-card .field select, .admin-card .field textarea { border-color: #ced8e2; color: #182536; background: #f8fafc; }
+    .admin-card .field select option { color: #152238; }
+    .admin-card .btn { width: 100%; }
+    .admin-list { display: grid; gap: 9px; }
+    .admin-list-item { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px; border: 1px solid #e0e7ee; border-radius: 10px; background: #fbfcfd; }
+    .admin-list-item strong { display: block; color: #1a2a3c; font-size: .84rem; }
+    .admin-list-item small { display: block; margin-top: 3px; color: #748397; font-size: .72rem; }
+    .admin-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+    .small-btn { padding: 7px 9px; border: 1px solid #dce4ec; border-radius: 8px; color: #33465b; background: #fff; font-size: .72rem; font-weight: 800; }
+    .small-btn.danger { color: #a02d2d; }
+    .upload-zone { padding: 22px; border: 1px dashed #afbdcb; border-radius: 12px; background: #f8fafc; text-align: center; }
+    .upload-zone input { max-width: 100%; margin-top: 12px; color: #516276; font-size: .78rem; }
+    .admin-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; margin-top: 15px; }
+    .admin-photo { position: relative; overflow: hidden; border-radius: 9px; background: #e5ebf0; }
+    .admin-photo img { width: 100%; height: 100px; object-fit: cover; }
+    .admin-photo button { width: 100%; padding: 6px; border: 0; color: #9d2929; background: #fff; font-size: .7rem; font-weight: 800; }
+    .admin-lead { padding: 13px; border: 1px solid #dce4ec; border-radius: 10px; background: #fff; }
+    .admin-lead + .admin-lead { margin-top: 8px; }
+    .admin-lead strong { display: block; color: #1a2a3c; font-size: .85rem; }
+    .admin-lead p { margin: 5px 0; color: #58697c; font-size: .78rem; white-space: pre-wrap; }
+    .admin-lead small { color: #8491a0; font-size: .7rem; }
+
+    /* Accesibilidad / responsive */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    :focus-visible { outline: 3px solid rgba(242,169,0,.75); outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 980px) {
+      .nav-links { display: none; position: absolute; top: 76px; right: 0; left: 0; padding: 18px 22px 22px; border-bottom: 1px solid rgba(255,255,255,.1); background: #0b1421; }
+      .nav-links.open { display: grid; grid-template-columns: 1fr 1fr; }
+      .nav-toggle { display: block; }
+      .hero-grid, .intro-grid, .location-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-grid { gap: 25px; }
+      .hero-visual { min-height: 320px; }
+      .viewer-layout, .galpon-layout { grid-template-columns: 1fr; }
+      .viewer-stage { min-height: 430px; }
+      .viewer-info { display: grid; grid-template-columns: 1fr 1fr; }
+      .viewer-tip { grid-column: 1 / -1; }
+      .location-card { min-height: 300px; }
+    }
+    @media (max-width: 720px) {
+      .container { width: min(var(--max), calc(100% - 30px)); }
+      .section { padding: 65px 0; }
+      .section-head { display: block; }
+      .section-head .text-link { margin-top: 8px; }
+      .quick-grid { grid-template-columns: 1fr; }
+      .quick-item, .quick-item:first-child { padding: 15px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .quick-item:last-child { border-bottom: 0; }
+      .feature-grid, .spaces-grid, .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .viewer-info { grid-template-columns: 1fr; }
+      .viewer-tip { grid-column: auto; }
+      .viewer-stage { min-height: 380px; }
+      .gallery-item, .gallery-item img, .gallery-placeholder { min-height: 180px; }
+      .admin-columns { grid-template-columns: 1fr; }
+      .admin-gallery { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .brand { min-width: 0; }
+      .brand-name { font-size: .86rem; }
+      .brand-sub { font-size: .6rem; }
+      .hero { padding: 70px 0 56px; }
+      .hero h1 { font-size: 2.75rem; }
+      .hero-visual { min-height: 260px; }
+      .hero-blueprint { padding: 17px; }
+      .blueprint-grid { height: 165px; }
+      .feature-grid, .spaces-grid, .gallery-grid, .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .viewer-stage { min-height: 330px; }
+      .viewer-controls { left: 10px; right: 10px; justify-content: flex-end; }
+      .viewer-hint { max-width: calc(100% - 20px); font-size: .65rem; }
+      #location-map { min-height: 320px; }
+      .admin-overlay { padding: 7px; }
+      .admin-shell { max-height: 97vh; }
+      .admin-head { padding: 15px; }
+      .admin-body { padding: 12px; }
+      .admin-stats { grid-template-columns: 1fr 1fr 1fr; }
+      .admin-stat { padding: 10px; }
+      .admin-stat strong { font-size: 1.1rem; }
+      .admin-stat span { font-size: .64rem; }
+      .admin-tabs { padding-inline: 9px; overflow-x: auto; }
+      .admin-tab { white-space: nowrap; padding-inline: 9px; }
+    }
+  </style>
 </head>
 <body>
-
-<!-- ============ NAV ============ -->
-<nav>
-  <div class="nav-inner">
-    <a class="logo" href="#home" aria-label="Inicio">
-      <span class="logo-badge">RS</span>
-      <span>Rony Santiago<small>Ingeniería &amp; Gemelos Digitales</small></span>
-    </a>
-    <div class="nav-links">
-      <a href="#proyectos">Proyectos</a>
-      <a href="#experiencia">Experiencia</a>
-      <a href="#gemelo">Gemelo digital</a>
-      <a href="#videos">Multimedia</a>
-      <a href="#contacto">Contacto</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="The Warehouse, inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 20V8l9-5 9 5v12H3Z"/><path d="M7 20v-6h10v6M7 9h.01M12 9h.01M17 9h.01"/>
+          </svg>
+        </span>
+        <span><span class="brand-name">THE WAREHOUSE</span><span class="brand-sub">Zona Rental · Mérida</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#zona">La zona</a>
+        <a href="#espacios">Espacios</a>
+        <a href="#recorrido">Recorrido 3D</a>
+        <a href="#galpon">Galpón 3D</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto" class="nav-cta">Solicitar información</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
     </div>
-    <a class="nav-cta" href="#contacto">Consultoría</a>
-  </div>
-</nav>
+  </header>
 
-<!-- ============ HERO ============ -->
-<header class="hero" id="home">
-  <div class="container">
-    <h1>Rony David Santiago Armas</h1>
-    <div class="subtitle">Ingeniero Mecánico | CAD/CAE | Simulación | Formación Técnica</div>
-    <div class="tech-line">SolidWorks · AutoCAD Plant 3D · ANSYS · AFT Fathom/Arrow/Impulse · Python · MATLAB · C++ (Arduino)</div>
-    <p class="lead">
-      Ingeniero Mecánico con formación en Física, especializado en diseño CAD/CAE, simulación de procesos termo-fluidos y docencia técnica. Convierto problemas industriales en gemelos digitales que predicen fallas y optimizan plantas antes de ejecutar cambios físicos.
-    </p>
-    <div class="btn-row">
-      <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
-      <a class="btn btn-ghost" href="assets/cv/cv.pdf" target="_blank" rel="noopener">📄 Descargar CV (PDF)</a>
-      <a class="btn btn-ghost" href="#gemelo">Probar gemelo digital</a>
-    </div>
-    <div class="stats">
-      <div class="stat reveal"><b>6+</b><span>Proyectos documentados</span></div>
-      <div class="stat reveal"><b>8</b><span>Suites CAE</span></div>
-      <div class="stat reveal"><b>ASME</b><span>Diseño bajo normas</span></div>
-      <div class="stat reveal"><b>4 años</b><span>Formando ingenieros</span></div>
-    </div>
-  </div>
-</header>
-
-<!-- ============ PROYECTOS ============ -->
-<section id="proyectos">
-  <div class="container">
-    <span class="eyebrow">Casos y proyectos</span>
-    <h2>Proyectos que resolvieron problemas reales</h2>
-    <p class="section-sub">Cada proyecto incluye memoria técnica y enlace a la publicación original en LinkedIn.</p>
-    <div class="proj-grid">
-      <a href="https://www.linkedin.com/posts/rony-david-santiago-armas-4020131aa_ingenieraedamecaernica-aftarrow-gemelodigital-activity-7461131809259507712-NtCp" target="_blank" rel="noopener noreferrer" class="proj reveal">
-        <div class="proj-top"><span class="tagchip">Gemelo digital</span></div>
-        <div class="proj-body">
-          <h3>Diagnóstico de congelamiento en línea de GLP</h3>
-          <p>Gemelo termo-fluido en AFT Arrow que identificó la causa raíz del congelamiento, evitando paradas de producción.</p>
-          <div class="tags"><span>AFT Arrow</span><span>Termo-fluidos</span><span>Diagnóstico</span></div>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Infraestructura industrial · Mérida, Venezuela</span>
+          <h1>Un espacio para hacer crecer <span>tu operación.</span></h1>
+          <p class="hero-copy">Conoce Zona Rental The Warehouse, explora una representación tridimensional del complejo y consulta información sobre sus espacios industriales.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#recorrido">Explorar la zona <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline" href="#contacto">Consultar disponibilidad</a>
+          </div>
+          <div class="hero-note"><span class="pin">⌖</span> Calle Progreso, Ejido 5101, Mérida, Venezuela</div>
         </div>
-      </a>
-      <a href="https://www.linkedin.com/posts/rony-david-santiago-armas-4020131aa_gaslp-glp-ingenieraedamecaernica-activity-7338691918299611136-w3qa" target="_blank" rel="noopener noreferrer" class="proj reveal">
-        <div class="proj-top"><span class="tagchip">Piping</span></div>
-        <div class="proj-body">
-          <h3>Red de tuberías de GLP</h3>
-          <p>Diseño y validación completa del sistema de gas: P&amp;IDs, modelo 3D en AutoCAD Plant 3D y verificación hidráulica.</p>
-          <div class="tags"><span>Plant 3D</span><span>AFT</span><span>P&amp;ID</span></div>
-        </div>
-      </a>
-      <a href="https://www.linkedin.com/posts/rony-david-santiago-armas-4020131aa_autocadplant3d-ingenieriadeprocesos-api650-activity-7403478745384189952-3pNb" target="_blank" rel="noopener noreferrer" class="proj reveal">
-        <div class="proj-top"><span class="tagchip">Plantas</span></div>
-        <div class="proj-body">
-          <h3>Planta de tratamiento de agua</h3>
-          <p>Ingeniería de planta bajo API 650: P&amp;IDs inteligentes, modelado 3D y generación automática de isométricos.</p>
-          <div class="tags"><span>API 650</span><span>Plant 3D</span><span>Isométricos</span></div>
-        </div>
-      </a>
-      <a href="https://www.linkedin.com/posts/rony-david-santiago-armas-4020131aa_solidworks-3dmodeling-robots-activity-7200967797131071489-hDAJ" target="_blank" rel="noopener noreferrer" class="proj reveal">
-        <div class="proj-top"><span class="tagchip">Robótica</span></div>
-        <div class="proj-body">
-          <h3>Robot paralelo XYZ — CAD y animación</h3>
-          <p>Diseño cinemático, simulación de movimiento y render fotorrealista en SolidWorks con Motion Study.</p>
-          <div class="tags"><span>SolidWorks</span><span>Motion</span><span>Render</span></div>
-        </div>
-      </a>
-      <a href="https://www.linkedin.com/posts/rony-david-santiago-armas-4020131aa_ingenieraedamecaernica-energaedaeaejlica-activity-7364850360718401536-MnLz" target="_blank" rel="noopener noreferrer" class="proj reveal">
-        <div class="proj-top"><span class="tagchip">Energía</span></div>
-        <div class="proj-body">
-          <h3>Caja planetaria para turbina eólica</h3>
-          <p>Diseño mecánico de etapa planetaria con cálculos AGMA/ISO 6336 y verificación estructural.</p>
-          <div class="tags"><span>AGMA</span><span>ISO 6336</span><span>FEA</span></div>
-        </div>
-      </a>
-      <a href="https://www.linkedin.com/posts/rony-david-santiago-armas-4020131aa_solidworks-toyota-diseaeho-activity-7216920953614675971-pWeV" target="_blank" rel="noopener noreferrer" class="proj reveal">
-        <div class="proj-top"><span class="tagchip">Ing. inversa</span></div>
-        <div class="proj-body">
-          <h3>Repuesto automotriz impreso en 3D</h3>
-          <p>Ingeniería inversa en SolidWorks, validación FEA y fabricación FDM de un componente funcional para Toyota Autana.</p>
-          <div class="tags"><span>FDM</span><span>FEA</span><span>SolidWorks</span></div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ EXPERIENCIA ============ -->
-<section id="experiencia">
-  <div class="container">
-    <span class="eyebrow">Trayectoria</span>
-    <h2>Experiencia y stack técnico</h2>
-    <div class="exp-grid">
-      <div class="timeline">
-        <div class="t-item reveal">
-          <time>Mar 2024 — Presente</time>
-          <h3>Profesor Universitario <span>· IUPSM</span></h3>
-          <p>Matemáticas II y III, Física I, Laboratorio de Física, Transferencia de Calor, Plantas Industriales, Aire Acondicionado, AutoCAD. Desarrollo de materiales didácticos con MATLAB y Python.</p>
-        </div>
-        <div class="t-item reveal">
-          <time>Nov 2024 — May 2025</time>
-          <h3>Instructor Técnico <span>· EstruCAD</span></h3>
-          <p>Formación profesional en diseño de piping bajo ASME/ANSI: modelos 3D, isométricos y simulación hidráulica y de transitorios con AFT.</p>
-        </div>
-        <div class="t-item reveal">
-          <time>Ene — Dic 2024</time>
-          <h3>Ingeniero de Diseño de Producto <span>· BeyondTech</span></h3>
-          <p>Componentes electro-ópticos y mecánicos en SolidWorks con GD&amp;T; ciclos de prototipado reducidos y validación estructural FEA.</p>
-        </div>
-        <div class="t-item reveal">
-          <time>Ene — Dic 2023</time>
-          <h3>Diseñador Industrial/Mecánico <span>· 4D Alliance Group</span></h3>
-          <p>Soluciones de diseño desde el boceto conceptual hasta planos finales de fabricación, con foco en ergonomía y desempeño estructural.</p>
-        </div>
-        <div class="t-item reveal">
-          <time>2022 — 2026</time>
-          <h3>Instructor STEM <span>· EDAT</span></h3>
-          <p>Electrónica, programación Arduino/C++ e impresión 3D; introducción de microcontroladores y proyectos IoT.</p>
+        <div class="hero-visual" aria-label="Ilustración conceptual de una zona industrial">
+          <div class="hero-blueprint">
+            <div class="blueprint-top"><span>THE WAREHOUSE / SITE PLAN</span><span class="blueprint-dots"><i></i><i></i><i></i></span></div>
+            <div class="blueprint-grid" aria-hidden="true">
+              <div class="blueprint-building one">MÓDULO 01</div>
+              <div class="blueprint-building two">MÓDULO 02</div>
+              <div class="blueprint-building three">MÓDULO 03</div>
+              <div class="blueprint-building four">MÓDULO 04</div>
+              <div class="blueprint-road"></div>
+            </div>
+            <div class="blueprint-foot"><span>MERIDA · VZLA</span><strong>INDUSTRIAL SPACES</strong></div>
+          </div>
         </div>
       </div>
-      <div>
-        <div class="skill-group reveal">
-          <h4>CAD / CAE</h4>
-          <div class="chips"><span>SolidWorks ★</span><span>AutoCAD Plant 3D</span><span>Fusion 360</span><span>ANSYS FEA/CFD</span></div>
-        </div>
-        <div class="skill-group reveal">
-          <h4>Simulación</h4>
-          <div class="chips"><span>AFT Fathom</span><span>AFT Arrow</span><span>AFT Impulse</span><span>SIMIO</span></div>
-        </div>
-        <div class="skill-group reveal">
-          <h4>Programación</h4>
-          <div class="chips"><span>Python</span><span>MATLAB</span><span>C++</span><span>Arduino</span></div>
-        </div>
-        <div class="skill-group reveal">
-          <h4>Manufactura</h4>
-          <div class="chips"><span>CNC</span><span>Impresión 3D FDM</span><span>GD&amp;T</span><span>DFM/DFA</span></div>
-        </div>
-        <div class="skill-group reveal">
-          <h4>Normas</h4>
-          <div class="chips"><span>ASME/ANSI</span><span>API 650</span><span>AGMA</span><span>ISO 6336</span></div>
-        </div>
+    </section>
+
+    <div class="quick-strip">
+      <div class="container quick-grid">
+        <div class="quick-item"><span class="quick-icon">⌖</span><div><strong>Ubicación identificada</strong><span>Ejido, estado Mérida, Venezuela</span></div></div>
+        <div class="quick-item"><span class="quick-icon">▧</span><div><strong>Exploración 3D</strong><span>Recorrido conceptual por el complejo</span></div></div>
+        <div class="quick-item"><span class="quick-icon">▤</span><div><strong>Información de espacios</strong><span>Consulta y registro administrativo</span></div></div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ============ GEMELO DIGITAL ============ -->
-<section id="gemelo">
-  <div class="container">
-    <span class="eyebrow">Demo interactiva en vivo</span>
-    <h2>Gemelo digital: línea de GLP con riesgo de congelamiento</h2>
-    <p class="section-sub">
-      Basado en un caso real diagnosticado con <strong>AFT Arrow</strong>. Sube la demanda de la planta y
-      observa cómo el gemelo detecta el punto de congelamiento aguas abajo de la válvula —
-      <em>antes</em> de que ocurra en la planta física. Arrastra para rotar, usa la rueda para acercar
-      y toca los sensores.
-    </p>
-    <div class="twin-wrap">
-      <div class="twin-stage reveal" id="twin-stage">
-        <canvas id="twin-canvas"></canvas>
-        <div class="twin-hint">🖱 arrastrar = rotar &nbsp;·&nbsp; rueda = zoom &nbsp;·&nbsp; clic en sensores</div>
-        <!-- Fallback si WebGL no soportado -->
-        <div id="webgl-fallback" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center; text-align:center; color:var(--muted); padding:20px; background:var(--panel);">
+    <section class="section" id="zona">
+      <div class="container intro-grid">
+        <div class="reveal">
+          <span class="eyebrow">Conoce el complejo</span>
+          <h2>Una ventana digital a tu próximo espacio industrial.</h2>
+          <p class="section-lead">Esta plataforma reúne la información de Zona Rental The Warehouse en un solo lugar: ubicación, presentación de espacios, visualización tridimensional y un canal para solicitar detalles.</p>
+          <div class="feature-grid">
+            <div class="feature"><span class="feature-icon">🏭</span><div><strong>Espacios industriales</strong><span>Consulta los módulos registrados.</span></div></div>
+            <div class="feature"><span class="feature-icon">🧭</span><div><strong>Ubicación y acceso</strong><span>Revisa el punto en el mapa.</span></div></div>
+            <div class="feature"><span class="feature-icon">🧊</span><div><strong>Vista tridimensional</strong><span>Explora una maqueta interactiva.</span></div></div>
+            <div class="feature"><span class="feature-icon">📷</span><div><strong>Galería actualizable</strong><span>Fotografías cargadas por administración.</span></div></div>
+          </div>
+        </div>
+        <div class="intro-panel reveal">
+          <div class="intro-panel-content">
+            <small>THE WAREHOUSE · MÉRIDA</small>
+            <h3>Conecta tu empresa con el espacio adecuado.</h3>
+            <p>Una presentación digital pensada para visitantes, empresas interesadas y administradores del complejo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="espacios">
+      <div class="container">
+        <div class="section-head">
           <div>
-            <p style="font-size:1.2rem; margin-bottom:10px;">Tu navegador no soporta WebGL.</p>
-            <p>Aquí verías el gemelo digital 3D interactivo. Puedes probar con Chrome, Firefox o Edge actualizados.</p>
+            <span class="eyebrow">Oferta de espacios</span>
+            <h2>Espacios industriales</h2>
+            <p class="section-lead">La disponibilidad se mostrará según los registros que incorpore la administración. Consulta directamente antes de tomar una decisión.</p>
+          </div>
+          <a href="#contacto" class="text-link">Solicitar detalles <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="spaces-grid" id="publicSpaces">
+          <div class="empty-state"><strong>Aún no hay espacios publicados.</strong>La administración podrá incorporar aquí los galpones y su disponibilidad.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section viewer-section" id="recorrido">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Recorrido virtual</span>
+            <h2>Explora la zona en 3D.</h2>
+            <p class="section-lead">Rota la vista, acércate y selecciona los módulos de la maqueta para conocer cómo podría organizarse un recorrido por el complejo.</p>
+          </div>
+        </div>
+        <div class="viewer-layout">
+          <div class="viewer-stage" id="zoneStage">
+            <canvas id="zoneCanvas" aria-label="Maqueta 3D ilustrativa de una zona industrial"></canvas>
+            <div class="viewer-controls">
+              <button type="button" data-camera="zone" data-view="overview">Vista general</button>
+              <button type="button" data-camera="zone" data-view="top">Vista superior</button>
+              <button type="button" data-camera="zone" data-view="front">Vista frontal</button>
+            </div>
+            <div class="viewer-hint">Arrastra para rotar · rueda para acercar · selecciona un galpón</div>
+          </div>
+          <aside class="viewer-info">
+            <div class="viewer-info-card" aria-live="polite">
+              <span class="mini-label">Explorador de zona</span>
+              <h3 id="zoneSelectedTitle">Maqueta conceptual</h3>
+              <p id="zoneSelectedText">Selecciona uno de los edificios para ver una ficha demostrativa. Los módulos no representan todavía la distribución real del terreno.</p>
+              <a href="#contacto" class="btn btn-primary">Consultar por un espacio</a>
+            </div>
+            <div class="viewer-tip">Esta escena es una representación preliminar creada para mostrar la experiencia 3D. Se sustituirá por el levantamiento, plano o modelo real cuando esté disponible.</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section viewer-section" id="galpon" style="background:linear-gradient(135deg,#13253a,#0a1420)">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Visualización de galpón</span>
+            <h2>Un vistazo al espacio desde dentro.</h2>
+            <p class="section-lead">La maqueta permite observar un galpón industrial de referencia desde distintos ángulos. Puede reemplazarse por el modelo técnico específico del inmueble.</p>
+          </div>
+        </div>
+        <div class="galpon-layout">
+          <div class="viewer-stage galpon-stage" id="warehouseStage">
+            <canvas id="warehouseCanvas" aria-label="Modelo 3D conceptual de un galpón industrial"></canvas>
+            <div class="viewer-controls">
+              <button type="button" data-camera="warehouse" data-view="overview">Exterior</button>
+              <button type="button" data-camera="warehouse" data-view="inside">Interior</button>
+              <button type="button" data-camera="warehouse" data-view="front">Frontal</button>
+            </div>
+            <div class="viewer-hint">Arrastra para rotar · rueda para acercar</div>
+          </div>
+          <div class="galpon-details">
+            <div class="detail-row"><span class="icon">▱</span><div><strong>Volumetría y estructura</strong><span>Vista conceptual de cubierta, cerramientos y acceso.</span></div></div>
+            <div class="detail-row"><span class="icon">↔</span><div><strong>Espacio interior</strong><span>Exploración visual de un volumen industrial genérico.</span></div></div>
+            <div class="detail-row"><span class="icon">◉</span><div><strong>Modelo interactivo</strong><span>Rotación y acercamiento directamente desde el navegador.</span></div></div>
+            <p class="model-disclaimer">Las dimensiones, materiales y componentes de esta maqueta son ilustrativos. No deben utilizarse como planos constructivos ni como ficha técnica de un galpón real.</p>
+            <a class="btn btn-outline" href="#contacto">Solicitar información técnica</a>
           </div>
         </div>
       </div>
-      <div class="twin-panel reveal">
-        <div class="panel-box">
-          <div class="panel-head">
-            <h3>Panel del gemelo</h3>
-            <span class="status-pill" id="status-pill"><i></i><span id="status-txt">OPERACIÓN NORMAL</span></span>
+    </section>
+
+    <section class="section" id="ubicacion">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Cómo llegar</span>
+            <h2>Ubicación de The Warehouse.</h2>
+            <p class="section-lead">Consulta el punto geográfico y abre las indicaciones en tu aplicación de mapas.</p>
           </div>
         </div>
-        <div class="panel-box">
-          <div class="kpis">
-            <div class="kpi" id="kpi-p1"><label>P1 · Presión tanque</label><b>8.4</b><small>bar</small></div>
-            <div class="kpi" id="kpi-t1"><label>T1 · Temp. entrada</label><b>27.0</b><small>°C</small></div>
-            <div class="kpi" id="kpi-t2"><label>T2 · Post-válvula</label><b>5.3</b><small>°C</small></div>
-            <div class="kpi" id="kpi-f1"><label>F1 · Flujo GLP</label><b>180</b><small>kg/h</small></div>
+        <div class="location-grid">
+          <div class="location-card">
+            <span class="eyebrow">Dirección</span>
+            <h3>Zona Rental The Warehouse</h3>
+            <div class="address-line"><span>⌖</span><span>Sector Calle Progreso, Ejido 5101, Mérida, Venezuela.</span></div>
+            <p>Coordenadas geográficas suministradas para localizar el complejo:</p>
+            <div class="coordinates">8°31'51.2"N · 71°14'57.6"W<br>8.530889, -71.249333</div>
+            <div class="location-actions">
+              <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=8.5308889%2C-71.2493333" target="_blank" rel="noopener noreferrer">Cómo llegar ↗</a>
+              <a class="btn btn-outline" href="https://www.google.com/maps?q=8.5308889%2C-71.2493333" target="_blank" rel="noopener noreferrer">Abrir mapa</a>
+            </div>
           </div>
-        </div>
-        <div class="panel-box slider-row">
-          <label>Demanda de la planta <b id="demand-val">180 kg/h</b></label>
-          <input type="range" id="demand" min="50" max="400" step="5" value="180" aria-label="Demanda de la planta">
-        </div>
-        <div class="panel-box">
-          <div class="chart-cap">T2 — tendencia en vivo (°C)</div>
-          <canvas id="chart"></canvas>
-        </div>
-        <div class="insight" id="insight">
-          <b>Estado nominal.</b> La expansión en la válvula reduce la temperatura, pero se mantiene
-          sobre el punto de congelamiento. Margen operativo disponible.
+          <div id="location-map" aria-label="Mapa de ubicación de Zona Rental The Warehouse"></div>
         </div>
       </div>
+    </section>
+
+    <section class="section section-soft" id="galeria">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Imágenes del complejo</span>
+            <h2>Galería.</h2>
+            <p class="section-lead">Las fotografías oficiales que cargue la administración aparecerán en esta sección.</p>
+          </div>
+          <button class="btn btn-outline" type="button" id="galleryAdminBtn">Actualizar galería ↗</button>
+        </div>
+        <div class="gallery-grid" id="publicGallery">
+          <div class="gallery-item"><div class="gallery-placeholder"><div><span>📷</span><strong>Fotografías pendientes</strong><br><small>La galería se actualizará desde el panel administrativo.</small></div></div></div>
+          <div class="gallery-item"><div class="gallery-placeholder"><div><span>🏭</span><strong>Instalaciones</strong><br><small>Agrega imágenes reales del complejo.</small></div></div></div>
+          <div class="gallery-item"><div class="gallery-placeholder"><div><span>🚚</span><strong>Áreas de operación</strong><br><small>Contenido fotográfico por incorporar.</small></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contacto">
+      <div class="container">
+        <div class="contact-grid">
+          <div>
+            <span class="eyebrow">Contacto comercial</span>
+            <h2>Hablemos de tu próximo espacio.</h2>
+            <p class="section-lead">Déjanos los datos de tu consulta para preparar un mensaje de contacto y conocer qué tipo de espacio estás buscando.</p>
+            <div class="contact-points">
+              <div class="contact-point"><span>⌖</span><div>Sector Calle Progreso, Ejido, Mérida.</div></div>
+              <div class="contact-point"><span>▣</span><div>Consulta disponibilidad y características de los galpones.</div></div>
+              <div class="contact-point"><span>◷</span><div>La atención y condiciones comerciales deben confirmarse con la administración.</div></div>
+            </div>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <div class="form-grid">
+              <div class="field"><label for="leadName">Nombre y apellido *</label><input id="leadName" name="name" required autocomplete="name" placeholder="Tu nombre"></div>
+              <div class="field"><label for="leadCompany">Empresa</label><input id="leadCompany" name="company" autocomplete="organization" placeholder="Nombre de la empresa"></div>
+              <div class="field"><label for="leadEmail">Correo electrónico *</label><input id="leadEmail" name="email" type="email" required autocomplete="email" placeholder="nombre@empresa.com"></div>
+              <div class="field"><label for="leadInterest">¿Qué deseas consultar?</label><select id="leadInterest" name="interest"><option>Disponibilidad de galpón</option><option>Características de un espacio</option><option>Visita al complejo</option><option>Información general</option></select></div>
+              <div class="field full"><label for="leadMessage">Mensaje</label><textarea id="leadMessage" name="message" placeholder="Cuéntanos qué tipo de espacio o información necesitas."></textarea></div>
+            </div>
+            <button class="btn btn-primary" type="submit">Preparar solicitud <span aria-hidden="true">→</span></button>
+            <p class="form-note">Demo: este formulario no envía datos a un servidor. Si no se configura un canal de contacto, prepara el mensaje para copiarlo y compartirlo.</p>
+            <div class="form-status" id="contactStatus" role="status"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div><span class="footer-brand">THE WAREHOUSE</span><br><span>Zona Rental · Mérida, Venezuela</span></div>
+      <p>© <span id="year"></span> The Warehouse. Información sujeta a confirmación por la administración.</p>
+      <a href="#inicio">Volver arriba ↑</a>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- ============ VIDEOS Y MODELOS 3D ============ -->
-<section id="videos">
-  <div class="container">
-    <span class="eyebrow">Multimedia técnica</span>
-    <h2>Videos y Modelos 3D Interactivos</h2>
-    <p class="section-sub" style="margin-bottom: 40px;">Explora mis diseños en 3D directamente en el navegador y accede a contenido educativo especializado.</p>
-
-    <!-- Video de YouTube -->
-    <article class="reveal" style="margin-bottom: 56px;">
-      <h3 style="margin-bottom: 1.2rem;">📹 Ejercicio 3.120 – Mecánica Vectorial (Beer & Johnston)</h3>
-      <div class="video-wrapper">
-        <iframe width="100%" height="400" src="https://www.youtube.com/embed/rsyEhaxXmtU" title="Ejercicio 3.120 - Mecánica Vectorial para Ingenieros: Estática" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+  <!-- Panel administrativo de demostración -->
+  <div class="admin-overlay" id="adminOverlay" hidden>
+    <section class="admin-shell" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+      <header class="admin-head">
+        <div><h2 id="adminTitle">Panel de administración</h2><p>Gestión local de espacios, fotografías y solicitudes</p></div>
+        <button class="admin-close" id="adminClose" type="button" aria-label="Cerrar panel">×</button>
+      </header>
+      <div class="admin-warning"><strong>Modo demostración:</strong> los datos se guardan únicamente en este navegador y dispositivo. Este panel no tiene inicio de sesión ni protección de servidor; no lo publiques como sistema administrativo real sin implementar autenticación, base de datos y almacenamiento remoto.</div>
+      <div class="admin-tabs" role="tablist" aria-label="Secciones administrativas">
+        <button class="admin-tab active" type="button" role="tab" aria-selected="true" data-tab="spacesPane">Espacios</button>
+        <button class="admin-tab" type="button" role="tab" aria-selected="false" data-tab="photosPane">Fotografías</button>
+        <button class="admin-tab" type="button" role="tab" aria-selected="false" data-tab="leadsPane">Solicitudes</button>
       </div>
-      <p style="margin-top: 1rem; color: var(--muted);">🔧 Resolución paso a paso del problema de poleas sobre un eje lineal, cálculo de fuerza resultante y momento equivalente en el punto A.</p>
-    </article>
-
-    <!-- Modelo 3D arquitectónico -->
-    <article class="reveal" id="modelos3d">
-      <h3 style="margin-bottom: 1.2rem;">🧊 Modelo Arquitectónico Interactivo</h3>
-      <!-- Reemplaza 'src' con la ruta real de tu archivo .glb -->
-      <model-viewer 
-        src="assets/3d/arquitectura0.glb" 
-        alt="Modelo 3D de proyecto arquitectónico" 
-        auto-rotate 
-        camera-controls 
-        style="width: 100%; height: 500px; background-color: var(--panel-2); border-radius: var(--radius); border: 1px solid var(--border);"
-        loading="lazy"
-        reveal="auto">
-      </model-viewer>
-      <p style="margin-top: 1rem; color: var(--muted);">🏗️ Diseño de interiores con recorrido virtual. Arrastra para rotar, rueda para zoom. Próximamente más modelos de ingeniería.</p>
-    </article>
-  </div>
-</section>
-
-<!-- ============ CONTACTO ============ -->
-<section id="contacto">
-  <div class="container">
-    <div class="contact-grid">
-      <div>
-        <span class="eyebrow">Contacto</span>
-        <h2>¿Hablamos de tu planta?</h2>
-        <p class="section-sub">Cuéntame tu problema de proceso, piping o diseño — te propongo un plan de diagnóstico con simulación en menos de 48 h.</p>
-        <div class="contact-links">
-          <a href="mailto:ronysantiago7@gmail.com">
-            <span class="ic">@</span>
-            <span>ronysantiago7@gmail.com<small>Respuesta en 24 h</small></span>
-          </a>
-          <a href="https://www.linkedin.com/in/rony-david-santiago-armas-4020131aa/" target="_blank" rel="noopener">
-            <span class="ic">in</span>
-            <span>LinkedIn<small>Rony David Santiago Armas</small></span>
-          </a>
-          <a href="https://github.com/ronysantiago" target="_blank" rel="noopener">
-            <span class="ic">&lt;/&gt;</span>
-            <span>GitHub<small>Proyectos y código abierto</small></span>
-          </a>
+      <div class="admin-body">
+        <div class="admin-pane" id="spacesPane">
+          <div class="admin-stats">
+            <div class="admin-stat"><strong id="statTotal">0</strong><span>Espacios registrados</span></div>
+            <div class="admin-stat"><strong id="statAvailable">0</strong><span>Disponibles</span></div>
+            <div class="admin-stat"><strong id="statOccupied">0</strong><span>Alquilados</span></div>
+          </div>
+          <div class="admin-columns">
+            <form class="admin-card" id="spaceForm">
+              <h3 id="spaceFormTitle">Registrar espacio</h3>
+              <input type="hidden" id="spaceId">
+              <div class="field"><label for="spaceName">Nombre o código del galpón *</label><input id="spaceName" required placeholder="Ej. Galpón A-01"></div>
+              <div class="field"><label for="spaceArea">Área aproximada (m²)</label><input id="spaceArea" type="number" min="0" step="0.01" placeholder="Ej. 250"></div>
+              <div class="field"><label for="spaceStatus">Estado *</label><select id="spaceStatus"><option value="Disponible">Disponible</option><option value="Alquilado">Alquilado</option><option value="Mantenimiento">Mantenimiento</option></select></div>
+              <div class="field"><label for="spaceTenant">Empresa o arrendatario (uso interno)</label><input id="spaceTenant" placeholder="Nombre comercial"></div>
+              <div class="field"><label for="spaceDate">Fecha de inicio del alquiler</label><input id="spaceDate" type="date"></div>
+              <div class="field"><label for="spaceNotes">Notas administrativas</label><textarea id="spaceNotes" placeholder="Observaciones básicas del espacio"></textarea></div>
+              <button class="btn btn-primary" type="submit" id="spaceSubmit">Guardar espacio</button>
+              <button class="btn btn-outline" type="button" id="spaceCancel" style="margin-top:8px" hidden>Cancelar edición</button>
+            </form>
+            <div class="admin-card">
+              <h3>Espacios registrados</h3>
+              <div class="admin-list" id="adminSpacesList"><div class="empty-state">Aún no hay espacios registrados.</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="admin-pane" id="photosPane" hidden>
+          <div class="admin-card">
+            <h3>Cargar fotografías del complejo</h3>
+            <p style="color:#718096;font-size:.8rem">Selecciona imágenes JPG, PNG o WEBP. Se almacenarán localmente en este navegador.</p>
+            <form id="photoForm">
+              <div class="field"><label for="photoCaption">Descripción de las imágenes</label><input id="photoCaption" placeholder="Ej. Acceso principal, galpones, vialidad..."></div>
+              <div class="upload-zone"><strong>Seleccionar fotografías</strong><br><small style="color:#7a899a">Puedes elegir varios archivos de imagen.</small><br><input id="photoFiles" type="file" accept="image/png,image/jpeg,image/webp" multiple required></div>
+              <button class="btn btn-primary" type="submit" style="margin-top:14px">Guardar fotografías</button>
+            </form>
+            <div class="admin-gallery" id="adminGallery"></div>
+          </div>
+        </div>
+        <div class="admin-pane" id="leadsPane" hidden>
+          <div class="admin-card">
+            <h3>Solicitudes generadas en este navegador</h3>
+            <p style="color:#718096;font-size:.8rem">Solo se muestran solicitudes creadas desde esta misma instalación de demostración. No llegan desde visitantes externos.</p>
+            <div id="adminLeadsList"><div class="empty-state">Todavía no hay solicitudes locales.</div></div>
+          </div>
         </div>
       </div>
-      <!-- Cambia 'your-email@example.com' por tu correo real en FormSubmit -->
-      <form id="contact-form" action="https://formsubmit.co/your-email@example.com" method="POST">
-        <div class="field">
-          <label for="f-name">Nombre</label>
-          <input id="f-name" name="name" type="text" placeholder="Tu nombre" required autocomplete="name">
-        </div>
-        <div class="field">
-          <label for="f-mail">Correo</label>
-          <input id="f-mail" name="email" type="email" placeholder="tu@empresa.com" required autocomplete="email">
-        </div>
-        <div class="field">
-          <label for="f-type">Tipo de proyecto</label>
-          <select id="f-type" name="type">
-            <option>Gemelo digital / diagnóstico de proceso</option>
-            <option>Ingeniería de piping</option>
-            <option>Diseño CAD/CAE</option>
-            <option>Formación técnica</option>
-            <option>Otro</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="f-msg">Mensaje</label>
-          <textarea id="f-msg" name="message" placeholder="Describe tu planta o tu problema…" required></textarea>
-        </div>
-        <button class="btn btn-primary" type="submit">Enviar mensaje</button>
-        <p id="form-status" style="display:none; margin-top:10px; font-size:0.9rem;"></p>
-      </form>
-    </div>
+    </section>
   </div>
-</section>
 
-<footer>
-  <div class="container foot-inner">
-    <span>© <script>document.write(new Date().getFullYear());</script> Rony David Santiago Armas — Ingeniero Mecánico</span>
-    <span style="font-family:var(--font-mono); font-size:0.8rem; color:var(--muted);">Portafolio profesional · GitHub Pages</span>
-  </div>
-</footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 
-<div class="variant-switch" id="variant-switch">
-  <span>Diseño</span>
-  <button data-v="a" title="A — Cobalto industrial" aria-pressed="true">A</button>
-  <button data-v="b" title="B — Ámbar planta" aria-pressed="false">B</button>
-  <button data-v="c" title="C — Blueprint claro" aria-pressed="false">C</button>
-</div>
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
+  </script>
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-<div id="toast">✔ Mensaje enviado. Gracias por contactarme, te responderé pronto.</div>
+    // CONFIGURACIÓN: coloca aquí el número de WhatsApp del negocio, con código de país y sin + ni espacios.
+    // Ejemplo de formato: 584121234567. Déjalo vacío mientras no exista un número confirmado.
+    const CONFIG = { whatsapp: '' };
 
-<!-- ============ SCRIPTS ============ -->
-<script type="importmap">
-{"imports":{
-  "three":"https://unpkg.com/three@0.160.0/build/three.module.js",
-  "three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"
-}}
-</script>
-<script type="module">
-import * as THREE from 'three';
-import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+    const SITE = { lat: 8.5308889, lng: -71.2493333 };
+    const $ = (id) => document.getElementById(id);
+    const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    const makeId = () => (crypto?.randomUUID ? crypto.randomUUID() : `id-${Date.now()}-${Math.random().toString(16).slice(2)}`);
 
-/* ---------- theme / variants ---------- */
-const params = new URLSearchParams(location.search);
-const applyTheme = (v) => {
-  document.documentElement.dataset.theme = v;
-  document.querySelectorAll('.variant-switch button').forEach(b => {
-    const active = b.dataset.v === v;
-    b.classList.toggle('active', active);
-    b.setAttribute('aria-pressed', active);
-  });
-  if (typeof updateSceneTheme === 'function') updateSceneTheme(v);
-};
-
-// Declarar updateSceneTheme global para usarla antes de su definición
-let updateSceneTheme = () => {};
-
-document.querySelectorAll('.variant-switch button').forEach(b => {
-  b.addEventListener('click', () => {
-    applyTheme(b.dataset.v);
-    const u = new URL(location);
-    u.searchParams.set('v', b.dataset.v);
-    history.replaceState(null, '', u);
-  });
-});
-
-/* ---------- reveal on scroll ---------- */
-const io = new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) {
-    e.target.classList.add('visible');
-    io.unobserve(e.target);
-  }
-}), { threshold: .12 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-/* ---------- contact form ---------- */
-const contactForm = document.getElementById('contact-form');
-const formStatus = document.getElementById('form-status');
-contactForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const submitBtn = contactForm.querySelector('button[type="submit"]');
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Enviando...';
-  formStatus.style.display = 'none';
-  try {
-    const res = await fetch(contactForm.action, {
-      method: 'POST',
-      body: new FormData(contactForm),
-      headers: { 'Accept': 'application/json' }
+    // Menú responsive
+    $('navToggle').addEventListener('click', () => {
+      const open = $('navLinks').classList.toggle('open');
+      $('navToggle').setAttribute('aria-expanded', String(open));
+      $('navToggle').textContent = open ? '×' : '☰';
     });
-    if (res.ok) {
-      contactForm.reset();
-      formStatus.textContent = '✔ Mensaje enviado correctamente. Gracias.';
-      formStatus.style.color = 'var(--ok)';
-      formStatus.style.display = 'block';
-    } else {
-      throw new Error('Error en el envío');
+    document.querySelectorAll('#navLinks a').forEach(link => link.addEventListener('click', () => {
+      $('navLinks').classList.remove('open'); $('navToggle').setAttribute('aria-expanded', 'false'); $('navToggle').textContent = '☰';
+    }));
+    $('year').textContent = new Date().getFullYear();
+
+    // Animación de entrada moderada
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Mapa Leaflet
+    function initMap() {
+      const mapEl = $('location-map');
+      if (!window.L) { mapEl.innerHTML = '<div class="gallery-placeholder">No se pudo cargar el mapa. Usa el botón «Abrir mapa» para ver la ubicación.</div>'; return; }
+      const map = L.map(mapEl, { scrollWheelZoom: false }).setView([SITE.lat, SITE.lng], 16);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap' }).addTo(map);
+      const marker = L.marker([SITE.lat, SITE.lng]).addTo(map);
+      marker.bindPopup('<strong>Zona Rental The Warehouse</strong><br>Sector Calle Progreso, Ejido, Mérida.').openPopup();
+      setTimeout(() => map.invalidateSize(), 250);
     }
-  } catch (err) {
-    formStatus.textContent = '⚠ Hubo un problema. Intenta de nuevo o escribe a ronysantiago7@gmail.com';
-    formStatus.style.color = 'var(--danger)';
-    formStatus.style.display = 'block';
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Enviar mensaje';
-  }
-});
+    initMap();
 
-/* ================= DIGITAL TWIN ================= */
-const stage = document.getElementById('twin-stage');
-const canvas = document.getElementById('twin-canvas');
-const fallbackDiv = document.getElementById('webgl-fallback');
-let renderer, scene, camera, controls, grid;
-let riskTube, particles = [], flowCurve, flameMat;
-const steel = 0x93a3b3, iceColor = new THREE.Color(0x7dd3fc), steelColor = new THREE.Color(steel);
-
-// Verificar soporte WebGL
-function isWebGLAvailable() {
-  try {
-    const testCanvas = document.createElement('canvas');
-    return !!(window.WebGLRenderingContext && (testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl')));
-  } catch(e) {
-    return false;
-  }
-}
-
-if (!isWebGLAvailable()) {
-  fallbackDiv.style.display = 'flex';
-  canvas.style.display = 'none';
-  // No continuar con la inicialización de Three.js
-} else {
-  initThreeJS();
-}
-
-function initThreeJS() {
-  // simulation state
-  const sim = { demand: 180, p1: 8.4, t1: 27, t2: 5.3, f1: 180, frozen: false, freezeMix: 0 };
-  const T2_OF = d => 26 - 0.115 * d;
-
-  function buildScene() {
-    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(46, 1, .1, 100);
-    camera.position.set(7.5, 5.2, 9.5);
-    controls = new OrbitControls(camera, renderer.domElement);
-    controls.target.set(0, 1.1, 0);
-    controls.enableDamping = true; controls.dampingFactor = .06;
-    controls.minDistance = 5; controls.maxDistance = 20; controls.maxPolarAngle = 1.42;
-    controls.autoRotate = true; controls.autoRotateSpeed = .6;
-    renderer.domElement.addEventListener('pointerdown', () => controls.autoRotate = false, { once: true });
-
-    scene.add(new THREE.AmbientLight(0xffffff, .85));
-    const dir = new THREE.DirectionalLight(0xffffff, 1.4); dir.position.set(6, 10, 7); scene.add(dir);
-    const dir2 = new THREE.DirectionalLight(0x88aaff, .4); dir2.position.set(-6, 4, -6); scene.add(dir2);
-
-    grid = new THREE.GridHelper(30, 30, 0x3355aa, 0x223055);
-    grid.material.transparent = true; grid.material.opacity = .5; scene.add(grid);
-
-    const mat = c => new THREE.MeshStandardMaterial({ color: c, metalness: .55, roughness: .38 });
-
-    // Tanque
-    const tank = new THREE.Group();
-    const body = new THREE.Mesh(new THREE.CylinderGeometry(.8, .8, 2.6, 32), mat(0xd7dee8));
-    body.rotation.z = Math.PI / 2; tank.add(body);
-    [-1.3, 1.3].forEach(x => { const cap = new THREE.Mesh(new THREE.SphereGeometry(.8, 24, 16), mat(0xd7dee8)); cap.position.x = x; tank.add(cap); });
-    [-0.8, 0.8].forEach(x => { const leg = new THREE.Mesh(new THREE.BoxGeometry(.22, 1.2, 1.1), mat(0x5a6675)); leg.position.set(x, -.85, 0); tank.add(leg); });
-    tank.position.set(-6, 1.35, 0); scene.add(tank);
-
-    // Tuberías
-    const pipe = (pts, r, m) => {
-      const curve = new THREE.CatmullRomCurve3(pts.map(p => new THREE.Vector3(...p)));
-      return { mesh: new THREE.Mesh(new THREE.TubeGeometry(curve, 48, r, 14), m), curve };
+    // Utilidades 3D
+    const material = (color, roughness = .82, metalness = .08) => new THREE.MeshStandardMaterial({ color, roughness, metalness });
+    const box = (w, h, d, mat, x, y, z, parent, cast = true) => {
+      const mesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+      mesh.position.set(x, y, z); mesh.castShadow = cast; mesh.receiveShadow = true; parent.add(mesh); return mesh;
     };
-    const seg1 = pipe([[-4.7, 1.2, 0], [-3.2, 1.2, 0], [-1.85, 1.2, 0]], .13, mat(steel));
-    scene.add(seg1.mesh);
-    const riskMat = new THREE.MeshStandardMaterial({ color: steel, metalness: .55, roughness: .38, emissive: 0x000000 });
-    const seg2 = pipe([[-1.15, 1.2, 0], [0, 1.2, 0], [1.1, 1.2, 0]], .13, riskMat);
-    riskTube = riskMat; scene.add(seg2.mesh);
-    const seg3 = pipe([[1.5, 2.35, 0], [1.9, 2.5, 0], [3.4, 2.5, 0], [4.6, 2.5, 0], [4.9, 2.1, 0], [4.9, 1.7, 0]], .11, mat(steel));
-    scene.add(seg3.mesh);
+    const addTextLabel = (text, color = '#d6e1eb') => {
+      const canvas = document.createElement('canvas'); canvas.width = 512; canvas.height = 128;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = 'rgba(7,16,27,.82)'; ctx.fillRect(0, 0, 512, 128);
+      ctx.strokeStyle = '#f2a900'; ctx.lineWidth = 5; ctx.strokeRect(3, 3, 506, 122);
+      ctx.fillStyle = color; ctx.font = 'bold 42px Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(text, 256, 66, 470);
+      const texture = new THREE.CanvasTexture(canvas); texture.colorSpace = THREE.SRGBColorSpace;
+      const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: texture, transparent: true }));
+      sprite.scale.set(5.5, 1.38, 1); return sprite;
+    };
 
-    // Válvula
-    const valve = new THREE.Group();
-    const vb = new THREE.Mesh(new THREE.CylinderGeometry(.26, .26, .5, 18), mat(0x8a94a5));
-    vb.rotation.z = Math.PI / 2; valve.add(vb);
-    const stem = new THREE.Mesh(new THREE.CylinderGeometry(.05, .05, .5, 10), mat(0x5a6675));
-    stem.position.y = .35; valve.add(stem);
-    const wheel = new THREE.Mesh(new THREE.TorusGeometry(.22, .045, 10, 24), mat(0xc23b3b));
-    wheel.rotation.x = Math.PI / 2; wheel.position.y = .6; valve.add(wheel);
-    valve.position.set(-1.5, 1.2, 0); scene.add(valve);
+    const scenes = {};
+    function setupRenderer(stageId, canvasId, mode) {
+      const stage = $(stageId), canvas = $(canvasId);
+      try {
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        renderer.outputColorSpace = THREE.SRGBColorSpace;
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x101f30);
+        scene.fog = new THREE.Fog(0x101f30, 35, 90);
+        const camera = new THREE.PerspectiveCamera(42, 1, .1, 150);
+        camera.position.set(...(mode === 'zone' ? [28, 22, 31] : [10, 8, 12]));
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true; controls.dampingFactor = .06; controls.minDistance = 7; controls.maxDistance = 70; controls.maxPolarAngle = Math.PI * .49;
+        const hemi = new THREE.HemisphereLight(0xd8e8f5, 0x34404d, 2.0); scene.add(hemi);
+        const sun = new THREE.DirectionalLight(0xffe5bb, 2.2); sun.position.set(18, 30, 12); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); scene.add(sun);
+        const fill = new THREE.DirectionalLight(0x7eb9e5, .7); fill.position.set(-20, 10, -16); scene.add(fill);
+        const floor = new THREE.Mesh(new THREE.PlaneGeometry(mode === 'zone' ? 60 : 30, mode === 'zone' ? 50 : 28), material(0x697a87, 1, 0));
+        floor.rotation.x = -Math.PI / 2; floor.position.y = -.08; floor.receiveShadow = true; scene.add(floor);
+        const grid = new THREE.GridHelper(mode === 'zone' ? 60 : 30, mode === 'zone' ? 30 : 15, 0x758b9d, 0x506273);
+        grid.position.y = -.055; grid.material.transparent = true; grid.material.opacity = .22; scene.add(grid);
 
-    // Vaporizador
-    const vap = new THREE.Group();
-    const vbody = new THREE.Mesh(new THREE.CylinderGeometry(.5, .5, 2.1, 24), mat(0xb7c2cd));
-    vbody.position.y = 1.15; vap.add(vbody);
-    for (let i = 0; i < 5; i++) {
-      const fin = new THREE.Mesh(new THREE.TorusGeometry(.56, .035, 8, 28), mat(0x8a94a5));
-      fin.rotation.x = Math.PI / 2; fin.position.y = .5 + i * .4; vap.add(fin);
-    }
-    vap.position.set(1.5, 0, 0); scene.add(vap);
+        const selectable = [];
+        if (mode === 'zone') buildIndustrialSite(scene, selectable);
+        else buildWarehouse(scene);
 
-    // Horno
-    const fur = new THREE.Group();
-    fur.add(new THREE.Mesh(new THREE.BoxGeometry(1.7, 1.5, 1.7), mat(0x6b7684)));
-    flameMat = new THREE.MeshStandardMaterial({ color: 0xff8c2e, emissive: 0xff6a00, emissiveIntensity: 1 });
-    const flame = new THREE.Mesh(new THREE.PlaneGeometry(1.1, .9), flameMat);
-    flame.position.set(0, -.05, .86); fur.add(flame);
-    const chim = new THREE.Mesh(new THREE.CylinderGeometry(.16, .16, 1.3, 14), mat(0x5a6675));
-    chim.position.set(.45, 1.35, 0); fur.add(chim);
-    fur.position.set(5.6, .95, 0); scene.add(fur);
+        const raycaster = new THREE.Raycaster();
+        const pointer = new THREE.Vector2();
+        let down = null;
+        if (mode === 'zone') {
+          renderer.domElement.addEventListener('pointerdown', e => { down = { x: e.clientX, y: e.clientY }; });
+          renderer.domElement.addEventListener('pointerup', e => {
+            if (!down || Math.hypot(e.clientX - down.x, e.clientY - down.y) > 5) return;
+            const rect = renderer.domElement.getBoundingClientRect();
+            pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+            pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+            raycaster.setFromCamera(pointer, camera);
+            const hit = raycaster.intersectObjects(selectable, true)[0];
+            if (hit) {
+              let target = hit.object;
+              while (target && !target.userData.siteInfo) target = target.parent;
+              if (target?.userData.siteInfo) showZoneInfo(target.userData.siteInfo);
+            }
+          });
+        }
 
-    // Partículas
-    flowCurve = new THREE.CatmullRomCurve3([
-      new THREE.Vector3(-4.7, 1.2, 0), new THREE.Vector3(-1.5, 1.2, 0), new THREE.Vector3(1.1, 1.2, 0),
-      new THREE.Vector3(1.5, 1.6, 0), new THREE.Vector3(1.5, 2.35, 0), new THREE.Vector3(3.4, 2.5, 0),
-      new THREE.Vector3(4.9, 2.1, 0), new THREE.Vector3(4.9, 1.7, 0)
-    ]);
-    const pGeo = new THREE.SphereGeometry(.055, 8, 8);
-    for (let i = 0; i < 26; i++) {
-      const m = new THREE.MeshBasicMaterial({ color: 0x9adcff });
-      const p = new THREE.Mesh(pGeo, m);
-      p.userData.t = i / 26;
-      particles.push(p); scene.add(p);
-    }
-
-    updateSceneTheme(document.documentElement.dataset.theme);
-    resize();
-  }
-
-  updateSceneTheme = (v) => {
-    if (!grid) return;
-    if (v === 'c') { grid.material.color = new THREE.Color(0x3b6bd8); grid.material.opacity = .35; }
-    else if (v === 'b') { grid.material.color = new THREE.Color(0xa87b3a); grid.material.opacity = .45; }
-    else { grid.material.color = new THREE.Color(0x3d5fa8); grid.material.opacity = .5; }
-  };
-
-  function resize() {
-    const w = stage.clientWidth, h = stage.clientHeight;
-    if (!w || !h) return;
-    renderer.setSize(w, h, false);
-    camera.aspect = w / h; camera.updateProjectionMatrix();
-  }
-  const ro = new ResizeObserver(() => {
-    resize();
-    renderer.render(scene, camera);
-  });
-  ro.observe(stage);
-
-  // Sensores DOM
-  const sensors = [
-    { id: 'P1', kpi: 'kpi-p1', pos: new THREE.Vector3(-6, 2.5, 0), fmt: () => sim.p1.toFixed(1) + ' bar' },
-    { id: 'T1', kpi: 'kpi-t1', pos: new THREE.Vector3(-2.9, 1.65, 0), fmt: () => sim.t1.toFixed(1) + ' °C' },
-    { id: 'T2', kpi: 'kpi-t2', pos: new THREE.Vector3(-.2, 1.35, 0), fmt: () => sim.t2.toFixed(1) + ' °C', alarmable: true },
-    { id: 'F1', kpi: 'kpi-f1', pos: new THREE.Vector3(3.4, 3, 0), fmt: () => Math.round(sim.f1) + ' kg/h' }
-  ];
-  sensors.forEach(s => {
-    const el = document.createElement('div');
-    el.className = 'sensor-tag'; el.textContent = s.id;
-    el.addEventListener('click', () => {
-      const k = document.getElementById(s.kpi);
-      k.classList.add('pulse'); setTimeout(() => k.classList.remove('pulse'), 1600);
-      k.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
-    stage.appendChild(el); s.el = el;
-  });
-  const v3 = new THREE.Vector3();
-  function placeSensors() {
-    const w = stage.clientWidth, h = stage.clientHeight;
-    sensors.forEach(s => {
-      v3.copy(s.pos).project(camera);
-      const behind = v3.z > 1;
-      s.el.style.display = behind ? 'none' : 'block';
-      if (!behind) {
-        s.el.style.left = (v3.x * .5 + .5) * w + 'px';
-        s.el.style.top = (-v3.y * .5 + .5) * h + 'px';
-        s.el.textContent = `${s.id} · ${s.fmt()}`;
-        s.el.classList.toggle('alarm', !!s.alarmable && sim.frozen);
+        const resize = () => {
+          const w = Math.max(stage.clientWidth, 1), h = Math.max(stage.clientHeight, 1);
+          renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
+        };
+        const ro = new ResizeObserver(resize); ro.observe(stage); resize();
+        let active = true;
+        const visibility = new IntersectionObserver(entries => { active = entries[0].isIntersecting; }, { threshold: .02 }); visibility.observe(stage);
+        const animate = () => {
+          requestAnimationFrame(animate);
+          if (!active) return;
+          controls.update(); renderer.render(scene, camera);
+        };
+        animate();
+        scenes[mode] = { camera, controls, stage, renderer };
+      } catch (error) {
+        console.error(`No fue posible iniciar el visor ${mode}:`, error);
+        stage.innerHTML = '<div class="gallery-placeholder" style="height:100%;color:#d5e0e9;background:transparent"><div><span>◈</span><strong>Visor 3D no disponible</strong><br><small>Verifica tu conexión y que el navegador permita WebGL.</small></div></div>';
       }
+    }
+
+    function buildIndustrialSite(scene, selectable) {
+      const asphalt = material(0x333e49), line = material(0xf0cf75), concrete = material(0x9aa6ae), fence = material(0x607487), green = material(0x526b57);
+      // Vía interna conceptual, separadores y accesos.
+      box(54, .08, 6, asphalt, 0, .02, 0, scene, false);
+      for (let x = -25; x <= 25; x += 5) box(2.2, .015, .09, line, x, .07, 0, scene, false);
+      box(54, .12, 1.2, concrete, 0, .02, 4.1, scene, false);
+      box(54, .12, 1.2, concrete, 0, .02, -4.1, scene, false);
+      // Bordes verdes decorativos.
+      box(54, .12, 1.5, green, 0, .02, 22.5, scene, false);
+      box(54, .12, 1.5, green, 0, .02, -22.5, scene, false);
+      // Distribución deliberadamente esquemática: no corresponde a un plano topográfico.
+      const positions = [
+        [-17, -11, 'Módulo demostrativo 01'], [0, -11, 'Módulo demostrativo 02'], [17, -11, 'Módulo demostrativo 03'],
+        [-17, 11, 'Módulo demostrativo 04'], [0, 11, 'Módulo demostrativo 05'], [17, 11, 'Módulo demostrativo 06']
+      ];
+      positions.forEach(([x, z, name], index) => {
+        const group = new THREE.Group(); group.position.set(x, 0, z); group.userData.siteInfo = { name, description: 'Elemento de ejemplo de la maqueta. La identificación, dimensiones y disponibilidad reales deben ser incorporadas por la administración.' };
+        const bodyMat = material(index % 2 ? 0x9daab5 : 0x8799a7, .72, .18);
+        const roofMat = material(0x344a5d, .68, .2);
+        box(9, 4.2, 7.2, bodyMat, 0, 2.1, 0, group);
+        box(9.5, .32, 7.7, roofMat, 0, 4.32, 0, group);
+        // Costillas y frontón de acceso.
+        for (let rib = -3.5; rib <= 3.5; rib += 1.4) box(.07, 4.05, .08, material(0x64798b), rib, 2.1, 3.63, group, false);
+        box(2.7, 2.9, .16, material(0x263847), 0, 1.52, 3.7, group);
+        for (let y = .35; y < 2.8; y += .36) box(2.7, .055, .18, material(0x71818d), 0, y, 3.8, group, false);
+        box(2.2, .22, .35, material(0xf2a900), 0, 3.12, 3.84, group, false);
+        // Ventanas laterales sencillas.
+        for (let wx of [-3.3, 3.3]) box(.1, .8, .9, material(0x31566e, .25, .15), wx, 2.6, -3.66, group, false);
+        const label = addTextLabel(`MÓDULO ${String(index + 1).padStart(2, '0')}`, '#ffe4a8');
+        label.position.set(0, 5.4, .1); group.add(label);
+        scene.add(group); selectable.push(group);
+      });
+      // Luminarias y cerramiento esquemático.
+      for (let x of [-26, 26]) {
+        box(.18, 2.8, .18, fence, x, 1.4, 0, scene);
+        box(.55, .16, .55, material(0xf2a900, .3), x, 2.85, 0, scene);
+      }
+      box(52, .08, .12, fence, 0, 1.25, 24.5, scene, false);
+      box(52, .08, .12, fence, 0, 1.25, -24.5, scene, false);
+    }
+
+    function buildWarehouse(scene) {
+      const wall = material(0x8d9da9, .76, .16), dark = material(0x2a3d50, .72, .16), roof = material(0x42596d, .62, .2), floor = material(0xadb7bd, .95, 0), amber = material(0xf2a900, .48, .1);
+      // Piso y losa interior.
+      box(20, .22, 16, floor, 0, .08, 0, scene, false);
+      // Paredes laterales y pared trasera; frente parcialmente abierto para ver el interior.
+      box(.3, 7, 15.5, wall, -9.4, 3.6, 0, scene);
+      box(.3, 7, 15.5, wall, 9.4, 3.6, 0, scene);
+      box(19, 7, .3, wall, 0, 3.6, -7.6, scene);
+      box(19, .3, .3, wall, 0, .25, 7.6, scene, false);
+      // Estructura del techo y cerchas.
+      box(19.2, .28, 15.8, roof, 0, 7.25, 0, scene);
+      for (let x = -8; x <= 8; x += 4) {
+        box(.16, 6.9, .16, dark, x, 3.65, -7.2, scene);
+        box(.16, 6.9, .16, dark, x, 3.65, 7.2, scene);
+        const beam = new THREE.Mesh(new THREE.BoxGeometry(.14, .14, 15), amber); beam.position.set(x, 6.6, 0); beam.castShadow = true; scene.add(beam);
+      }
+      // Portón enrollable y señalización.
+      box(6, 5.5, .15, dark, 0, 3.05, 7.72, scene, false);
+      for (let y = .5; y < 5.8; y += .35) box(6, .045, .18, material(0x758692), 0, y, 7.84, scene, false);
+      box(6.5, .2, .35, amber, 0, 6.0, 7.9, scene, false);
+      // Ventanas altas de la parte posterior.
+      for (let x of [-6, -3, 3, 6]) box(1.4, .75, .08, material(0x31566e, .28, .2), x, 5.6, -7.78, scene, false);
+      // Estanterías de almacenamiento.
+      for (let side of [-1, 1]) {
+        const rack = new THREE.Group();
+        for (let z = -4.8; z <= 4.8; z += 2.4) {
+          box(.16, 4.6, .16, dark, side * 6.7, 2.5, z, rack);
+          box(.16, 4.6, .16, dark, side * 8.1, 2.5, z, rack);
+        }
+        for (let y of [1.1, 2.5, 3.9]) box(1.55, .14, 10, amber, side * 7.4, y, 0, rack);
+        for (let z = -3.8; z <= 3.8; z += 2.5) {
+          const cargo = material(z % 2 ? 0x8c9eaa : 0x657e91);
+          box(1.05, .9, 1.1, cargo, side * 7.4, 1.65, z, rack);
+          box(1.05, .9, 1.1, cargo, side * 7.4, 3.05, z, rack);
+        }
+        scene.add(rack);
+      }
+      // Palés y zona de maniobra.
+      for (let i = 0; i < 3; i++) {
+        const crate = box(1.35, 1.2, 1.35, material(0x9c7952), -1.8 + i * 1.8, .8, -3.4, scene);
+        crate.rotation.y = .05 * i;
+      }
+      const stripe = material(0xf2a900, .55, 0);
+      box(.12, .025, 5.4, stripe, -3.7, .22, 3.2, scene, false);
+      box(.12, .025, 5.4, stripe, 3.7, .22, 3.2, scene, false);
+      const title = addTextLabel('GALPÓN · MODELO DE REFERENCIA', '#ffe4a8'); title.position.set(0, 9, -7); title.scale.set(8, 2, 1); scene.add(title);
+    }
+
+    function showZoneInfo(info) {
+      $('zoneSelectedTitle').textContent = info.name;
+      $('zoneSelectedText').textContent = info.description;
+    }
+
+    setupRenderer('zoneStage', 'zoneCanvas', 'zone');
+    setupRenderer('warehouseStage', 'warehouseCanvas', 'warehouse');
+
+    // Cambios de cámara de los visores.
+    document.querySelectorAll('[data-camera]').forEach(button => button.addEventListener('click', () => {
+      const scene = scenes[button.dataset.camera]; if (!scene) return;
+      const view = button.dataset.view;
+      if (button.dataset.camera === 'zone') {
+        const presets = {
+          overview: [28, 22, 31], top: [0, 42, .1], front: [0, 12, 38]
+        };
+        scene.camera.position.set(...presets[view]); scene.controls.target.set(0, 0, 0);
+      } else {
+        const presets = {
+          overview: [10, 8, 12], inside: [0, 4.5, 12], front: [0, 5, 19]
+        };
+        scene.camera.position.set(...presets[view]); scene.controls.target.set(0, 2, 0);
+      }
+      scene.controls.update();
+    }));
+
+    // Almacenamiento local IndexedDB: persistencia en este navegador únicamente.
+    const DB_NAME = 'theWarehouseDemoDB';
+    const DB_VERSION = 1;
+    let dbPromise;
+    function openDB() {
+      if (dbPromise) return dbPromise;
+      dbPromise = new Promise((resolve, reject) => {
+        if (!('indexedDB' in window)) { reject(new Error('IndexedDB no está disponible en este navegador.')); return; }
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+        request.onupgradeneeded = () => {
+          const db = request.result;
+          ['spaces', 'photos', 'leads'].forEach(store => { if (!db.objectStoreNames.contains(store)) db.createObjectStore(store, { keyPath: 'id' }); });
+        };
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error || new Error('No se pudo abrir la base de datos local.'));
+      });
+      return dbPromise;
+    }
+    async function dbAction(storeName, method, value) {
+      const db = await openDB();
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(storeName, method === 'getAll' ? 'readonly' : 'readwrite');
+        const store = tx.objectStore(storeName);
+        let req;
+        if (method === 'getAll') req = store.getAll();
+        else if (method === 'put') req = store.put(value);
+        else if (method === 'delete') req = store.delete(value);
+        else { reject(new Error('Operación local no reconocida.')); return; }
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error || new Error('Error de almacenamiento.'));
+      });
+    }
+    const getAll = store => dbAction(store, 'getAll');
+    const put = (store, value) => dbAction(store, 'put', value);
+    const remove = (store, id) => dbAction(store, 'delete', id);
+
+    let spacesCache = [], photosCache = [], leadsCache = [], objectUrls = [];
+    async function refreshData() {
+      try {
+        [spacesCache, photosCache, leadsCache] = await Promise.all([getAll('spaces'), getAll('photos'), getAll('leads')]);
+        renderPublicSpaces(); renderPublicGallery(); renderAdmin();
+      } catch (error) {
+        console.error(error);
+        $('publicSpaces').innerHTML = '<div class="empty-state"><strong>No se pudo leer el almacenamiento local.</strong>Revisa la configuración del navegador.</div>';
+      }
+    }
+    function formatStatus(status) {
+      const cls = status === 'Disponible' ? 'available' : status === 'Alquilado' ? 'occupied' : 'maintenance';
+      return `<span class="status ${cls}">${escapeHTML(status)}</span>`;
+    }
+    function renderPublicSpaces() {
+      const sorted = [...spacesCache].sort((a, b) => a.name.localeCompare(b.name, 'es'));
+      if (!sorted.length) {
+        $('publicSpaces').innerHTML = '<div class="empty-state"><strong>Aún no hay espacios publicados.</strong>La administración podrá incorporar aquí los galpones y su disponibilidad.</div>';
+        return;
+      }
+      $('publicSpaces').innerHTML = sorted.map(space => `
+        <article class="space-card">
+          <div class="space-card-top"><span class="space-icon">🏭</span>${formatStatus(space.status)}</div>
+          <h3>${escapeHTML(space.name)}</h3>
+          <p>${escapeHTML(space.publicDescription || 'Consulta con la administración para conocer las características de este espacio.')}</p>
+          <div class="space-meta"><span>${space.area ? `${escapeHTML(space.area)} m² aprox.` : 'Área por confirmar'}</span><a class="text-link" href="#contacto">Consultar →</a></div>
+        </article>`).join('');
+    }
+    function clearObjectUrls() { objectUrls.forEach(url => URL.revokeObjectURL(url)); objectUrls = []; }
+    function renderPublicGallery() {
+      clearObjectUrls();
+      if (!photosCache.length) {
+        $('publicGallery').innerHTML = `
+          <div class="gallery-item"><div class="gallery-placeholder"><div><span>📷</span><strong>Fotografías pendientes</strong><br><small>La galería se actualizará desde el panel administrativo.</small></div></div></div>
+          <div class="gallery-item"><div class="gallery-placeholder"><div><span>🏭</span><strong>Instalaciones</strong><br><small>Agrega imágenes reales del complejo.</small></div></div></div>
+          <div class="gallery-item"><div class="gallery-placeholder"><div><span>🚚</span><strong>Áreas de operación</strong><br><small>Contenido fotográfico por incorporar.</small></div></div></div>`;
+        return;
+      }
+      $('publicGallery').innerHTML = photosCache.slice().sort((a,b) => b.createdAt - a.createdAt).map(photo => {
+        const url = URL.createObjectURL(photo.blob); objectUrls.push(url);
+        return `<figure class="gallery-item"><img src="${url}" alt="${escapeHTML(photo.caption || 'Fotografía de The Warehouse')}" loading="lazy"><figcaption class="gallery-caption">${escapeHTML(photo.caption || 'Zona Rental The Warehouse')}</figcaption></figure>`;
+      }).join('');
+    }
+
+    // Panel administrativo
+    const overlay = $('adminOverlay');
+    function openAdmin() { overlay.hidden = false; document.body.classList.add('modal-open'); refreshData(); $('adminClose').focus(); }
+    function closeAdmin() { overlay.hidden = true; document.body.classList.remove('modal-open'); }
+    $('adminClose').addEventListener('click', closeAdmin);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeAdmin(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !overlay.hidden) closeAdmin(); });
+    $('galleryAdminBtn').addEventListener('click', () => { openAdmin(); activateTab('photosPane'); });
+    // Atajo temporal para abrir el panel: Alt + A. Se añade un enlace discreto al pie.
+    const adminFooterLink = document.createElement('button');
+    adminFooterLink.type = 'button'; adminFooterLink.textContent = 'Administración'; adminFooterLink.className = 'small-btn';
+    adminFooterLink.style.cssText = 'background:transparent;border-color:rgba(255,255,255,.18);color:#aebccc';
+    adminFooterLink.addEventListener('click', openAdmin); document.querySelector('.footer-inner').append(adminFooterLink);
+    document.addEventListener('keydown', e => { if (e.altKey && e.key.toLowerCase() === 'a') openAdmin(); });
+
+    function activateTab(id) {
+      document.querySelectorAll('.admin-tab').forEach(tab => {
+        const active = tab.dataset.tab === id; tab.classList.toggle('active', active); tab.setAttribute('aria-selected', String(active));
+      });
+      document.querySelectorAll('.admin-pane').forEach(pane => pane.hidden = pane.id !== id);
+    }
+    document.querySelectorAll('.admin-tab').forEach(tab => tab.addEventListener('click', () => activateTab(tab.dataset.tab)));
+
+    function renderAdmin() {
+      const available = spacesCache.filter(s => s.status === 'Disponible').length;
+      const occupied = spacesCache.filter(s => s.status === 'Alquilado').length;
+      $('statTotal').textContent = spacesCache.length; $('statAvailable').textContent = available; $('statOccupied').textContent = occupied;
+      $('adminSpacesList').innerHTML = spacesCache.length ? [...spacesCache].sort((a,b) => a.name.localeCompare(b.name, 'es')).map(space => `
+        <div class="admin-list-item"><div><strong>${escapeHTML(space.name)} · ${escapeHTML(space.status)}</strong><small>${space.area ? `${escapeHTML(space.area)} m²` : 'Área no indicada'}${space.tenant ? ` · ${escapeHTML(space.tenant)}` : ''}</small></div>
+        <div class="admin-actions"><button class="small-btn" type="button" data-edit-space="${escapeHTML(space.id)}">Editar</button><button class="small-btn danger" type="button" data-delete-space="${escapeHTML(space.id)}">Eliminar</button></div></div>`).join('') : '<div class="empty-state">Aún no hay espacios registrados.</div>';
+      $('adminGallery').innerHTML = photosCache.length ? photosCache.slice().sort((a,b) => b.createdAt - a.createdAt).map(photo => {
+        const url = URL.createObjectURL(photo.blob); objectUrls.push(url);
+        return `<div class="admin-photo"><img src="${url}" alt="${escapeHTML(photo.caption || 'Fotografía')}" loading="lazy"><button type="button" data-delete-photo="${escapeHTML(photo.id)}">Eliminar imagen</button></div>`;
+      }).join('') : '<div class="empty-state" style="grid-column:1/-1">No hay fotografías cargadas.</div>';
+      $('adminLeadsList').innerHTML = leadsCache.length ? [...leadsCache].sort((a,b) => b.createdAt - a.createdAt).map(lead => `
+        <article class="admin-lead"><strong>${escapeHTML(lead.name)}${lead.company ? ` · ${escapeHTML(lead.company)}` : ''}</strong><p>${escapeHTML(lead.message || lead.interest || 'Sin mensaje adicional')}</p><small>${escapeHTML(lead.email)} · ${new Date(lead.createdAt).toLocaleString('es-VE')}</small></article>`).join('') : '<div class="empty-state">Todavía no hay solicitudes locales.</div>';
+    }
+
+    function resetSpaceForm() {
+      $('spaceForm').reset(); $('spaceId').value = ''; $('spaceFormTitle').textContent = 'Registrar espacio'; $('spaceSubmit').textContent = 'Guardar espacio'; $('spaceCancel').hidden = true;
+    }
+    $('spaceCancel').addEventListener('click', resetSpaceForm);
+    $('spaceForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const id = $('spaceId').value || makeId();
+      const old = spacesCache.find(s => s.id === id);
+      const record = {
+        id, name: $('spaceName').value.trim(), area: $('spaceArea').value ? Number($('spaceArea').value) : null,
+        status: $('spaceStatus').value, tenant: $('spaceTenant').value.trim(), rentDate: $('spaceDate').value,
+        notes: $('spaceNotes').value.trim(), publicDescription: old?.publicDescription || '', createdAt: old?.createdAt || Date.now(), updatedAt: Date.now()
+      };
+      if (!record.name) return;
+      try { await put('spaces', record); resetSpaceForm(); await refreshData(); }
+      catch (error) { alert(`No se pudo guardar el espacio: ${error.message}`); }
     });
-  }
-
-  const clock = new THREE.Clock();
-  let running = true;
-  const stageObserver = new IntersectionObserver(es => { running = es[0].isIntersecting; }, { threshold: .05 });
-  stageObserver.observe(stage);
-
-  function animate() {
-    requestAnimationFrame(animate);
-    if (!running || !renderer) return;
-    const dt = clock.getDelta();
-    controls.update();
-    const speed = .02 + sim.demand / 400 * .10;
-    const pc = sim.frozen ? new THREE.Color(0xbfe8ff) : new THREE.Color(0x9adcff);
-    particles.forEach(p => {
-      p.userData.t = (p.userData.t + speed * dt) % 1;
-      flowCurve.getPointAt(p.userData.t, p.position);
-      p.material.color.copy(pc);
+    $('adminSpacesList').addEventListener('click', async e => {
+      const editId = e.target.dataset.editSpace, deleteId = e.target.dataset.deleteSpace;
+      if (editId) {
+        const s = spacesCache.find(item => item.id === editId); if (!s) return;
+        $('spaceId').value = s.id; $('spaceName').value = s.name; $('spaceArea').value = s.area ?? ''; $('spaceStatus').value = s.status;
+        $('spaceTenant').value = s.tenant || ''; $('spaceDate').value = s.rentDate || ''; $('spaceNotes').value = s.notes || '';
+        $('spaceFormTitle').textContent = `Editar: ${s.name}`; $('spaceSubmit').textContent = 'Actualizar espacio'; $('spaceCancel').hidden = false;
+        $('spaceForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      if (deleteId && confirm('¿Eliminar este registro de espacio?')) { await remove('spaces', deleteId); await refreshData(); }
     });
-    const target = sim.frozen ? 1 : 0;
-    sim.freezeMix += (target - sim.freezeMix) * Math.min(dt * 2.5, 1);
-    riskTube.color.copy(steelColor).lerp(iceColor, sim.freezeMix);
-    riskTube.emissive.setRGB(.1 * sim.freezeMix, .25 * sim.freezeMix, .4 * sim.freezeMix);
-    if (flameMat) flameMat.emissiveIntensity = .5 + sim.demand / 400 * 1.6 + Math.sin(clock.elapsedTime * 9) * .15;
-    placeSensors();
-    renderer.render(scene, camera);
-  }
 
-  // Telemetría y dashboard
-  const $ = id => document.getElementById(id);
-  const chart = $('chart'); const ctx = chart.getContext('2d');
-  const history = [];
-  function drawChart() {
-    const dpr = Math.min(window.devicePixelRatio, 2);
-    const w = chart.clientWidth, h = chart.clientHeight;
-    if (chart.width !== w * dpr) { chart.width = w * dpr; chart.height = h * dpr; }
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, w, h);
-    const css = getComputedStyle(document.documentElement);
-    const accent = css.getPropertyValue('--accent').trim();
-    const danger = css.getPropertyValue('--danger').trim();
-    const border = css.getPropertyValue('--border').trim();
-    const muted = css.getPropertyValue('--muted').trim();
-    const lo = -25, hi = 35, y = v => h - ((v - lo) / (hi - lo)) * h;
-    ctx.strokeStyle = border; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(0, y(0)); ctx.lineTo(w, y(0)); ctx.stroke(); ctx.setLineDash([]);
-    ctx.fillStyle = muted; ctx.font = '10px Courier New'; ctx.fillText('0 °C', 4, y(0) - 4);
-    if (history.length < 2) return;
-    ctx.lineWidth = 2; ctx.lineJoin = 'round';
-    ctx.beginPath();
-    history.forEach((v, i) => {
-      const x = i / (60 - 1) * w;
-      i ? ctx.lineTo(x, y(v)) : ctx.moveTo(x, y(v));
+    $('photoForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const files = [...$('photoFiles').files];
+      const caption = $('photoCaption').value.trim();
+      if (!files.length) return;
+      const invalid = files.find(file => !['image/jpeg','image/png','image/webp'].includes(file.type));
+      if (invalid) { alert('Selecciona solamente imágenes JPG, PNG o WEBP.'); return; }
+      try {
+        for (const file of files) {
+          if (file.size > 12 * 1024 * 1024) throw new Error(`${file.name} supera el límite recomendado de 12 MB.`);
+          await put('photos', { id: makeId(), caption: caption || file.name, fileName: file.name, blob: file, createdAt: Date.now() });
+        }
+        $('photoForm').reset(); await refreshData();
+      } catch (error) { alert(`No se pudieron guardar las imágenes: ${error.message}`); }
     });
-    ctx.strokeStyle = history[history.length - 1] < 0 ? danger : accent;
-    ctx.stroke();
-  }
+    $('adminGallery').addEventListener('click', async e => {
+      const id = e.target.dataset.deletePhoto;
+      if (id && confirm('¿Eliminar esta fotografía?')) { await remove('photos', id); await refreshData(); }
+    });
 
-  function tick() {
-    const d = sim.demand, n = () => Math.random() - .5;
-    sim.p1 = 8.4 + n() * .15;
-    sim.t1 = 27 + n() * .9;
-    sim.t2 = T2_OF(d) + n() * 1.2;
-    sim.f1 = d * (1 + n() * .02);
-    sim.frozen = sim.t2 < 0;
-    $('kpi-p1').querySelector('b').textContent = sim.p1.toFixed(1);
-    $('kpi-t1').querySelector('b').textContent = sim.t1.toFixed(1);
-    $('kpi-t2').querySelector('b').textContent = sim.t2.toFixed(1);
-    $('kpi-f1').querySelector('b').textContent = Math.round(sim.f1);
-    $('kpi-t2').classList.toggle('alarm', sim.frozen);
-    const pill = $('status-pill');
-    pill.classList.toggle('warn', sim.frozen);
-    $('status-txt').textContent = sim.frozen ? 'RIESGO DE CONGELAMIENTO' : 'OPERACIÓN NORMAL';
-    const ins = $('insight');
-    ins.classList.toggle('alarm', sim.frozen);
-    ins.innerHTML = sim.frozen
-      ? '<b>⚠ El gemelo anticipa la falla.</b> La expansión Joule-Thomson lleva T2 bajo 0 °C: se formará escarcha e hidratos aguas abajo de la válvula. <b>Recomendación:</b> añadir capacidad de vaporización o precalentar la línea antes de subir la demanda.'
-      : '<b>Estado nominal.</b> La expansión en la válvula reduce la temperatura, pero se mantiene sobre el punto de congelamiento. Margen disponible antes del límite: <b>' + Math.max(0, Math.round((26 / 0.115) - sim.demand)) + ' kg/h</b>.';
-    history.push(sim.t2); if (history.length > 60) history.shift();
-    drawChart();
-  }
+    // Formulario comercial de demostración: guarda el registro local y prepara el mensaje.
+    $('contactForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const lead = {
+        id: makeId(), name: $('leadName').value.trim(), company: $('leadCompany').value.trim(), email: $('leadEmail').value.trim(),
+        interest: $('leadInterest').value, message: $('leadMessage').value.trim(), createdAt: Date.now()
+      };
+      const message = [
+        'Consulta desde la web de Zona Rental The Warehouse',
+        `Nombre: ${lead.name}`, `Empresa: ${lead.company || 'No indicada'}`, `Correo: ${lead.email}`,
+        `Interés: ${lead.interest}`, `Mensaje: ${lead.message || 'Sin mensaje adicional'}`
+      ].join('\n');
+      try { await put('leads', lead); await refreshData(); } catch (error) { console.warn('No se pudo guardar el registro local:', error); }
+      const status = $('contactStatus');
+      if (CONFIG.whatsapp.trim()) {
+        const url = `https://wa.me/${CONFIG.whatsapp.trim()}?text=${encodeURIComponent(message)}`;
+        window.location.href = url;
+        status.textContent = 'Se abrió WhatsApp con tu mensaje preparado. Debes enviarlo desde esa aplicación.';
+      } else {
+        try { await navigator.clipboard.writeText(message); status.textContent = 'Mensaje copiado. Esta demo no envía la solicitud en línea; compártelo por el canal de contacto de la administración.'; }
+        catch { status.textContent = 'Solicitud registrada localmente en este navegador. Configura un número de WhatsApp o un servidor para recibirla en línea.'; }
+      }
+      status.style.display = 'block';
+      $('contactForm').reset();
+    });
 
-  const slider = $('demand');
-  const setFill = () => { slider.style.setProperty('--fill', ((slider.value - 50) / (400 - 50) * 100) + '%'); };
-  slider.addEventListener('input', () => {
-    sim.demand = +slider.value;
-    $('demand-val').textContent = slider.value + ' kg/h';
-    setFill(); tick();
-  });
-  setFill();
-
-  buildScene();
-  animate();
-  tick();
-  setInterval(tick, 700);
-}
-
-// Aplicar tema inicial al cargar
-applyTheme(['a', 'b', 'c'].includes(params.get('v')) ? params.get('v') : 'a');
-</script>
+    // Inicializa los datos locales y dibuja la página.
+    refreshData();
+  </script>
 </body>
 </html>
