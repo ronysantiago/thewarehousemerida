@@ -3,12 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b1421">
-  <meta name="description" content="Conoce Zona Rental The Warehouse Mérida: ubicación, espacios industriales, recorridos 3D y contacto comercial.">
+  <meta name="theme-color" content="#080d16">
+  <meta name="description" content="Conoce Zona Rental The Warehouse en Ejido, Mérida: ubicación, espacios industriales y recorrido 3D del complejo.">
   <title>Zona Rental The Warehouse | Mérida</title>
-
-  <!-- Leaflet: mapa interactivo -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 
   <style>
     :root {
@@ -21,11 +18,11 @@
       --text: #182536;
       --muted: #64748b;
       --line: #dce4ec;
-      --accent: #f2a900;
-      --accent-2: #ffc247;
-      --accent-ink: #241900;
+      --accent: #2563eb;
+      --accent-2: #60a5fa;
+      --accent-ink: #ffffff;
       --good: #15805d;
-      --warn: #b7791f;
+      --warn: #2563eb;
       --bad: #b93838;
       --radius: 18px;
       --shadow: 0 18px 50px rgba(16, 27, 42, .12);
@@ -52,7 +49,7 @@
     .section-soft { background: #eaf0f5; }
     .eyebrow {
       display: inline-flex; align-items: center; gap: 10px; margin-bottom: 13px;
-      color: #a66e00; font-size: .76rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase;
+      color: #1d4ed8; font-size: .76rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase;
     }
     .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--accent); }
     h1, h2, h3, p { margin-top: 0; }
@@ -67,26 +64,26 @@
       font-weight: 800; transition: transform .18s ease, background .18s ease, border-color .18s ease;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-primary { color: var(--accent-ink); background: var(--accent); box-shadow: 0 8px 24px rgba(242,169,0,.22); }
+    .btn-primary { color: var(--accent-ink); background: var(--accent); box-shadow: 0 8px 24px rgba(37,99,235,.22); }
     .btn-primary:hover { background: var(--accent-2); }
     .btn-dark { color: #fff; background: var(--ink); }
     .btn-dark:hover { background: var(--ink-3); }
     .btn-outline { color: var(--text); background: transparent; border-color: var(--line); }
-    .btn-outline:hover { border-color: var(--accent); background: rgba(242,169,0,.08); }
-    .text-link { display: inline-flex; align-items: center; gap: 8px; color: #8a5a00; font-weight: 800; }
+    .btn-outline:hover { border-color: var(--accent); background: rgba(37,99,235,.08); }
+    .text-link { display: inline-flex; align-items: center; gap: 8px; color: #1d4ed8; font-weight: 800; }
 
     /* Navegación */
     .site-header {
       position: sticky; top: 0; z-index: 1000; color: #fff;
-      background: rgba(11,20,33,.92); border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(7,12,22,.94); border-bottom: 1px solid rgba(255,255,255,.08);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     }
     .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .brand { display: inline-flex; align-items: center; gap: 12px; min-width: 230px; color: #fff; }
     .brand-mark {
       display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 auto;
-      border-radius: 12px; color: var(--accent-ink); background: linear-gradient(140deg, var(--accent-2), #df9200);
-      box-shadow: 0 7px 20px rgba(242,169,0,.22);
+      border-radius: 12px; color: var(--accent-ink); background: linear-gradient(140deg, var(--accent-2), #1d4ed8);
+      box-shadow: 0 7px 20px rgba(37,99,235,.22);
     }
     .brand-mark svg { width: 25px; height: 25px; }
     .brand-name { display: block; font-size: .98rem; font-weight: 900; line-height: 1.1; letter-spacing: -.02em; }
@@ -100,9 +97,9 @@
     .hero {
       position: relative; overflow: hidden; color: #fff; padding: 100px 0 78px;
       background:
-        radial-gradient(ellipse at 80% 12%, rgba(242,169,0,.17), transparent 34%),
+        radial-gradient(ellipse at 80% 12%, rgba(37,99,235,.20), transparent 34%),
         radial-gradient(ellipse at 10% 90%, rgba(59,130,175,.18), transparent 40%),
-        linear-gradient(120deg, #0b1421 0%, #122339 58%, #192e43 100%);
+        linear-gradient(120deg, #070b12 0%, #101d31 58%, #17345a 100%);
     }
     .hero::after {
       position: absolute; inset: 0; pointer-events: none; content: ""; opacity: .22;
@@ -118,20 +115,20 @@
     .hero .btn-outline { color: #edf3f8; border-color: rgba(255,255,255,.24); }
     .hero .btn-outline:hover { background: rgba(255,255,255,.08); border-color: var(--accent); }
     .hero-note { display: flex; align-items: center; gap: 10px; margin-top: 26px; color: #adbdcc; font-size: .84rem; }
-    .hero-note .pin { display: grid; place-items: center; width: 27px; height: 27px; color: var(--accent); border-radius: 50%; background: rgba(242,169,0,.13); }
+    .hero-note .pin { display: grid; place-items: center; width: 27px; height: 27px; color: var(--accent); border-radius: 50%; background: rgba(37,99,235,.13); }
     .hero-visual { position: relative; min-height: 360px; display: grid; place-items: center; }
-    .hero-visual::before { position: absolute; width: 80%; aspect-ratio: 1; content: ""; border: 1px solid rgba(242,169,0,.24); border-radius: 50%; box-shadow: 0 0 0 32px rgba(242,169,0,.035), 0 0 0 68px rgba(242,169,0,.025); }
+    .hero-visual::before { position: absolute; width: 80%; aspect-ratio: 1; content: ""; border: 1px solid rgba(37,99,235,.24); border-radius: 50%; box-shadow: 0 0 0 32px rgba(37,99,235,.035), 0 0 0 68px rgba(37,99,235,.025); }
     .hero-blueprint { position: relative; width: min(100%, 470px); padding: 28px; border: 1px solid rgba(255,255,255,.17); border-radius: 22px; background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.035)); box-shadow: 0 28px 90px rgba(0,0,0,.25); backdrop-filter: blur(12px); transform: rotate(-3deg); }
     .blueprint-top { display: flex; align-items: center; justify-content: space-between; color: #cfdae4; font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
     .blueprint-dots { display: flex; gap: 5px; }
     .blueprint-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
     .blueprint-grid { position: relative; height: 210px; margin: 23px 0 19px; overflow: hidden; border: 1px solid rgba(255,255,255,.14); background: repeating-linear-gradient(0deg, transparent 0 24px, rgba(255,255,255,.055) 25px), repeating-linear-gradient(90deg, transparent 0 24px, rgba(255,255,255,.055) 25px); }
-    .blueprint-building { position: absolute; display: grid; place-items: center; border: 1px solid rgba(255,194,71,.85); background: rgba(242,169,0,.12); color: #ffe2a1; font-size: .62rem; font-weight: 800; letter-spacing: .08em; }
-    .blueprint-building.one { left: 8%; top: 12%; width: 30%; height: 32%; }
-    .blueprint-building.two { right: 8%; top: 12%; width: 43%; height: 32%; }
-    .blueprint-building.three { left: 8%; bottom: 10%; width: 43%; height: 32%; }
-    .blueprint-building.four { right: 8%; bottom: 10%; width: 30%; height: 32%; }
-    .blueprint-road { position: absolute; left: 0; right: 0; top: 47%; height: 6%; border-top: 1px dashed rgba(255,255,255,.55); border-bottom: 1px dashed rgba(255,255,255,.55); background: rgba(255,255,255,.09); }
+    .blueprint-building { position: absolute; display: grid; place-items: center; border: 1px solid rgba(96,165,250,.85); background: rgba(37,99,235,.12); color: #dbeafe; font-size: .62rem; font-weight: 800; letter-spacing: .08em; }
+    .blueprint-building.one { left: 5%; top: 8%; width: 19%; height: 84%; }
+    .blueprint-building.two { right: 7%; top: 8%; width: 49%; height: 33%; }
+    .blueprint-building.three { right: 7%; bottom: 8%; width: 69%; height: 31%; }
+    .blueprint-building.four { left: 31%; bottom: 43%; width: 21%; height: 25%; }
+    .blueprint-road { position: absolute; left: 25%; right: 0; top: 46%; height: 7%; border-top: 1px dashed rgba(255,255,255,.55); border-bottom: 1px dashed rgba(255,255,255,.55); background: rgba(255,255,255,.09); }
     .blueprint-foot { display: flex; justify-content: space-between; gap: 14px; color: #b9c6d4; font-size: .75rem; }
     .blueprint-foot strong { color: var(--accent-2); }
 
@@ -141,15 +138,15 @@
     .quick-item { display: flex; align-items: center; gap: 14px; padding: 24px 26px; border-right: 1px solid var(--line); }
     .quick-item:first-child { padding-left: 0; }
     .quick-item:last-child { border-right: 0; }
-    .quick-icon { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 auto; border-radius: 13px; color: #855800; background: #fff3d4; font-size: 1.2rem; }
+    .quick-icon { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 auto; border-radius: 13px; color: #1d4ed8; background: #eaf2ff; font-size: 1.2rem; }
     .quick-item strong { display: block; color: var(--ink); font-size: .9rem; }
     .quick-item span { display: block; color: var(--muted); font-size: .78rem; }
 
     /* Introducción y características */
     .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-    .intro-panel { position: relative; min-height: 360px; overflow: hidden; border-radius: 22px; background: linear-gradient(145deg, #1a2c40, #0d1725); box-shadow: var(--shadow); }
+    .intro-panel { position: relative; min-height: 360px; overflow: hidden; border-radius: 22px; background: linear-gradient(145deg, #101d31, #080d16); box-shadow: var(--shadow); }
     .intro-panel::before { position: absolute; inset: 22px; content: ""; border: 1px solid rgba(255,255,255,.12); border-radius: 14px; }
-    .intro-panel::after { position: absolute; right: -60px; bottom: -90px; width: 300px; height: 300px; content: ""; border: 1px solid rgba(242,169,0,.42); border-radius: 50%; box-shadow: 0 0 0 30px rgba(242,169,0,.04), 0 0 0 65px rgba(242,169,0,.035); }
+    .intro-panel::after { position: absolute; right: -60px; bottom: -90px; width: 300px; height: 300px; content: ""; border: 1px solid rgba(37,99,235,.42); border-radius: 50%; box-shadow: 0 0 0 30px rgba(37,99,235,.04), 0 0 0 65px rgba(37,99,235,.035); }
     .intro-panel-content { position: absolute; z-index: 1; left: 42px; right: 42px; bottom: 42px; color: #fff; }
     .intro-panel-content small { color: var(--accent-2); font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
     .intro-panel-content h3 { max-width: 380px; margin: 10px 0; font-size: 2rem; }
@@ -164,11 +161,11 @@
     .spaces-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .space-card { padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: 0 8px 24px rgba(16,27,42,.04); }
     .space-card-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
-    .space-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; color: #885d06; background: #fff2d0; font-size: 1.25rem; }
-    .status { display: inline-flex; align-items: center; gap: 6px; padding: 5px 9px; border-radius: 99px; background: #edf2f6; color: #526174; font-size: .69rem; font-weight: 800; }
+    .space-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; color: #1d4ed8; background: #eaf2ff; font-size: 1.25rem; }
+    .status { display: inline-flex; align-items: center; gap: 6px; padding: 5px 9px; border-radius: 99px; background: #eaf2ff; color: #1d4ed8; font-size: .69rem; font-weight: 800; }
     .status::before { width: 6px; height: 6px; content: ""; border-radius: 50%; background: currentColor; }
     .status.available { color: var(--good); background: #e5f6ef; }
-    .status.occupied { color: #8d5e12; background: #fff3d8; }
+    .status.occupied { color: #1d4ed8; background: #eaf2ff; }
     .status.maintenance { color: var(--bad); background: #ffeded; }
     .space-card h3 { margin-bottom: 7px; color: var(--ink); font-size: 1.12rem; }
     .space-card p { min-height: 44px; margin-bottom: 16px; color: var(--muted); font-size: .85rem; }
@@ -177,7 +174,7 @@
     .empty-state strong { display: block; margin-bottom: 6px; color: var(--ink); }
 
     /* Visores 3D */
-    .viewer-section { color: #fff; background: linear-gradient(135deg, #0b1421, #172a3e); }
+    .viewer-section { color: #fff; background: linear-gradient(135deg, #080d16, #142b4d); }
     .viewer-section h2 { color: #fff; }
     .viewer-section .section-lead { color: #b5c2cf; }
     .viewer-section .eyebrow { color: var(--accent-2); }
@@ -193,7 +190,7 @@
     .viewer-info-card h3 { margin-bottom: 10px; color: #fff; font-size: 1.18rem; }
     .viewer-info-card p { color: #b9c7d5; font-size: .87rem; }
     .viewer-info-card .mini-label { color: var(--accent-2); font-size: .69rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
-    .viewer-tip { padding: 14px 16px; border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; color: #c4d0dc; background: rgba(242,169,0,.08); font-size: .78rem; }
+    .viewer-tip { padding: 14px 16px; border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; color: #c4d0dc; background: rgba(37,99,235,.08); font-size: .78rem; }
     .viewer-section .btn-outline { color: #fff; border-color: rgba(255,255,255,.2); }
     .viewer-section .btn-outline:hover { background: rgba(255,255,255,.07); }
     .model-disclaimer { margin: 16px 0 0; color: #8fa2b5; font-size: .74rem; }
@@ -213,7 +210,8 @@
     .address-line { display: flex; gap: 12px; margin: 16px 0; color: #fff; font-size: .9rem; }
     .coordinates { padding: 13px; border: 1px solid rgba(255,255,255,.13); border-radius: 10px; color: var(--accent-2); background: rgba(255,255,255,.05); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .8rem; }
     .location-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 22px; }
-    #location-map { min-height: 390px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); background: #dce5ec; }
+    #location-map { min-height: 430px; height: 100%; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); background: #dce5ec; }
+    #location-map iframe { display: block; width: 100%; height: 100%; min-height: 430px; border: 0; }
 
     /* Galería */
     .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
@@ -225,20 +223,20 @@
     .gallery-placeholder span { display: block; margin-bottom: 8px; font-size: 2rem; }
 
     /* Contacto */
-    .contact-section { color: #fff; background: linear-gradient(120deg, #14263a, #0b1421); }
+    .contact-section { color: #fff; background: linear-gradient(120deg, #142b4d, #080d16); }
     .contact-section h2 { color: #fff; }
     .contact-section .section-lead { color: #b8c5d2; }
     .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 42px; align-items: start; margin-top: 34px; }
     .contact-points { display: grid; gap: 12px; margin-top: 24px; }
     .contact-point { display: flex; gap: 12px; align-items: center; color: #d7e0e9; font-size: .87rem; }
-    .contact-point span:first-child { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; color: var(--accent-2); background: rgba(242,169,0,.12); }
+    .contact-point span:first-child { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; color: var(--accent-2); background: rgba(37,99,235,.12); }
     .contact-form { padding: 25px; border: 1px solid rgba(255,255,255,.13); border-radius: 17px; background: rgba(255,255,255,.055); }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 13px; }
     .field.full { grid-column: 1 / -1; }
     .field label { color: #e1e8ef; font-size: .78rem; font-weight: 800; }
     .field input, .field select, .field textarea { width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid rgba(255,255,255,.17); border-radius: 9px; outline: none; color: #fff; background: rgba(6,14,24,.45); }
-    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(242,169,0,.12); }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,.12); }
     .field select option { color: #152238; }
     .field textarea { min-height: 105px; resize: vertical; }
     .form-note { margin: 10px 0 0; color: #9eafbf; font-size: .72rem; }
@@ -258,7 +256,7 @@
     .admin-head h2 { margin: 0; color: #fff; font-size: 1.35rem; }
     .admin-head p { margin: 5px 0 0; color: #aebdcb; font-size: .75rem; }
     .admin-close { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.2); border-radius: 9px; color: #fff; background: transparent; font-size: 1.25rem; }
-    .admin-warning { margin: 16px 20px 0; padding: 12px 14px; border: 1px solid #ecd59e; border-radius: 10px; color: #6f4c0b; background: #fff7e4; font-size: .77rem; }
+    .admin-warning { margin: 16px 20px 0; padding: 12px 14px; border: 1px solid #bfdbfe; border-radius: 10px; color: #1e40af; background: #eff6ff; font-size: .77rem; }
     .admin-tabs { display: flex; gap: 6px; padding: 15px 20px 0; border-bottom: 1px solid #dce4ec; }
     .admin-tab { padding: 10px 14px; border: 0; border-bottom: 3px solid transparent; color: #68798c; background: transparent; font-size: .82rem; font-weight: 800; }
     .admin-tab.active { border-bottom-color: var(--accent); color: var(--ink); }
@@ -297,10 +295,10 @@
     /* Accesibilidad / responsive */
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
     .reveal.visible { opacity: 1; transform: none; }
-    :focus-visible { outline: 3px solid rgba(242,169,0,.75); outline-offset: 3px; }
+    :focus-visible { outline: 3px solid rgba(59,130,246,.75); outline-offset: 3px; }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
     @media (max-width: 980px) {
-      .nav-links { display: none; position: absolute; top: 76px; right: 0; left: 0; padding: 18px 22px 22px; border-bottom: 1px solid rgba(255,255,255,.1); background: #0b1421; }
+      .nav-links { display: none; position: absolute; top: 76px; right: 0; left: 0; padding: 18px 22px 22px; border-bottom: 1px solid rgba(255,255,255,.1); background: #080d16; }
       .nav-links.open { display: grid; grid-template-columns: 1fr 1fr; }
       .nav-toggle { display: block; }
       .hero-grid, .intro-grid, .location-grid, .contact-grid { grid-template-columns: 1fr; }
@@ -342,7 +340,7 @@
       .viewer-stage { min-height: 330px; }
       .viewer-controls { left: 10px; right: 10px; justify-content: flex-end; }
       .viewer-hint { max-width: calc(100% - 20px); font-size: .65rem; }
-      #location-map { min-height: 320px; }
+      #location-map, #location-map iframe { min-height: 340px; }
       .admin-overlay { padding: 7px; }
       .admin-shell { max-height: 97vh; }
       .admin-head { padding: 15px; }
@@ -391,6 +389,7 @@
           <div class="hero-actions">
             <a class="btn btn-primary" href="#recorrido">Explorar la zona <span aria-hidden="true">↗</span></a>
             <a class="btn btn-outline" href="#contacto">Consultar disponibilidad</a>
+            <a class="btn btn-outline" href="#ubicacion">Ver ubicación en el mapa</a>
           </div>
           <div class="hero-note"><span class="pin">⌖</span> Calle Progreso, Ejido 5101, Mérida, Venezuela</div>
         </div>
@@ -463,7 +462,7 @@
           <div>
             <span class="eyebrow">Recorrido virtual</span>
             <h2>Explora la zona en 3D.</h2>
-            <p class="section-lead">Rota la vista, acércate y selecciona los módulos de la maqueta para conocer cómo podría organizarse un recorrido por el complejo.</p>
+            <p class="section-lead">La distribución se ha reconstruido tomando como referencia tu vista aérea: naves perimetrales con techos naranja, fachadas blancas y un patio central de circulación. Rota la vista y selecciona los bloques para explorarlos.</p>
           </div>
         </div>
         <div class="viewer-layout">
@@ -480,22 +479,22 @@
             <div class="viewer-info-card" aria-live="polite">
               <span class="mini-label">Explorador de zona</span>
               <h3 id="zoneSelectedTitle">Maqueta conceptual</h3>
-              <p id="zoneSelectedText">Selecciona uno de los edificios para ver una ficha demostrativa. Los módulos no representan todavía la distribución real del terreno.</p>
+              <p id="zoneSelectedText">Selecciona uno de los bloques para ver una ficha de referencia. La geometría es una interpretación aproximada de la imagen aérea, no un levantamiento topográfico.</p>
               <a href="#contacto" class="btn btn-primary">Consultar por un espacio</a>
             </div>
-            <div class="viewer-tip">Esta escena es una representación preliminar creada para mostrar la experiencia 3D. Se sustituirá por el levantamiento, plano o modelo real cuando esté disponible.</div>
+            <div class="viewer-tip">La forma general, la posición de los bloques y el patio central se ajustaron a la fotografía aérea que compartiste. Las dimensiones y algunos detalles siguen siendo aproximados hasta disponer de un plano acotado o levantamiento del terreno.</div>
           </aside>
         </div>
       </div>
     </section>
 
-    <section class="section viewer-section" id="galpon" style="background:linear-gradient(135deg,#13253a,#0a1420)">
+    <section class="section viewer-section" id="galpon" style="background:linear-gradient(135deg,#101d31,#080d16)">
       <div class="container">
         <div class="section-head">
           <div>
             <span class="eyebrow">Visualización de galpón</span>
             <h2>Un vistazo al espacio desde dentro.</h2>
-            <p class="section-lead">La maqueta permite observar un galpón industrial de referencia desde distintos ángulos. Puede reemplazarse por el modelo técnico específico del inmueble.</p>
+            <p class="section-lead">El modelo representa una nave con paredes blancas, cubierta naranja, portón de carga negro y una puerta peatonal independiente, además de ventanas protegidas con rejas.</p>
           </div>
         </div>
         <div class="galpon-layout">
@@ -510,9 +509,9 @@
           </div>
           <div class="galpon-details">
             <div class="detail-row"><span class="icon">▱</span><div><strong>Volumetría y estructura</strong><span>Vista conceptual de cubierta, cerramientos y acceso.</span></div></div>
-            <div class="detail-row"><span class="icon">↔</span><div><strong>Espacio interior</strong><span>Exploración visual de un volumen industrial genérico.</span></div></div>
+            <div class="detail-row"><span class="icon">↔</span><div><strong>Dos accesos independientes</strong><span>Portón amplio para carga y puerta peatonal de entrada.</span></div></div>
             <div class="detail-row"><span class="icon">◉</span><div><strong>Modelo interactivo</strong><span>Rotación y acercamiento directamente desde el navegador.</span></div></div>
-            <p class="model-disclaimer">Las dimensiones, materiales y componentes de esta maqueta son ilustrativos. No deben utilizarse como planos constructivos ni como ficha técnica de un galpón real.</p>
+            <p class="model-disclaimer">La apariencia toma como referencia las fotografías compartidas. Las dimensiones interiores y la estructura permanecen ilustrativas; no es un plano constructivo.</p>
             <a class="btn btn-outline" href="#contacto">Solicitar información técnica</a>
           </div>
         </div>
@@ -540,7 +539,15 @@
               <a class="btn btn-outline" href="https://www.google.com/maps?q=8.5308889%2C-71.2493333" target="_blank" rel="noopener noreferrer">Abrir mapa</a>
             </div>
           </div>
-          <div id="location-map" aria-label="Mapa de ubicación de Zona Rental The Warehouse"></div>
+          <div id="location-map" aria-label="Mapa de ubicación de Zona Rental The Warehouse">
+            <iframe
+              title="Mapa de Zona Rental The Warehouse, Ejido, Mérida"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-71.2550%2C8.5260%2C-71.2430%2C8.5360&amp;layer=mapnik&amp;marker=8.5308889%2C-71.2493333"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -663,8 +670,6 @@
     </section>
   </div>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-
   <script type="importmap">
     {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
   </script>
@@ -698,17 +703,7 @@
     }, { threshold: .12 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // Mapa Leaflet
-    function initMap() {
-      const mapEl = $('location-map');
-      if (!window.L) { mapEl.innerHTML = '<div class="gallery-placeholder">No se pudo cargar el mapa. Usa el botón «Abrir mapa» para ver la ubicación.</div>'; return; }
-      const map = L.map(mapEl, { scrollWheelZoom: false }).setView([SITE.lat, SITE.lng], 16);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap' }).addTo(map);
-      const marker = L.marker([SITE.lat, SITE.lng]).addTo(map);
-      marker.bindPopup('<strong>Zona Rental The Warehouse</strong><br>Sector Calle Progreso, Ejido, Mérida.').openPopup();
-      setTimeout(() => map.invalidateSize(), 250);
-    }
-    initMap();
+    // El mapa se carga directamente en el HTML mediante un iframe de OpenStreetMap.
 
     // Utilidades 3D
     const material = (color, roughness = .82, metalness = .08) => new THREE.MeshStandardMaterial({ color, roughness, metalness });
@@ -720,7 +715,7 @@
       const canvas = document.createElement('canvas'); canvas.width = 512; canvas.height = 128;
       const ctx = canvas.getContext('2d');
       ctx.fillStyle = 'rgba(7,16,27,.82)'; ctx.fillRect(0, 0, 512, 128);
-      ctx.strokeStyle = '#f2a900'; ctx.lineWidth = 5; ctx.strokeRect(3, 3, 506, 122);
+      ctx.strokeStyle = '#60a5fa'; ctx.lineWidth = 5; ctx.strokeRect(3, 3, 506, 122);
       ctx.fillStyle = color; ctx.font = 'bold 42px Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(text, 256, 66, 470);
       const texture = new THREE.CanvasTexture(canvas); texture.colorSpace = THREE.SRGBColorSpace;
       const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: texture, transparent: true }));
@@ -737,18 +732,18 @@
         renderer.shadowMap.enabled = true;
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x101f30);
-        scene.fog = new THREE.Fog(0x101f30, 35, 90);
+        scene.background = new THREE.Color(0x0b1422);
+        scene.fog = new THREE.Fog(0x0b1422, 48, 125);
         const camera = new THREE.PerspectiveCamera(42, 1, .1, 150);
-        camera.position.set(...(mode === 'zone' ? [28, 22, 31] : [10, 8, 12]));
+        camera.position.set(...(mode === 'zone' ? [43, 37, 49] : [10, 8, 12]));
         const controls = new OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true; controls.dampingFactor = .06; controls.minDistance = 7; controls.maxDistance = 70; controls.maxPolarAngle = Math.PI * .49;
+        controls.enableDamping = true; controls.dampingFactor = .06; controls.minDistance = 7; controls.maxDistance = 110; controls.maxPolarAngle = Math.PI * .49;
         const hemi = new THREE.HemisphereLight(0xd8e8f5, 0x34404d, 2.0); scene.add(hemi);
-        const sun = new THREE.DirectionalLight(0xffe5bb, 2.2); sun.position.set(18, 30, 12); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); scene.add(sun);
+        const sun = new THREE.DirectionalLight(0xffffff, 2.35); sun.position.set(18, 30, 12); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); scene.add(sun);
         const fill = new THREE.DirectionalLight(0x7eb9e5, .7); fill.position.set(-20, 10, -16); scene.add(fill);
-        const floor = new THREE.Mesh(new THREE.PlaneGeometry(mode === 'zone' ? 60 : 30, mode === 'zone' ? 50 : 28), material(0x697a87, 1, 0));
+        const floor = new THREE.Mesh(new THREE.PlaneGeometry(mode === 'zone' ? 70 : 30, mode === 'zone' ? 62 : 28), material(0x697a87, 1, 0));
         floor.rotation.x = -Math.PI / 2; floor.position.y = -.08; floor.receiveShadow = true; scene.add(floor);
-        const grid = new THREE.GridHelper(mode === 'zone' ? 60 : 30, mode === 'zone' ? 30 : 15, 0x758b9d, 0x506273);
+        const grid = new THREE.GridHelper(mode === 'zone' ? 70 : 30, mode === 'zone' ? 35 : 15, 0x526b86, 0x34465c);
         grid.position.y = -.055; grid.material.transparent = true; grid.material.opacity = .22; scene.add(grid);
 
         const selectable = [];
@@ -795,93 +790,296 @@
       }
     }
 
-    function buildIndustrialSite(scene, selectable) {
-      const asphalt = material(0x333e49), line = material(0xf0cf75), concrete = material(0x9aa6ae), fence = material(0x607487), green = material(0x526b57);
-      // Vía interna conceptual, separadores y accesos.
-      box(54, .08, 6, asphalt, 0, .02, 0, scene, false);
-      for (let x = -25; x <= 25; x += 5) box(2.2, .015, .09, line, x, .07, 0, scene, false);
-      box(54, .12, 1.2, concrete, 0, .02, 4.1, scene, false);
-      box(54, .12, 1.2, concrete, 0, .02, -4.1, scene, false);
-      // Bordes verdes decorativos.
-      box(54, .12, 1.5, green, 0, .02, 22.5, scene, false);
-      box(54, .12, 1.5, green, 0, .02, -22.5, scene, false);
-      // Distribución deliberadamente esquemática: no corresponde a un plano topográfico.
-      const positions = [
-        [-17, -11, 'Módulo demostrativo 01'], [0, -11, 'Módulo demostrativo 02'], [17, -11, 'Módulo demostrativo 03'],
-        [-17, 11, 'Módulo demostrativo 04'], [0, 11, 'Módulo demostrativo 05'], [17, 11, 'Módulo demostrativo 06']
-      ];
-      positions.forEach(([x, z, name], index) => {
-        const group = new THREE.Group(); group.position.set(x, 0, z); group.userData.siteInfo = { name, description: 'Elemento de ejemplo de la maqueta. La identificación, dimensiones y disponibilidad reales deben ser incorporadas por la administración.' };
-        const bodyMat = material(index % 2 ? 0x9daab5 : 0x8799a7, .72, .18);
-        const roofMat = material(0x344a5d, .68, .2);
-        box(9, 4.2, 7.2, bodyMat, 0, 2.1, 0, group);
-        box(9.5, .32, 7.7, roofMat, 0, 4.32, 0, group);
-        // Costillas y frontón de acceso.
-        for (let rib = -3.5; rib <= 3.5; rib += 1.4) box(.07, 4.05, .08, material(0x64798b), rib, 2.1, 3.63, group, false);
-        box(2.7, 2.9, .16, material(0x263847), 0, 1.52, 3.7, group);
-        for (let y = .35; y < 2.8; y += .36) box(2.7, .055, .18, material(0x71818d), 0, y, 3.8, group, false);
-        box(2.2, .22, .35, material(0xf2a900), 0, 3.12, 3.84, group, false);
-        // Ventanas laterales sencillas.
-        for (let wx of [-3.3, 3.3]) box(.1, .8, .9, material(0x31566e, .25, .15), wx, 2.6, -3.66, group, false);
-        const label = addTextLabel(`MÓDULO ${String(index + 1).padStart(2, '0')}`, '#ffe4a8');
-        label.position.set(0, 5.4, .1); group.add(label);
-        scene.add(group); selectable.push(group);
+    // Construye una nave blanca con cubierta naranja, portón industrial y puerta peatonal separada.
+    function addIndustrialModule(scene, selectable, cfg) {
+      const {
+        name, x, z, w, d, h = 5.2, rotation = 0,
+        description = 'Módulo de referencia basado en la fotografía aérea compartida.'
+      } = cfg;
+      const group = new THREE.Group();
+      group.position.set(x, 0, z);
+      group.rotation.y = rotation;
+      group.userData.siteInfo = { name, description };
+
+      const wall = material(0xf2f4f6, .9, .02);
+      const roof = material(0xef704d, .58, .04);
+      const roofRib = material(0xd95e40, .7, .02);
+      const trim = material(0x252c34, .72, .05);
+      const dark = material(0x111820, .68, .08);
+      const slat = material(0x39434d, .68, .08);
+      const glass = material(0x244760, .3, .18);
+      const frame = material(0xffffff, .72, .03);
+      const slab = material(0xb9c1c8, .96, 0);
+      const baseY = .18;
+      const frontZ = d / 2;
+
+      box(w + .7, .18, d + .7, slab, 0, .09, 0, group, false);
+
+      // Muros laterales y posterior; la fachada se divide para dejar dos accesos reales en la lectura visual.
+      box(.30, h, d, wall, -w / 2 + .15, baseY + h / 2, 0, group);
+      box(.30, h, d, wall,  w / 2 - .15, baseY + h / 2, 0, group);
+      box(w, h, .30, wall, 0, baseY + h / 2, -d / 2 + .15, group);
+
+      const gateW = Math.min(4.35, w * .36);
+      const gateH = Math.min(3.65, h * .73);
+      const gateX = -Math.min(1.35, w * .12);
+      const doorW = 1.02;
+      const doorH = Math.min(2.55, h * .62);
+      const doorX = Math.min(w * .30, w / 2 - doorW / 2 - .72);
+      const openings = [
+        { left: gateX - gateW / 2, right: gateX + gateW / 2, height: gateH, kind: 'gate' },
+        { left: doorX - doorW / 2, right: doorX + doorW / 2, height: doorH, kind: 'door' }
+      ].sort((a, b) => a.left - b.left);
+
+      const frontSegment = (x1, x2, y1, y2) => {
+        if (x2 - x1 < .06 || y2 - y1 < .06) return;
+        box(x2 - x1, y2 - y1, .30, wall, (x1 + x2) / 2, baseY + (y1 + y2) / 2, frontZ - .15, group);
+      };
+      let cursor = -w / 2;
+      openings.forEach(opening => {
+        frontSegment(cursor, opening.left, 0, h);
+        frontSegment(opening.left, opening.right, opening.height, h);
+        cursor = opening.right;
       });
-      // Luminarias y cerramiento esquemático.
-      for (let x of [-26, 26]) {
-        box(.18, 2.8, .18, fence, x, 1.4, 0, scene);
-        box(.55, .16, .55, material(0xf2a900, .3), x, 2.85, 0, scene);
+      frontSegment(cursor, w / 2, 0, h);
+
+      // Portón enrollable negro con lamas horizontales.
+      box(gateW, gateH, .13, dark, gateX, baseY + gateH / 2, frontZ + .03, group, false);
+      for (let y = .28; y < gateH - .12; y += .30) {
+        box(gateW - .12, .045, .16, slat, gateX, baseY + y, frontZ + .11, group, false);
       }
-      box(52, .08, .12, fence, 0, 1.25, 24.5, scene, false);
-      box(52, .08, .12, fence, 0, 1.25, -24.5, scene, false);
+      box(gateW + .18, .13, .18, trim, gateX, baseY + gateH + .06, frontZ + .04, group, false);
+
+      // Puerta peatonal independiente, con marco claro y manilla.
+      box(doorW + .20, doorH + .12, .11, trim, doorX, baseY + (doorH + .12) / 2, frontZ + .02, group, false);
+      box(doorW, doorH, .14, dark, doorX, baseY + doorH / 2, frontZ + .10, group, false);
+      box(.055, .12, .045, material(0xcbd5df, .35, .35), doorX + doorW * .34, baseY + doorH * .48, frontZ + .19, group, false);
+
+      // Ventanas laterales con rejas blancas, como las fachadas de las fotografías.
+      const sideWindowZ = [-d * .27, d * .22];
+      for (const side of [-1, 1]) {
+        for (const wz of sideWindowZ) {
+          const sx = side * (w / 2 + .025);
+          box(.075, .94, 1.18, glass, sx, baseY + 3.05, wz, group, false);
+          box(.12, .075, 1.28, frame, sx, baseY + 3.54, wz, group, false);
+          box(.12, .075, 1.28, frame, sx, baseY + 2.56, wz, group, false);
+          for (let v = -.45; v <= .46; v += .30) box(.13, .98, .055, frame, sx, baseY + 3.05, wz + v, group, false);
+          box(.13, .055, 1.20, frame, sx, baseY + 3.05, wz, group, false);
+        }
+      }
+
+      // Cubierta metálica naranja con nervaduras y remates oscuros.
+      box(w + .82, .38, d + .82, roof, 0, baseY + h + .20, 0, group);
+      for (let rx = -w / 2 + .55; rx < w / 2; rx += 1.25) {
+        box(.045, .035, d + .68, roofRib, rx, baseY + h + .41, 0, group, false);
+      }
+      box(w + .9, .18, .16, trim, 0, baseY + h + .05, frontZ + .38, group, false);
+      box(.15, .20, d + .86, trim, -w / 2 - .39, baseY + h + .04, 0, group, false);
+      box(.15, .20, d + .86, trim,  w / 2 + .39, baseY + h + .04, 0, group, false);
+
+      // Alero sobre la fachada, discreto y funcional.
+      box(Math.min(w - .6, Math.max(gateW + 2.2, doorX + 1.4)), .14, .95, trim,
+        Math.min(0, doorX * .22), baseY + h - .05, frontZ + .52, group, false);
+
+      const label = addTextLabel(name.toUpperCase(), '#dbeafe');
+      label.position.set(0, baseY + h + 1.42, 0);
+      label.scale.set(Math.min(8.5, w * .34), 1.65, 1);
+      group.add(label);
+
+      scene.add(group);
+      selectable.push(group);
+      return group;
+    }
+
+    function buildIndustrialSite(scene, selectable) {
+      const concrete = material(0xaeb8c1, .96, 0);
+      const asphalt = material(0x5d6873, .98, 0);
+      const whiteLine = material(0xe8edf2, .8, 0);
+      const blueLine = material(0x2563eb, .7, .08);
+      const fence = material(0x252c34, .72, .05);
+      const green = material(0x536d5a, .95, 0);
+
+      // Losa y patio principal de maniobra: área despejada en el centro del conjunto.
+      box(59, .12, 48, concrete, 0, -.005, 0, scene, false);
+      box(28, .055, 28, material(0xbfc6cc, .98, 0), -1.2, .085, 0, scene, false);
+      box(11, .06, 19, asphalt, 0, .105, 17.1, scene, false);
+      // Líneas de circulación y estacionamiento dentro del patio.
+      for (let x = -10; x <= 10; x += 4) {
+        box(.075, .022, 4.4, whiteLine, x, .13, 5.2, scene, false);
+      }
+      for (let z = -7; z <= 5; z += 4) {
+        box(4.0, .022, .075, blueLine, 0, .14, z, scene, false);
+      }
+      // Bordes exteriores y franjas verdes suaves, conservando la lectura industrial del predio.
+      box(1.5, .10, 45, green, -29.2, .02, 0, scene, false);
+      box(1.5, .10, 45, green, 29.2, .02, 0, scene, false);
+      box(58, .10, 1.2, green, 0, .02, -23.1, scene, false);
+      box(58, .10, 1.2, green, 0, .02, 23.1, scene, false);
+
+      // Volúmenes perimetrales inspirados en la imagen aérea: ala oeste, ala sur y módulos del este/noreste.
+      addIndustrialModule(scene, selectable, {
+        name: 'Nave lateral oeste', x: -22.1, z: 0.0, w: 34, d: 8.6, h: 5.4,
+        rotation: Math.PI / 2,
+        description: 'Nave longitudinal del costado oeste. La cubierta naranja y el frente blanco siguen la referencia aérea; portón y puerta peatonal son elementos de muestra.'
+      });
+      addIndustrialModule(scene, selectable, {
+        name: 'Nave sur · módulo 01', x: -12.0, z: 18.0, w: 12.0, d: 8.7, h: 5.2,
+        rotation: Math.PI,
+        description: 'Primer tramo de la nave del borde sur, orientado hacia el patio interior.'
+      });
+      addIndustrialModule(scene, selectable, {
+        name: 'Nave sur · módulo 02', x: 0.0, z: 18.0, w: 12.0, d: 8.7, h: 5.2,
+        rotation: Math.PI,
+        description: 'Tramo central de la nave sur. Su posición es aproximada y puede ajustarse con un plano acotado.'
+      });
+      addIndustrialModule(scene, selectable, {
+        name: 'Nave sur · módulo 03', x: 12.0, z: 18.0, w: 12.0, d: 8.7, h: 5.2,
+        rotation: Math.PI,
+        description: 'Tramo oriental del conjunto sur, con fachada y accesos hacia el patio de circulación.'
+      });
+      addIndustrialModule(scene, selectable, {
+        name: 'Nave noreste', x: 13.4, z: -12.0, w: 18.5, d: 11.8, h: 5.7,
+        rotation: 0,
+        description: 'Bloque de mayor superficie en el costado noreste, representado con cubierta naranja y cerramientos blancos.'
+      });
+      addIndustrialModule(scene, selectable, {
+        name: 'Nave lateral este', x: 22.2, z: 2.1, w: 18.0, d: 8.2, h: 5.2,
+        rotation: -Math.PI / 2,
+        description: 'Bloque longitudinal del costado este, junto al patio central.'
+      });
+      addIndustrialModule(scene, selectable, {
+        name: 'Módulo superior este', x: 24.3, z: -19.0, w: 8.2, d: 5.7, h: 4.7,
+        rotation: 0,
+        description: 'Pequeño volumen complementario ubicado en el extremo superior derecho de la referencia aérea.'
+      });
+      addIndustrialModule(scene, selectable, {
+        name: 'Bloque interior de servicios', x: -7.0, z: -6.2, w: 8.5, d: 11.5, h: 4.3,
+        rotation: 0,
+        description: 'Volumen interior compacto que interpreta el conjunto de estructuras visibles en la zona central de la imagen aérea.'
+      });
+
+      // Cerramiento perimetral bajo y acceso principal conceptual.
+      box(58, .12, .18, fence, 0, 1.15, -24.0, scene, false);
+      box(58, .12, .18, fence, 0, 1.15, 24.0, scene, false);
+      box(.18, .12, 48, fence, -29.0, 1.15, 0, scene, false);
+      box(.18, .12, 48, fence, 29.0, 1.15, 0, scene, false);
+      // Entrada con portón vehicular y puerta de peatones en el frente sur.
+      box(6.0, 2.7, .22, fence, -2.8, 1.35, 24.0, scene, false);
+      for (let y = .35; y < 2.5; y += .32) box(5.7, .045, .28, material(0x788693), -2.8, y, 24.14, scene, false);
+      box(1.1, 2.25, .22, material(0x202832), 2.4, 1.12, 24.0, scene, false);
+      box(.10, .12, .07, material(0xd7e0e8), 2.75, 1.1, 24.15, scene, false);
     }
 
     function buildWarehouse(scene) {
-      const wall = material(0x8d9da9, .76, .16), dark = material(0x2a3d50, .72, .16), roof = material(0x42596d, .62, .2), floor = material(0xadb7bd, .95, 0), amber = material(0xf2a900, .48, .1);
-      // Piso y losa interior.
-      box(20, .22, 16, floor, 0, .08, 0, scene, false);
-      // Paredes laterales y pared trasera; frente parcialmente abierto para ver el interior.
-      box(.3, 7, 15.5, wall, -9.4, 3.6, 0, scene);
-      box(.3, 7, 15.5, wall, 9.4, 3.6, 0, scene);
-      box(19, 7, .3, wall, 0, 3.6, -7.6, scene);
-      box(19, .3, .3, wall, 0, .25, 7.6, scene, false);
-      // Estructura del techo y cerchas.
-      box(19.2, .28, 15.8, roof, 0, 7.25, 0, scene);
+      const wall = material(0xf1f3f5, .9, .02);
+      const roof = material(0xef704d, .58, .04);
+      const roofRib = material(0xd95e40, .72, .02);
+      const dark = material(0x111820, .68, .08);
+      const slat = material(0x3d4853, .7, .05);
+      const trim = material(0x252c34, .72, .05);
+      const glass = material(0x244760, .28, .2);
+      const grille = material(0xffffff, .72, .03);
+      const floor = material(0xb9c1c8, .96, 0);
+      const blue = material(0x2563eb, .55, .12);
+      const green = material(0x4f7659, .95, 0);
+      const baseY = .22, w = 20, d = 16, h = 7.0, frontZ = d / 2;
+
+      // Plataforma y muros blancos.
+      box(22, .22, 18, floor, 0, .11, 0, scene, false);
+      box(.34, h, d, wall, -w / 2 + .17, baseY + h / 2, 0, scene);
+      box(.34, h, d, wall,  w / 2 - .17, baseY + h / 2, 0, scene);
+      box(w, h, .34, wall, 0, baseY + h / 2, -d / 2 + .17, scene);
+
+      // Fachada frontal: abertura grande para el portón y una abertura independiente para la puerta peatonal.
+      const gateW = 6.0, gateH = 4.55, gateX = -2.3;
+      const doorW = 1.18, doorH = 2.55, doorX = 7.2;
+      const facadeSegment = (x1, x2, y1, y2) => {
+        if (x2 - x1 < .06 || y2 - y1 < .06) return;
+        box(x2 - x1, y2 - y1, .34, wall, (x1 + x2) / 2, baseY + (y1 + y2) / 2, frontZ - .17, scene);
+      };
+      facadeSegment(-w / 2, gateX - gateW / 2, 0, h);
+      facadeSegment(gateX - gateW / 2, gateX + gateW / 2, gateH, h);
+      facadeSegment(gateX + gateW / 2, doorX - doorW / 2, 0, h);
+      facadeSegment(doorX - doorW / 2, doorX + doorW / 2, doorH, h);
+      facadeSegment(doorX + doorW / 2, w / 2, 0, h);
+
+      // Portón metálico negro y sus lamas.
+      box(gateW, gateH, .16, dark, gateX, baseY + gateH / 2, frontZ + .04, scene, false);
+      for (let y = .30; y < gateH - .1; y += .32) box(gateW - .12, .05, .19, slat, gateX, baseY + y, frontZ + .14, scene, false);
+      box(gateW + .24, .14, .22, trim, gateX, baseY + gateH + .07, frontZ + .06, scene, false);
+
+      // Puerta peatonal negra, distinta del portón, a la derecha de la fachada.
+      box(doorW + .2, doorH + .14, .12, trim, doorX, baseY + (doorH + .14) / 2, frontZ + .04, scene, false);
+      box(doorW, doorH, .16, dark, doorX, baseY + doorH / 2, frontZ + .12, scene, false);
+      box(.06, .13, .05, material(0xd4dce4, .35, .35), doorX + .38, baseY + doorH * .5, frontZ + .22, scene, false);
+      box(doorW + .36, .12, .22, material(0xffffff), doorX, baseY + doorH + .12, frontZ + .03, scene, false);
+
+      // Ventanas rectangulares de aluminio blanco con protección de barras.
+      function barredWindowOnFront(wx, wy, ww = 2.0, wh = 1.35) {
+        box(ww, wh, .07, glass, wx, wy, frontZ + .035, scene, false);
+        box(ww + .20, .10, .12, grille, wx, wy + wh / 2 + .05, frontZ + .08, scene, false);
+        box(ww + .20, .10, .12, grille, wx, wy - wh / 2 - .05, frontZ + .08, scene, false);
+        box(.10, wh + .18, .12, grille, wx - ww / 2 - .05, wy, frontZ + .08, scene, false);
+        box(.10, wh + .18, .12, grille, wx + ww / 2 + .05, wy, frontZ + .08, scene, false);
+        for (let i = -1; i <= 1; i++) box(.055, wh, .15, grille, wx + i * ww / 4, wy, frontZ + .11, scene, false);
+        box(ww, .055, .15, grille, wx, wy, frontZ + .11, scene, false);
+      }
+      barredWindowOnFront(-7.4, baseY + 5.25, 2.0, 1.35);
+      barredWindowOnFront(3.2, baseY + 5.15, 2.1, 1.30);
+
+      for (const side of [-1, 1]) {
+        for (const wz of [-4.8, -.1, 4.8]) {
+          const sx = side * (w / 2 + .035);
+          box(.08, 1.15, 1.65, glass, sx, baseY + 3.15, wz, scene, false);
+          box(.13, .09, 1.78, grille, sx, baseY + 3.77, wz, scene, false);
+          box(.13, .09, 1.78, grille, sx, baseY + 2.53, wz, scene, false);
+          for (let zz = -0.7; zz <= .71; zz += .47) box(.14, 1.22, .055, grille, sx, baseY + 3.15, wz + zz, scene, false);
+          for (let yy = -0.38; yy <= .39; yy += .38) box(.14, .055, 1.68, grille, sx, baseY + 3.15 + yy, wz, scene, false);
+        }
+      }
+
+      // Cubierta naranja corrugada con aleros metálicos.
+      box(20.7, .42, 16.7, roof, 0, baseY + h + .21, 0, scene);
+      for (let rx = -9.8; rx <= 9.8; rx += .75) box(.045, .04, 16.2, roofRib, rx, baseY + h + .44, 0, scene, false);
+      box(20.9, .20, .18, trim, 0, baseY + h + .05, frontZ + .37, scene, false);
+      box(20.9, .20, .18, trim, 0, baseY + h + .05, -frontZ - .37, scene, false);
+      box(.18, .20, 16.8, trim, -10.45, baseY + h + .05, 0, scene, false);
+      box(.18, .20, 16.8, trim, 10.45, baseY + h + .05, 0, scene, false);
+      // Alero frontal fino, similar a la cubierta metálica observada en las imágenes.
+      box(18.8, .15, 1.0, material(0xd9dfe4, .85, .02), 0, baseY + h - .05, frontZ + .52, scene, false);
+      for (let x = -8.5; x <= 8.5; x += 4.25) {
+        box(.10, .22, .11, trim, x, baseY + h - .22, frontZ + .82, scene, false);
+      }
+
+      // Estructura y estanterías interiores.
+      const column = material(0x4b5967, .72, .15);
       for (let x = -8; x <= 8; x += 4) {
-        box(.16, 6.9, .16, dark, x, 3.65, -7.2, scene);
-        box(.16, 6.9, .16, dark, x, 3.65, 7.2, scene);
-        const beam = new THREE.Mesh(new THREE.BoxGeometry(.14, .14, 15), amber); beam.position.set(x, 6.6, 0); beam.castShadow = true; scene.add(beam);
+        box(.17, h, .17, column, x, baseY + h / 2, -7.15, scene);
+        box(.17, h, .17, column, x, baseY + h / 2, 7.15, scene);
+        box(.12, .12, 15.8, column, x, baseY + h - .55, 0, scene);
       }
-      // Portón enrollable y señalización.
-      box(6, 5.5, .15, dark, 0, 3.05, 7.72, scene, false);
-      for (let y = .5; y < 5.8; y += .35) box(6, .045, .18, material(0x758692), 0, y, 7.84, scene, false);
-      box(6.5, .2, .35, amber, 0, 6.0, 7.9, scene, false);
-      // Ventanas altas de la parte posterior.
-      for (let x of [-6, -3, 3, 6]) box(1.4, .75, .08, material(0x31566e, .28, .2), x, 5.6, -7.78, scene, false);
-      // Estanterías de almacenamiento.
-      for (let side of [-1, 1]) {
-        const rack = new THREE.Group();
-        for (let z = -4.8; z <= 4.8; z += 2.4) {
-          box(.16, 4.6, .16, dark, side * 6.7, 2.5, z, rack);
-          box(.16, 4.6, .16, dark, side * 8.1, 2.5, z, rack);
+      const shelf = material(0x64798a, .65, .12);
+      for (const side of [-1, 1]) {
+        for (let z = -4.5; z <= 4.5; z += 2.25) {
+          box(.14, 4.3, .14, column, side * 6.7, 2.45, z, scene);
+          box(.14, 4.3, .14, column, side * 8.2, 2.45, z, scene);
         }
-        for (let y of [1.1, 2.5, 3.9]) box(1.55, .14, 10, amber, side * 7.4, y, 0, rack);
-        for (let z = -3.8; z <= 3.8; z += 2.5) {
-          const cargo = material(z % 2 ? 0x8c9eaa : 0x657e91);
-          box(1.05, .9, 1.1, cargo, side * 7.4, 1.65, z, rack);
-          box(1.05, .9, 1.1, cargo, side * 7.4, 3.05, z, rack);
-        }
-        scene.add(rack);
+        for (let y of [1.15, 2.55, 3.95]) box(1.65, .13, 9.6, shelf, side * 7.45, y, 0, scene, false);
       }
-      // Palés y zona de maniobra.
+      const crate = material(0x927b68, .9, 0);
       for (let i = 0; i < 3; i++) {
-        const crate = box(1.35, 1.2, 1.35, material(0x9c7952), -1.8 + i * 1.8, .8, -3.4, scene);
-        crate.rotation.y = .05 * i;
+        const pallet = box(1.4, 1.15, 1.35, crate, -1.8 + i * 1.8, .9, -3.2, scene);
+        pallet.rotation.y = .05 * i;
       }
-      const stripe = material(0xf2a900, .55, 0);
-      box(.12, .025, 5.4, stripe, -3.7, .22, 3.2, scene, false);
-      box(.12, .025, 5.4, stripe, 3.7, .22, 3.2, scene, false);
-      const title = addTextLabel('GALPÓN · MODELO DE REFERENCIA', '#ffe4a8'); title.position.set(0, 9, -7); title.scale.set(8, 2, 1); scene.add(title);
+      // Señalización de seguridad y jardineras exteriores.
+      box(4.0, .035, .12, blue, -2.3, .25, 5.3, scene, false);
+      for (const px of [-8.4, 8.4]) {
+        box(1.9, .42, .72, trim, px, .43, 9.25, scene, false);
+        const bush = new THREE.Mesh(new THREE.SphereGeometry(.42, 12, 8), green);
+        bush.position.set(px, .82, 9.23); bush.scale.set(1.6, .65, .8); bush.castShadow = true; scene.add(bush);
+      }
+      const title = addTextLabel('THE WAREHOUSE · GALPÓN DE REFERENCIA', '#dbeafe');
+      title.position.set(0, 10.2, -7.8); title.scale.set(10, 2.0, 1); scene.add(title);
     }
 
     function showZoneInfo(info) {
@@ -898,9 +1096,12 @@
       const view = button.dataset.view;
       if (button.dataset.camera === 'zone') {
         const presets = {
-          overview: [28, 22, 31], top: [0, 42, .1], front: [0, 12, 38]
+          overview: [43, 37, 49], top: [0, 68, .25], front: [0, 17, 68]
         };
+        scene.camera.up.set(0, 0, -1);
+        if (view !== 'top') scene.camera.up.set(0, 1, 0);
         scene.camera.position.set(...presets[view]); scene.controls.target.set(0, 0, 0);
+        scene.camera.lookAt(0, 0, 0);
       } else {
         const presets = {
           overview: [10, 8, 12], inside: [0, 4.5, 12], front: [0, 5, 19]
