@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="a">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rony Santiago | Ingeniero Mecánico – Diseño, Simulación y Piping</title>
+    <meta name="description" content="Ingeniero mecánico especialista en gemelos digitales, CAD/CAE, piping y simulación de fluidos para plantas industriales. Proyectos reales con AFT Arrow, SolidWorks y ANSYS.">
+    <meta name="keywords" content="Ingeniería Mecánica, Diseño Mecánico, CAE, FEA, Piping, AutoCAD Plant 3D, ANSYS, SolidWorks, AFT Arrow, Gemelo Digital, Videos Educativos, Modelos 3D">
+    <meta name="author" content="Rony Santiago">
+    <meta property="og:title" content="Rony Santiago | Ingeniero Mecánico – Diseño, Simulación y Piping">
+    <meta property="og:description" content="Portafolio profesional con proyectos reales, gemelo digital interactivo y formación técnica.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/og-image.jpg">
+    <meta property="og:url" content="https://ronysantiago.github.io/">
+    <!-- Librería model-viewer para modelos glTF/GLB -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <style>
+        /* ============ TEMAS ============ */
+        :root {
+            --font-sans: 'Times New Roman', 'Georgia', serif;
+            --font-mono: 'Courier New', 'Consolas', monospace;
+            --radius: 12px;
+            --max: 1100px;
+        }
+        html[data-theme="a"] {
+            --bg: #0b1220; --bg-soft: #0e1730; --panel: #111a2e; --panel-2: #16213a;
+            --text: #e6edf7; --muted: #93a3bd; --border: rgba(148,180,255,.14);
+            --accent: #38bdf8; --accent-2: #818cf8; --accent-ink: #06212e;
+            --ok: #34d399; --warn: #fbbf24; --danger: #f87171;
+            --glow: rgba(56,189,248,.16);
+            --hero-grad: radial-gradient(1200px 600px at 75% -10%, rgba(56,189,248,.14), transparent 60%), radial-gradient(900px 500px at 10% 20%, rgba(129,140,248,.12), transparent 55%);
+            --grid-line: rgba(148,180,255,.055);
+            --chip-bg: rgba(56,189,248,.1);
+            color-scheme: dark;
+        }
+        html[data-theme="b"] {
+            --bg: #131110; --bg-soft: #191512; --panel: #1c1815; --panel-2: #241e19;
+            --text: #f4ede2; --muted: #b3a695; --border: rgba(255,200,130,.14);
+            --accent: #f59e0b; --accent-2: #fb7c33; --accent-ink: #2a1602;
+            --ok: #4ade80; --warn: #fbbf24; --danger: #f87171;
+            --glow: rgba(245,158,11,.15);
+            --hero-grad: radial-gradient(1200px 600px at 75% -10%, rgba(245,158,11,.13), transparent 60%), radial-gradient(900px 500px at 10% 20%, rgba(251,124,51,.10), transparent 55%);
+            --grid-line: rgba(255,200,130,.05);
+            --chip-bg: rgba(245,158,11,.1);
+            color-scheme: dark;
+        }
+        html[data-theme="c"] {
+            --bg: #f2f5fa; --bg-soft: #e9eef7; --panel: #ffffff; --panel-2: #f6f8fc;
+            --text: #152238; --muted: #5b6b85; --border: rgba(29,78,216,.16);
+            --accent: #1d4ed8; --accent-2: #0e97d5; --accent-ink: #ffffff;
+            --ok: #059669; --warn: #d97706; --danger: #dc2626;
+            --glow: rgba(29,78,216,.10);
+            --hero-grad: radial-gradient(1200px 600px at 75% -10%, rgba(14,151,213,.10), transparent 60%), radial-gradient(900px 500px at 10% 20%, rgba(29,78,216,.08), transparent 55%);
+            --grid-line: rgba(29,78,216,.07);
+            --chip-bg: rgba(29,78,216,.08);
+            color-scheme: light;
+        }
+
+        /* ============ BASE ============ */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans); background: var(--bg); color: var(--text);
+            line-height: 1.6; -webkit-font-smoothing: antialiased;
+            background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 44px 44px;
+            font-size: 18px;
+        }
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; }
+        .container { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+        section { padding: 92px 0; }
+        .eyebrow {
+            font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--accent); display: inline-flex; align-items: center; gap: 0.6em; margin-bottom: 14px;
+        }
+        .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--accent); display: inline-block; }
+        h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 14px; }
+        .section-sub { color: var(--muted); max-width: 640px; font-size: 1.1rem; }
+
+        /* reveal */
+        .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+            html { scroll-behavior: auto; }
+        }
+
+        /* ============ NAV ============ */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+            backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+            background: rgba(17,26,46,0.78); /* fallback para navegadores sin color-mix */
+            background: color-mix(in srgb, var(--bg) 78%, transparent);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner { max-width: var(--max); margin: 0 auto; padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+        .logo { display: flex; align-items: center; gap: 11px; font-weight: 700; letter-spacing: -0.01em; }
+        .logo-badge {
+            width: 36px; height: 36px; border-radius: 9px; display: grid; place-items: center;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--accent-ink);
+            font-family: var(--font-mono); font-weight: 600; font-size: 0.85rem; box-shadow: 0 4px 18px var(--glow);
+        }
+        .logo small { display: block; font-weight: 500; font-size: 0.7rem; color: var(--muted); letter-spacing: 0.04em; }
+        .nav-links { display: flex; gap: 26px; font-size: 1rem; color: var(--muted); }
+        .nav-links a:hover { color: var(--text); }
+        .nav-cta {
+            padding: 9px 18px; border-radius: 999px; font-size: 0.95rem; font-weight: 600;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--accent-ink);
+            box-shadow: 0 4px 18px var(--glow); white-space: nowrap;
+        }
+        @media (max-width: 900px) { .nav-links { display: none; } }
+
+        /* ============ HERO ============ */
+        .hero { padding: 160px 0 80px; background: var(--hero-grad); text-align: center; }
+        .hero h1 { font-size: 3.2rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 10px; }
+        .hero .subtitle { font-size: 1.4rem; font-weight: 500; color: var(--muted); margin-bottom: 10px; }
+        .hero .tech-line { font-size: 1.1rem; color: var(--muted); margin-bottom: 24px; }
+        .hero .lead { font-size: 1.15rem; color: var(--muted); max-width: 700px; margin: 0 auto 32px; text-align: center; }
+        .btn-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.55em; padding: 14px 26px; border-radius: 12px;
+            font-weight: 600; font-size: 1.05rem; transition: transform 0.18s ease, box-shadow 0.18s ease; cursor: pointer; border: none; font-family: inherit;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--accent-ink); box-shadow: 0 8px 28px var(--glow); }
+        .btn-ghost { background: var(--panel); border: 1px solid var(--border); color: var(--text); }
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 64px; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .stat { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; }
+        .stat b { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; display: block; font-family: var(--font-mono); }
+        .stat span { font-size: 0.9rem; color: var(--muted); }
+        @media (max-width: 900px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+        /* ============ TWIN DEMO ============ */
+        #gemelo { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .twin-wrap { display: grid; grid-template-columns: 1.5fr 1fr; gap: 22px; margin-top: 38px; align-items: stretch; }
+        .twin-stage {
+            position: relative; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius);
+            overflow: hidden; min-height: 480px;
+        }
+        #twin-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+        .twin-hint {
+            position: absolute; left: 14px; bottom: 14px; z-index: 5; font-family: var(--font-mono); font-size: 0.8rem;
+            color: var(--muted); background: rgba(17,26,46,0.82); border: 1px solid var(--border); padding: 7px 12px; border-radius: 999px;
+            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+        }
+        .sensor-tag {
+            position: absolute; z-index: 6; transform: translate(-50%, -110%); cursor: pointer;
+            font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600; white-space: nowrap;
+            background: rgba(17,26,46,0.88); color: var(--text);
+            border: 1px solid var(--border); border-radius: 8px; padding: 5px 9px;
+            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+            transition: border-color 0.2s, box-shadow 0.2s; user-select: none;
+        }
+        .sensor-tag::after {
+            content: ""; position: absolute; left: 50%; bottom: -5px; transform: translateX(-50%) rotate(45deg);
+            width: 8px; height: 8px; background: inherit; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+        }
+        .sensor-tag:hover, .sensor-tag.active { border-color: var(--accent); box-shadow: 0 0 0 3px var(--glow); }
+        .sensor-tag.alarm { border-color: var(--danger); color: var(--danger); }
+        .twin-panel { display: flex; flex-direction: column; gap: 14px; }
+        .panel-box { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+        .panel-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
+        .panel-head h3 { font-size: 1.1rem; font-weight: 700; }
+        .status-pill {
+            display: inline-flex; align-items: center; gap: 0.5em; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600;
+            padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border);
+        }
+        .status-pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+        .status-pill.warn i { background: var(--danger); box-shadow: 0 0 8px var(--danger); animation: blink 1s infinite; }
+        .status-pill.warn { color: var(--danger); border-color: rgba(248,113,113,.4); }
+        @keyframes blink { 50% { opacity: 0.35; } }
+        .kpis { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .kpi { background: var(--panel-2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; transition: box-shadow 0.25s, border-color 0.25s; }
+        .kpi.pulse { border-color: var(--accent); box-shadow: 0 0 0 3px var(--glow); }
+        .kpi label { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; display: block; }
+        .kpi b { font-family: var(--font-mono); font-size: 1.4rem; font-weight: 600; letter-spacing: -0.01em; }
+        .kpi small { color: var(--muted); font-size: 0.8rem; margin-left: 0.3em; }
+        .kpi.alarm b { color: var(--danger); }
+        .slider-row label { display: flex; justify-content: space-between; font-size: 0.95rem; color: var(--muted); margin-bottom: 10px; font-weight: 500; }
+        .slider-row label b { font-family: var(--font-mono); color: var(--text); }
+        input[type="range"] {
+            width: 100%; appearance: none; -webkit-appearance: none; height: 6px; border-radius: 99px;
+            background: linear-gradient(90deg, var(--accent) var(--fill, 36%), var(--border) var(--fill, 36%)); outline: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none; -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
+            background: var(--accent); border: 3px solid var(--panel); box-shadow: 0 2px 10px var(--glow); cursor: grab;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px; height: 20px; border-radius: 50%; background: var(--accent);
+            border: 3px solid var(--panel); box-shadow: 0 2px 10px var(--glow); cursor: grab;
+        }
+        #chart { width: 100%; height: 110px; display: block; margin-top: 6px; }
+        .chart-cap { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
+        .insight { border-left: 3px solid var(--accent); background: var(--panel-2); padding: 13px 16px; border-radius: 0 10px 10px 0; font-size: 0.95rem; color: var(--muted); }
+        .insight b { color: var(--text); }
+        .insight.alarm { border-left-color: var(--danger); }
+        .insight.alarm b { color: var(--danger); }
+        @media (max-width: 980px) { .twin-wrap { grid-template-columns: 1fr; } .twin-stage { min-height: 400px; } }
+
+        /* ============ PROJECTS ============ */
+        .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
+        .proj {
+            background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
+            transition: transform 0.2s ease, border-color 0.2s ease; display: flex; flex-direction: column;
+        }
+        .proj:hover { transform: translateY(-4px); border-color: rgba(56,189,248,.45); }
+        .proj-top {
+            height: 100px; position: relative; display: flex; align-items: flex-end; padding: 16px;
+            background: linear-gradient(180deg, transparent, rgba(17,26,46,0.7)), linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px), linear-gradient(135deg, var(--chip-bg), transparent 70%);
+            background-size: 100% 100%, 22px 22px, 22px 22px, 100% 100%;
+            border-bottom: 1px solid var(--border);
+        }
+        .proj-top .tagchip {
+            font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--accent); background: rgba(17,26,46,0.85); border: 1px solid var(--border); padding: 4px 10px; border-radius: 999px;
+        }
+        .proj-body { padding: 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+        .proj h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.3; }
+        .proj p { font-size: 0.95rem; color: var(--muted); flex: 1; }
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .tags span { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); background: var(--panel-2); border: 1px solid var(--border); padding: 3px 9px; border-radius: 6px; }
+        @media (max-width: 980px) { .proj-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 640px) { .proj-grid { grid-template-columns: 1fr; } }
+
+        /* ============ EXPERIENCE ============ */
+        #experiencia { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .exp-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 56px; margin-top: 44px; }
+        .timeline { position: relative; padding-left: 26px; }
+        .timeline::before { content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: var(--border); }
+        .t-item { position: relative; padding-bottom: 30px; }
+        .t-item:last-child { padding-bottom: 0; }
+        .t-item::before {
+            content: ""; position: absolute; left: -26px; top: 5px; width: 14px; height: 14px; border-radius: 50%;
+            background: var(--panel); border: 3px solid var(--accent); box-shadow: 0 0 0 4px var(--glow);
+        }
+        .t-item time { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); letter-spacing: 0.05em; }
+        .t-item h3 { font-size: 1.1rem; font-weight: 700; margin: 4px 0 2px; }
+        .t-item h3 span { color: var(--muted); font-weight: 500; }
+        .t-item p { font-size: 0.95rem; color: var(--muted); }
+        .skill-group { margin-bottom: 26px; }
+        .skill-group h4 { font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+        .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+        .chips span { font-size: 0.9rem; font-weight: 500; background: var(--panel); border: 1px solid var(--border); padding: 7px 14px; border-radius: 999px; }
+        @media (max-width: 900px) { .exp-grid { grid-template-columns: 1fr; } }
+
+        /* ============ VIDEOS Y MODELOS 3D ============ */
+        .media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 44px; }
+        .video-wrapper {
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+            border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .video-wrapper iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: var(--radius);
+        }
+        model-viewer { width: 100%; height: 450px; background: var(--panel-2); border-radius: var(--radius); border: 1px solid var(--border); }
+        @media (max-width: 800px) { .media-grid { grid-template-columns: 1fr; } }
+
+        /* ============ CONTACT ============ */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 44px; align-items: start; }
+        .contact-links { display: flex; flex-direction: column; gap: 12px; margin-top: 26px; }
+        .contact-links a {
+            display: flex; align-items: center; gap: 14px; background: var(--panel); border: 1px solid var(--border);
+            border-radius: 12px; padding: 15px 18px; font-size: 1rem; font-weight: 500; transition: border-color 0.2s, transform 0.2s;
+        }
+        .contact-links a:hover { border-color: var(--accent); transform: translateX(4px); }
+        .contact-links .ic {
+            width: 38px; height: 38px; border-radius: 9px; display: grid; place-items: center; flex-shrink: 0;
+            background: var(--chip-bg); color: var(--accent); font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600;
+        }
+        .contact-links small { display: block; color: var(--muted); font-weight: 400; font-size: 0.8rem; }
+        form { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+        .field label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 7px; }
+        .field input, .field textarea, .field select {
+            width: 100%; background: var(--panel-2); border: 1px solid var(--border); border-radius: 10px;
+            padding: 12px 14px; color: var(--text); font-family: inherit; font-size: 0.95rem; outline: none; transition: border-color 0.2s;
+        }
+        .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--accent); }
+        .field textarea { resize: vertical; min-height: 110px; }
+        @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+
+        /* ============ FOOTER ============ */
+        footer { border-top: 1px solid var(--border); padding: 34px 0; font-size: 0.9rem; color: var(--muted); }
+        .foot-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+        /* ============ THEME SWITCHER ============ */
+        .variant-switch {
+            position: fixed; left: 18px; bottom: 18px; z-index: 60; display: flex; align-items: center; gap: 8px;
+            background: rgba(17,26,46,0.9); border: 1px solid var(--border);
+            border-radius: 999px; padding: 7px 10px 7px 16px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 10px 34px rgba(0,0,0,.25);
+        }
+        .variant-switch span { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+        .variant-switch button {
+            width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border); cursor: pointer;
+            font-family: var(--font-mono); font-weight: 600; font-size: 0.8rem; color: var(--text); background: var(--panel-2);
+            transition: transform 0.15s;
+        }
+        .variant-switch button:hover { transform: scale(1.1); }
+        .variant-switch button.active { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--accent-ink); border-color: transparent; }
+
+        #toast {
+            position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 80px); z-index: 70;
+            background: var(--panel); border: 1px solid var(--accent); color: var(--text);
+            padding: 14px 22px; border-radius: 12px; font-size: 0.95rem; box-shadow: 0 14px 44px rgba(0,0,0,.3);
+            transition: transform 0.35s ease; max-width: 90vw;
+        }
+        #toast.show { transform: translate(-50%, 0); }
+    </style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#home" aria-label="Inicio">
+      <span class="logo-badge">RS</span>
+      <span>Rony Santiago<small>Ingeniería &amp; Gemelos Digitales</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#gemelo">Gemelo digital</a>
+      <a href="#videos">Multimedia</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a class="nav-cta" href="#contacto">Consultoría</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="home">
+  <div class="container">
+    <h1>Rony David Santiago Armas</h1>
+    <div class="subtitle">Ingeniero Mecánico | CAD/CAE | Simulación | Formación Técnica</div>
+    <div class="tech-line">SolidWorks · AutoCAD Plant 3D · ANSYS · AFT Fathom/Arrow/Impulse · Python · MATLAB · C++ (Arduino)</div>
+    <p class="lead">
+      Ingeniero Mecánico con formación en Física, especializado en diseño CAD/CAE, simulación de procesos termo-fluidos y docencia técnica. Convierto problemas industriales en gemelos digitales que predicen fallas y optimizan plantas antes de ejecutar cambios físicos.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn btn-ghost" href="assets/cv/cv.pdf" target="_blank" rel="noopener">📄 Descargar CV (PDF)</a>
+      <a class="btn btn-ghost" href="#gemelo">Probar gemelo digital</a>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><b>6+</b><span>Proyectos documentados</span></div>
+      <div class="stat reveal"><b>8</b><span>Suites CAE</span></div>
+      <div class="stat reveal"><b>ASME</b><span>Diseño bajo normas</span></div>
+      <div class="stat reveal"><b>4 años</b><span>Formando ingenieros</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PROYECTOS ============ -->
+<section id="proyectos">
+  <div class="container">
+    <span class="eyebrow">Casos y proyectos</span>
+    <h2>Proyectos que resolvieron problemas reales</h2>
+    <p class="section-sub">Cada proyecto incluye memoria técnica y enlace a la publicación original en LinkedIn.</p>
+    <div class="proj-grid">
+      <a href="https://www.linkedin.com/posts/rony-david-santiago-armas-4020131aa_ingenieraedamecaernica-aftarrow-gemelodigital-activity-7461131809259507712-NtCp" target="_blank" rel="noopener noreferrer" class="proj reveal">
+        <div class="proj-top"><span class="tagchip">Gemelo digital</span></div>
+        <div class="proj-body">
+          <h3>Diagnóstico de congelamiento en línea de GLP</h3>
+          <p>Gemelo termo-fluido en AFT Arrow que identificó la causa raíz del congelamiento, evitando paradas de producción.</p>
+          <div class="tags"><span>AFT Arrow</span><span>Termo-fluidos</span><span>Diagnóstico</span></div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/posts/rony-david-santiago-armas-4020131aa_gaslp-glp-ingenieraedamecaernica-activity-7338691918299611136-w3qa" target="_blank" rel="noopener noreferrer" class="proj reveal">
+        <div class="proj-top"><span class="tagchip">Piping</span></div>
+        <div class="proj-body">
+          <h3>Red de tuberías de GLP</h3>
+          <p>Diseño y validación completa del sistema de gas: P&amp;IDs, modelo 3D en AutoCAD Plant 3D y verificación hidráulica.</p>
+          <div class="tags"><span>Plant 3D</span><span>AFT</span><span>P&amp;ID</span></div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/posts/rony-david-santiago-armas-4020131aa_autocadplant3d-ingenieriadeprocesos-api650-activity-7403478745384189952-3pNb" target="_blank" rel="noopener noreferrer" class="proj reveal">
+        <div class="proj-top"><span class="tagchip">Plantas</span></div>
+        <div class="proj-body">
+          <h3>Planta de tratamiento de agua</h3>
+          <p>Ingeniería de planta bajo API 650: P&amp;IDs inteligentes, modelado 3D y generación automática de isométricos.</p>
+          <div class="tags"><span>API 650</span><span>Plant 3D</span><span>Isométricos</span></div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/posts/rony-david-santiago-armas-4020131aa_solidworks-3dmodeling-robots-activity-7200967797131071489-hDAJ" target="_blank" rel="noopener noreferrer" class="proj reveal">
+        <div class="proj-top"><span class="tagchip">Robótica</span></div>
+        <div class="proj-body">
+          <h3>Robot paralelo XYZ — CAD y animación</h3>
+          <p>Diseño cinemático, simulación de movimiento y render fotorrealista en SolidWorks con Motion Study.</p>
+          <div class="tags"><span>SolidWorks</span><span>Motion</span><span>Render</span></div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/posts/rony-david-santiago-armas-4020131aa_ingenieraedamecaernica-energaedaeaejlica-activity-7364850360718401536-MnLz" target="_blank" rel="noopener noreferrer" class="proj reveal">
+        <div class="proj-top"><span class="tagchip">Energía</span></div>
+        <div class="proj-body">
+          <h3>Caja planetaria para turbina eólica</h3>
+          <p>Diseño mecánico de etapa planetaria con cálculos AGMA/ISO 6336 y verificación estructural.</p>
+          <div class="tags"><span>AGMA</span><span>ISO 6336</span><span>FEA</span></div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/posts/rony-david-santiago-armas-4020131aa_solidworks-toyota-diseaeho-activity-7216920953614675971-pWeV" target="_blank" rel="noopener noreferrer" class="proj reveal">
+        <div class="proj-top"><span class="tagchip">Ing. inversa</span></div>
+        <div class="proj-body">
+          <h3>Repuesto automotriz impreso en 3D</h3>
+          <p>Ingeniería inversa en SolidWorks, validación FEA y fabricación FDM de un componente funcional para Toyota Autana.</p>
+          <div class="tags"><span>FDM</span><span>FEA</span><span>SolidWorks</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCIA ============ -->
+<section id="experiencia">
+  <div class="container">
+    <span class="eyebrow">Trayectoria</span>
+    <h2>Experiencia y stack técnico</h2>
+    <div class="exp-grid">
+      <div class="timeline">
+        <div class="t-item reveal">
+          <time>Mar 2024 — Presente</time>
+          <h3>Profesor Universitario <span>· IUPSM</span></h3>
+          <p>Matemáticas II y III, Física I, Laboratorio de Física, Transferencia de Calor, Plantas Industriales, Aire Acondicionado, AutoCAD. Desarrollo de materiales didácticos con MATLAB y Python.</p>
+        </div>
+        <div class="t-item reveal">
+          <time>Nov 2024 — May 2025</time>
+          <h3>Instructor Técnico <span>· EstruCAD</span></h3>
+          <p>Formación profesional en diseño de piping bajo ASME/ANSI: modelos 3D, isométricos y simulación hidráulica y de transitorios con AFT.</p>
+        </div>
+        <div class="t-item reveal">
+          <time>Ene — Dic 2024</time>
+          <h3>Ingeniero de Diseño de Producto <span>· BeyondTech</span></h3>
+          <p>Componentes electro-ópticos y mecánicos en SolidWorks con GD&amp;T; ciclos de prototipado reducidos y validación estructural FEA.</p>
+        </div>
+        <div class="t-item reveal">
+          <time>Ene — Dic 2023</time>
+          <h3>Diseñador Industrial/Mecánico <span>· 4D Alliance Group</span></h3>
+          <p>Soluciones de diseño desde el boceto conceptual hasta planos finales de fabricación, con foco en ergonomía y desempeño estructural.</p>
+        </div>
+        <div class="t-item reveal">
+          <time>2022 — 2026</time>
+          <h3>Instructor STEM <span>· EDAT</span></h3>
+          <p>Electrónica, programación Arduino/C++ e impresión 3D; introducción de microcontroladores y proyectos IoT.</p>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group reveal">
+          <h4>CAD / CAE</h4>
+          <div class="chips"><span>SolidWorks ★</span><span>AutoCAD Plant 3D</span><span>Fusion 360</span><span>ANSYS FEA/CFD</span></div>
+        </div>
+        <div class="skill-group reveal">
+          <h4>Simulación</h4>
+          <div class="chips"><span>AFT Fathom</span><span>AFT Arrow</span><span>AFT Impulse</span><span>SIMIO</span></div>
+        </div>
+        <div class="skill-group reveal">
+          <h4>Programación</h4>
+          <div class="chips"><span>Python</span><span>MATLAB</span><span>C++</span><span>Arduino</span></div>
+        </div>
+        <div class="skill-group reveal">
+          <h4>Manufactura</h4>
+          <div class="chips"><span>CNC</span><span>Impresión 3D FDM</span><span>GD&amp;T</span><span>DFM/DFA</span></div>
+        </div>
+        <div class="skill-group reveal">
+          <h4>Normas</h4>
+          <div class="chips"><span>ASME/ANSI</span><span>API 650</span><span>AGMA</span><span>ISO 6336</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GEMELO DIGITAL ============ -->
+<section id="gemelo">
+  <div class="container">
+    <span class="eyebrow">Demo interactiva en vivo</span>
+    <h2>Gemelo digital: línea de GLP con riesgo de congelamiento</h2>
+    <p class="section-sub">
+      Basado en un caso real diagnosticado con <strong>AFT Arrow</strong>. Sube la demanda de la planta y
+      observa cómo el gemelo detecta el punto de congelamiento aguas abajo de la válvula —
+      <em>antes</em> de que ocurra en la planta física. Arrastra para rotar, usa la rueda para acercar
+      y toca los sensores.
+    </p>
+    <div class="twin-wrap">
+      <div class="twin-stage reveal" id="twin-stage">
+        <canvas id="twin-canvas"></canvas>
+        <div class="twin-hint">🖱 arrastrar = rotar &nbsp;·&nbsp; rueda = zoom &nbsp;·&nbsp; clic en sensores</div>
+        <!-- Fallback si WebGL no soportado -->
+        <div id="webgl-fallback" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center; text-align:center; color:var(--muted); padding:20px; background:var(--panel);">
+          <div>
+            <p style="font-size:1.2rem; margin-bottom:10px;">Tu navegador no soporta WebGL.</p>
+            <p>Aquí verías el gemelo digital 3D interactivo. Puedes probar con Chrome, Firefox o Edge actualizados.</p>
+          </div>
+        </div>
+      </div>
+      <div class="twin-panel reveal">
+        <div class="panel-box">
+          <div class="panel-head">
+            <h3>Panel del gemelo</h3>
+            <span class="status-pill" id="status-pill"><i></i><span id="status-txt">OPERACIÓN NORMAL</span></span>
+          </div>
+        </div>
+        <div class="panel-box">
+          <div class="kpis">
+            <div class="kpi" id="kpi-p1"><label>P1 · Presión tanque</label><b>8.4</b><small>bar</small></div>
+            <div class="kpi" id="kpi-t1"><label>T1 · Temp. entrada</label><b>27.0</b><small>°C</small></div>
+            <div class="kpi" id="kpi-t2"><label>T2 · Post-válvula</label><b>5.3</b><small>°C</small></div>
+            <div class="kpi" id="kpi-f1"><label>F1 · Flujo GLP</label><b>180</b><small>kg/h</small></div>
+          </div>
+        </div>
+        <div class="panel-box slider-row">
+          <label>Demanda de la planta <b id="demand-val">180 kg/h</b></label>
+          <input type="range" id="demand" min="50" max="400" step="5" value="180" aria-label="Demanda de la planta">
+        </div>
+        <div class="panel-box">
+          <div class="chart-cap">T2 — tendencia en vivo (°C)</div>
+          <canvas id="chart"></canvas>
+        </div>
+        <div class="insight" id="insight">
+          <b>Estado nominal.</b> La expansión en la válvula reduce la temperatura, pero se mantiene
+          sobre el punto de congelamiento. Margen operativo disponible.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEOS Y MODELOS 3D ============ -->
+<section id="videos">
+  <div class="container">
+    <span class="eyebrow">Multimedia técnica</span>
+    <h2>Videos y Modelos 3D Interactivos</h2>
+    <p class="section-sub" style="margin-bottom: 40px;">Explora mis diseños en 3D directamente en el navegador y accede a contenido educativo especializado.</p>
+
+    <!-- Video de YouTube -->
+    <article class="reveal" style="margin-bottom: 56px;">
+      <h3 style="margin-bottom: 1.2rem;">📹 Ejercicio 3.120 – Mecánica Vectorial (Beer & Johnston)</h3>
+      <div class="video-wrapper">
+        <iframe width="100%" height="400" src="https://www.youtube.com/embed/rsyEhaxXmtU" title="Ejercicio 3.120 - Mecánica Vectorial para Ingenieros: Estática" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <p style="margin-top: 1rem; color: var(--muted);">🔧 Resolución paso a paso del problema de poleas sobre un eje lineal, cálculo de fuerza resultante y momento equivalente en el punto A.</p>
+    </article>
+
+    <!-- Modelo 3D arquitectónico -->
+    <article class="reveal" id="modelos3d">
+      <h3 style="margin-bottom: 1.2rem;">🧊 Modelo Arquitectónico Interactivo</h3>
+      <!-- Reemplaza 'src' con la ruta real de tu archivo .glb -->
+      <model-viewer 
+        src="assets/3d/arquitectura0.glb" 
+        alt="Modelo 3D de proyecto arquitectónico" 
+        auto-rotate 
+        camera-controls 
+        style="width: 100%; height: 500px; background-color: var(--panel-2); border-radius: var(--radius); border: 1px solid var(--border);"
+        loading="lazy"
+        reveal="auto">
+      </model-viewer>
+      <p style="margin-top: 1rem; color: var(--muted);">🏗️ Diseño de interiores con recorrido virtual. Arrastra para rotar, rueda para zoom. Próximamente más modelos de ingeniería.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section id="contacto">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span class="eyebrow">Contacto</span>
+        <h2>¿Hablamos de tu planta?</h2>
+        <p class="section-sub">Cuéntame tu problema de proceso, piping o diseño — te propongo un plan de diagnóstico con simulación en menos de 48 h.</p>
+        <div class="contact-links">
+          <a href="mailto:ronysantiago7@gmail.com">
+            <span class="ic">@</span>
+            <span>ronysantiago7@gmail.com<small>Respuesta en 24 h</small></span>
+          </a>
+          <a href="https://www.linkedin.com/in/rony-david-santiago-armas-4020131aa/" target="_blank" rel="noopener">
+            <span class="ic">in</span>
+            <span>LinkedIn<small>Rony David Santiago Armas</small></span>
+          </a>
+          <a href="https://github.com/ronysantiago" target="_blank" rel="noopener">
+            <span class="ic">&lt;/&gt;</span>
+            <span>GitHub<small>Proyectos y código abierto</small></span>
+          </a>
+        </div>
+      </div>
+      <!-- Cambia 'your-email@example.com' por tu correo real en FormSubmit -->
+      <form id="contact-form" action="https://formsubmit.co/your-email@example.com" method="POST">
+        <div class="field">
+          <label for="f-name">Nombre</label>
+          <input id="f-name" name="name" type="text" placeholder="Tu nombre" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="f-mail">Correo</label>
+          <input id="f-mail" name="email" type="email" placeholder="tu@empresa.com" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="f-type">Tipo de proyecto</label>
+          <select id="f-type" name="type">
+            <option>Gemelo digital / diagnóstico de proceso</option>
+            <option>Ingeniería de piping</option>
+            <option>Diseño CAD/CAE</option>
+            <option>Formación técnica</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-msg">Mensaje</label>
+          <textarea id="f-msg" name="message" placeholder="Describe tu planta o tu problema…" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+        <p id="form-status" style="display:none; margin-top:10px; font-size:0.9rem;"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot-inner">
+    <span>© <script>document.write(new Date().getFullYear());</script> Rony David Santiago Armas — Ingeniero Mecánico</span>
+    <span style="font-family:var(--font-mono); font-size:0.8rem; color:var(--muted);">Portafolio profesional · GitHub Pages</span>
+  </div>
+</footer>
+
+<div class="variant-switch" id="variant-switch">
+  <span>Diseño</span>
+  <button data-v="a" title="A — Cobalto industrial" aria-pressed="true">A</button>
+  <button data-v="b" title="B — Ámbar planta" aria-pressed="false">B</button>
+  <button data-v="c" title="C — Blueprint claro" aria-pressed="false">C</button>
+</div>
+
+<div id="toast">✔ Mensaje enviado. Gracias por contactarme, te responderé pronto.</div>
+
+<!-- ============ SCRIPTS ============ -->
+<script type="importmap">
+{"imports":{
+  "three":"https://unpkg.com/three@0.160.0/build/three.module.js",
+  "three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"
+}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+
+/* ---------- theme / variants ---------- */
+const params = new URLSearchParams(location.search);
+const applyTheme = (v) => {
+  document.documentElement.dataset.theme = v;
+  document.querySelectorAll('.variant-switch button').forEach(b => {
+    const active = b.dataset.v === v;
+    b.classList.toggle('active', active);
+    b.setAttribute('aria-pressed', active);
+  });
+  if (typeof updateSceneTheme === 'function') updateSceneTheme(v);
+};
+
+// Declarar updateSceneTheme global para usarla antes de su definición
+let updateSceneTheme = () => {};
+
+document.querySelectorAll('.variant-switch button').forEach(b => {
+  b.addEventListener('click', () => {
+    applyTheme(b.dataset.v);
+    const u = new URL(location);
+    u.searchParams.set('v', b.dataset.v);
+    history.replaceState(null, '', u);
+  });
+});
+
+/* ---------- reveal on scroll ---------- */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) {
+    e.target.classList.add('visible');
+    io.unobserve(e.target);
+  }
+}), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ---------- contact form ---------- */
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Enviando...';
+  formStatus.style.display = 'none';
+  try {
+    const res = await fetch(contactForm.action, {
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      contactForm.reset();
+      formStatus.textContent = '✔ Mensaje enviado correctamente. Gracias.';
+      formStatus.style.color = 'var(--ok)';
+      formStatus.style.display = 'block';
+    } else {
+      throw new Error('Error en el envío');
+    }
+  } catch (err) {
+    formStatus.textContent = '⚠ Hubo un problema. Intenta de nuevo o escribe a ronysantiago7@gmail.com';
+    formStatus.style.color = 'var(--danger)';
+    formStatus.style.display = 'block';
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Enviar mensaje';
+  }
+});
+
+/* ================= DIGITAL TWIN ================= */
+const stage = document.getElementById('twin-stage');
+const canvas = document.getElementById('twin-canvas');
+const fallbackDiv = document.getElementById('webgl-fallback');
+let renderer, scene, camera, controls, grid;
+let riskTube, particles = [], flowCurve, flameMat;
+const steel = 0x93a3b3, iceColor = new THREE.Color(0x7dd3fc), steelColor = new THREE.Color(steel);
+
+// Verificar soporte WebGL
+function isWebGLAvailable() {
+  try {
+    const testCanvas = document.createElement('canvas');
+    return !!(window.WebGLRenderingContext && (testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl')));
+  } catch(e) {
+    return false;
+  }
+}
+
+if (!isWebGLAvailable()) {
+  fallbackDiv.style.display = 'flex';
+  canvas.style.display = 'none';
+  // No continuar con la inicialización de Three.js
+} else {
+  initThreeJS();
+}
+
+function initThreeJS() {
+  // simulation state
+  const sim = { demand: 180, p1: 8.4, t1: 27, t2: 5.3, f1: 180, frozen: false, freezeMix: 0 };
+  const T2_OF = d => 26 - 0.115 * d;
+
+  function buildScene() {
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(46, 1, .1, 100);
+    camera.position.set(7.5, 5.2, 9.5);
+    controls = new OrbitControls(camera, renderer.domElement);
+    controls.target.set(0, 1.1, 0);
+    controls.enableDamping = true; controls.dampingFactor = .06;
+    controls.minDistance = 5; controls.maxDistance = 20; controls.maxPolarAngle = 1.42;
+    controls.autoRotate = true; controls.autoRotateSpeed = .6;
+    renderer.domElement.addEventListener('pointerdown', () => controls.autoRotate = false, { once: true });
+
+    scene.add(new THREE.AmbientLight(0xffffff, .85));
+    const dir = new THREE.DirectionalLight(0xffffff, 1.4); dir.position.set(6, 10, 7); scene.add(dir);
+    const dir2 = new THREE.DirectionalLight(0x88aaff, .4); dir2.position.set(-6, 4, -6); scene.add(dir2);
+
+    grid = new THREE.GridHelper(30, 30, 0x3355aa, 0x223055);
+    grid.material.transparent = true; grid.material.opacity = .5; scene.add(grid);
+
+    const mat = c => new THREE.MeshStandardMaterial({ color: c, metalness: .55, roughness: .38 });
+
+    // Tanque
+    const tank = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(.8, .8, 2.6, 32), mat(0xd7dee8));
+    body.rotation.z = Math.PI / 2; tank.add(body);
+    [-1.3, 1.3].forEach(x => { const cap = new THREE.Mesh(new THREE.SphereGeometry(.8, 24, 16), mat(0xd7dee8)); cap.position.x = x; tank.add(cap); });
+    [-0.8, 0.8].forEach(x => { const leg = new THREE.Mesh(new THREE.BoxGeometry(.22, 1.2, 1.1), mat(0x5a6675)); leg.position.set(x, -.85, 0); tank.add(leg); });
+    tank.position.set(-6, 1.35, 0); scene.add(tank);
+
+    // Tuberías
+    const pipe = (pts, r, m) => {
+      const curve = new THREE.CatmullRomCurve3(pts.map(p => new THREE.Vector3(...p)));
+      return { mesh: new THREE.Mesh(new THREE.TubeGeometry(curve, 48, r, 14), m), curve };
+    };
+    const seg1 = pipe([[-4.7, 1.2, 0], [-3.2, 1.2, 0], [-1.85, 1.2, 0]], .13, mat(steel));
+    scene.add(seg1.mesh);
+    const riskMat = new THREE.MeshStandardMaterial({ color: steel, metalness: .55, roughness: .38, emissive: 0x000000 });
+    const seg2 = pipe([[-1.15, 1.2, 0], [0, 1.2, 0], [1.1, 1.2, 0]], .13, riskMat);
+    riskTube = riskMat; scene.add(seg2.mesh);
+    const seg3 = pipe([[1.5, 2.35, 0], [1.9, 2.5, 0], [3.4, 2.5, 0], [4.6, 2.5, 0], [4.9, 2.1, 0], [4.9, 1.7, 0]], .11, mat(steel));
+    scene.add(seg3.mesh);
+
+    // Válvula
+    const valve = new THREE.Group();
+    const vb = new THREE.Mesh(new THREE.CylinderGeometry(.26, .26, .5, 18), mat(0x8a94a5));
+    vb.rotation.z = Math.PI / 2; valve.add(vb);
+    const stem = new THREE.Mesh(new THREE.CylinderGeometry(.05, .05, .5, 10), mat(0x5a6675));
+    stem.position.y = .35; valve.add(stem);
+    const wheel = new THREE.Mesh(new THREE.TorusGeometry(.22, .045, 10, 24), mat(0xc23b3b));
+    wheel.rotation.x = Math.PI / 2; wheel.position.y = .6; valve.add(wheel);
+    valve.position.set(-1.5, 1.2, 0); scene.add(valve);
+
+    // Vaporizador
+    const vap = new THREE.Group();
+    const vbody = new THREE.Mesh(new THREE.CylinderGeometry(.5, .5, 2.1, 24), mat(0xb7c2cd));
+    vbody.position.y = 1.15; vap.add(vbody);
+    for (let i = 0; i < 5; i++) {
+      const fin = new THREE.Mesh(new THREE.TorusGeometry(.56, .035, 8, 28), mat(0x8a94a5));
+      fin.rotation.x = Math.PI / 2; fin.position.y = .5 + i * .4; vap.add(fin);
+    }
+    vap.position.set(1.5, 0, 0); scene.add(vap);
+
+    // Horno
+    const fur = new THREE.Group();
+    fur.add(new THREE.Mesh(new THREE.BoxGeometry(1.7, 1.5, 1.7), mat(0x6b7684)));
+    flameMat = new THREE.MeshStandardMaterial({ color: 0xff8c2e, emissive: 0xff6a00, emissiveIntensity: 1 });
+    const flame = new THREE.Mesh(new THREE.PlaneGeometry(1.1, .9), flameMat);
+    flame.position.set(0, -.05, .86); fur.add(flame);
+    const chim = new THREE.Mesh(new THREE.CylinderGeometry(.16, .16, 1.3, 14), mat(0x5a6675));
+    chim.position.set(.45, 1.35, 0); fur.add(chim);
+    fur.position.set(5.6, .95, 0); scene.add(fur);
+
+    // Partículas
+    flowCurve = new THREE.CatmullRomCurve3([
+      new THREE.Vector3(-4.7, 1.2, 0), new THREE.Vector3(-1.5, 1.2, 0), new THREE.Vector3(1.1, 1.2, 0),
+      new THREE.Vector3(1.5, 1.6, 0), new THREE.Vector3(1.5, 2.35, 0), new THREE.Vector3(3.4, 2.5, 0),
+      new THREE.Vector3(4.9, 2.1, 0), new THREE.Vector3(4.9, 1.7, 0)
+    ]);
+    const pGeo = new THREE.SphereGeometry(.055, 8, 8);
+    for (let i = 0; i < 26; i++) {
+      const m = new THREE.MeshBasicMaterial({ color: 0x9adcff });
+      const p = new THREE.Mesh(pGeo, m);
+      p.userData.t = i / 26;
+      particles.push(p); scene.add(p);
+    }
+
+    updateSceneTheme(document.documentElement.dataset.theme);
+    resize();
+  }
+
+  updateSceneTheme = (v) => {
+    if (!grid) return;
+    if (v === 'c') { grid.material.color = new THREE.Color(0x3b6bd8); grid.material.opacity = .35; }
+    else if (v === 'b') { grid.material.color = new THREE.Color(0xa87b3a); grid.material.opacity = .45; }
+    else { grid.material.color = new THREE.Color(0x3d5fa8); grid.material.opacity = .5; }
+  };
+
+  function resize() {
+    const w = stage.clientWidth, h = stage.clientHeight;
+    if (!w || !h) return;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h; camera.updateProjectionMatrix();
+  }
+  const ro = new ResizeObserver(() => {
+    resize();
+    renderer.render(scene, camera);
+  });
+  ro.observe(stage);
+
+  // Sensores DOM
+  const sensors = [
+    { id: 'P1', kpi: 'kpi-p1', pos: new THREE.Vector3(-6, 2.5, 0), fmt: () => sim.p1.toFixed(1) + ' bar' },
+    { id: 'T1', kpi: 'kpi-t1', pos: new THREE.Vector3(-2.9, 1.65, 0), fmt: () => sim.t1.toFixed(1) + ' °C' },
+    { id: 'T2', kpi: 'kpi-t2', pos: new THREE.Vector3(-.2, 1.35, 0), fmt: () => sim.t2.toFixed(1) + ' °C', alarmable: true },
+    { id: 'F1', kpi: 'kpi-f1', pos: new THREE.Vector3(3.4, 3, 0), fmt: () => Math.round(sim.f1) + ' kg/h' }
+  ];
+  sensors.forEach(s => {
+    const el = document.createElement('div');
+    el.className = 'sensor-tag'; el.textContent = s.id;
+    el.addEventListener('click', () => {
+      const k = document.getElementById(s.kpi);
+      k.classList.add('pulse'); setTimeout(() => k.classList.remove('pulse'), 1600);
+      k.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+    stage.appendChild(el); s.el = el;
+  });
+  const v3 = new THREE.Vector3();
+  function placeSensors() {
+    const w = stage.clientWidth, h = stage.clientHeight;
+    sensors.forEach(s => {
+      v3.copy(s.pos).project(camera);
+      const behind = v3.z > 1;
+      s.el.style.display = behind ? 'none' : 'block';
+      if (!behind) {
+        s.el.style.left = (v3.x * .5 + .5) * w + 'px';
+        s.el.style.top = (-v3.y * .5 + .5) * h + 'px';
+        s.el.textContent = `${s.id} · ${s.fmt()}`;
+        s.el.classList.toggle('alarm', !!s.alarmable && sim.frozen);
+      }
+    });
+  }
+
+  const clock = new THREE.Clock();
+  let running = true;
+  const stageObserver = new IntersectionObserver(es => { running = es[0].isIntersecting; }, { threshold: .05 });
+  stageObserver.observe(stage);
+
+  function animate() {
+    requestAnimationFrame(animate);
+    if (!running || !renderer) return;
+    const dt = clock.getDelta();
+    controls.update();
+    const speed = .02 + sim.demand / 400 * .10;
+    const pc = sim.frozen ? new THREE.Color(0xbfe8ff) : new THREE.Color(0x9adcff);
+    particles.forEach(p => {
+      p.userData.t = (p.userData.t + speed * dt) % 1;
+      flowCurve.getPointAt(p.userData.t, p.position);
+      p.material.color.copy(pc);
+    });
+    const target = sim.frozen ? 1 : 0;
+    sim.freezeMix += (target - sim.freezeMix) * Math.min(dt * 2.5, 1);
+    riskTube.color.copy(steelColor).lerp(iceColor, sim.freezeMix);
+    riskTube.emissive.setRGB(.1 * sim.freezeMix, .25 * sim.freezeMix, .4 * sim.freezeMix);
+    if (flameMat) flameMat.emissiveIntensity = .5 + sim.demand / 400 * 1.6 + Math.sin(clock.elapsedTime * 9) * .15;
+    placeSensors();
+    renderer.render(scene, camera);
+  }
+
+  // Telemetría y dashboard
+  const $ = id => document.getElementById(id);
+  const chart = $('chart'); const ctx = chart.getContext('2d');
+  const history = [];
+  function drawChart() {
+    const dpr = Math.min(window.devicePixelRatio, 2);
+    const w = chart.clientWidth, h = chart.clientHeight;
+    if (chart.width !== w * dpr) { chart.width = w * dpr; chart.height = h * dpr; }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, w, h);
+    const css = getComputedStyle(document.documentElement);
+    const accent = css.getPropertyValue('--accent').trim();
+    const danger = css.getPropertyValue('--danger').trim();
+    const border = css.getPropertyValue('--border').trim();
+    const muted = css.getPropertyValue('--muted').trim();
+    const lo = -25, hi = 35, y = v => h - ((v - lo) / (hi - lo)) * h;
+    ctx.strokeStyle = border; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(0, y(0)); ctx.lineTo(w, y(0)); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = muted; ctx.font = '10px Courier New'; ctx.fillText('0 °C', 4, y(0) - 4);
+    if (history.length < 2) return;
+    ctx.lineWidth = 2; ctx.lineJoin = 'round';
+    ctx.beginPath();
+    history.forEach((v, i) => {
+      const x = i / (60 - 1) * w;
+      i ? ctx.lineTo(x, y(v)) : ctx.moveTo(x, y(v));
+    });
+    ctx.strokeStyle = history[history.length - 1] < 0 ? danger : accent;
+    ctx.stroke();
+  }
+
+  function tick() {
+    const d = sim.demand, n = () => Math.random() - .5;
+    sim.p1 = 8.4 + n() * .15;
+    sim.t1 = 27 + n() * .9;
+    sim.t2 = T2_OF(d) + n() * 1.2;
+    sim.f1 = d * (1 + n() * .02);
+    sim.frozen = sim.t2 < 0;
+    $('kpi-p1').querySelector('b').textContent = sim.p1.toFixed(1);
+    $('kpi-t1').querySelector('b').textContent = sim.t1.toFixed(1);
+    $('kpi-t2').querySelector('b').textContent = sim.t2.toFixed(1);
+    $('kpi-f1').querySelector('b').textContent = Math.round(sim.f1);
+    $('kpi-t2').classList.toggle('alarm', sim.frozen);
+    const pill = $('status-pill');
+    pill.classList.toggle('warn', sim.frozen);
+    $('status-txt').textContent = sim.frozen ? 'RIESGO DE CONGELAMIENTO' : 'OPERACIÓN NORMAL';
+    const ins = $('insight');
+    ins.classList.toggle('alarm', sim.frozen);
+    ins.innerHTML = sim.frozen
+      ? '<b>⚠ El gemelo anticipa la falla.</b> La expansión Joule-Thomson lleva T2 bajo 0 °C: se formará escarcha e hidratos aguas abajo de la válvula. <b>Recomendación:</b> añadir capacidad de vaporización o precalentar la línea antes de subir la demanda.'
+      : '<b>Estado nominal.</b> La expansión en la válvula reduce la temperatura, pero se mantiene sobre el punto de congelamiento. Margen disponible antes del límite: <b>' + Math.max(0, Math.round((26 / 0.115) - sim.demand)) + ' kg/h</b>.';
+    history.push(sim.t2); if (history.length > 60) history.shift();
+    drawChart();
+  }
+
+  const slider = $('demand');
+  const setFill = () => { slider.style.setProperty('--fill', ((slider.value - 50) / (400 - 50) * 100) + '%'); };
+  slider.addEventListener('input', () => {
+    sim.demand = +slider.value;
+    $('demand-val').textContent = slider.value + ' kg/h';
+    setFill(); tick();
+  });
+  setFill();
+
+  buildScene();
+  animate();
+  tick();
+  setInterval(tick, 700);
+}
+
+// Aplicar tema inicial al cargar
+applyTheme(['a', 'b', 'c'].includes(params.get('v')) ? params.get('v') : 'a');
+</script>
+</body>
+</html>
